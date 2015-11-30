@@ -1,0 +1,6 @@
+<!-- index.nunjucks -->
+{% extends "layouts/default.nunjucks" %}
+
+{% block content %} 
+<h1>This is the index page again  gg again man no test</h1>
+{% endblock %}
