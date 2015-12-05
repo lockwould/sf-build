@@ -17,6 +17,8 @@ module.exports =
 			dev: dist + dev,
 			prod: dist + prod
 		},
+		dev: dev,
+		prod: prod,
 		nunjucks:
 		{
 			config: src + 'templates/',

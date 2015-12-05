@@ -28,6 +28,7 @@ $.loadSubtasks('./gulp/tasks/**/*.js', $, path, config);
 gulp.task('default', function() {
     sequence (
         config.task.nunjucks,
+        config.task.browserSync,
         'watch'
     )
 })

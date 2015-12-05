@@ -17,7 +17,10 @@ module.exports = function (gulp, $, path, config) {
 	  $.nunjucksRender.nunjucks.configure([path.to.nunjucks.config], {watch: false});
 	  return gulp.src(path.to.nunjucks.src)
 	  .pipe($.nunjucksRender())
-	  .pipe(config.isProd ? gulp.dest(path.to.dist.prod) : gulp.dest(path.to.dist.dev));
+	  .pipe(config.isProd ? gulp.dest(path.to.dist.prod) : gulp.dest(path.to.dist.dev))
+	  .pipe($.browserSync.reload({
+	  	stream: true
+	  }));
 	});
 
 };
