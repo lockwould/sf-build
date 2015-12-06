@@ -1,14 +1,14 @@
 .DS_Store
 
 # dependency directory
-node_modules
-bower_components
+node_modules/
+bower_components/
 *.node
 
 # project directory
-build
-source/*
-test
+build/
+source/
+test/
 
 # logs
 logs
