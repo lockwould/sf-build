@@ -8,12 +8,13 @@ var gutil    = require('gulp-util'),
     	nunjucks: 'nunjucks',
     	browserSync: 'serve',
     },
-    // browser-sync options, more here http://www.browsersync.io/docs/options/
+    // browser-sync options
     serve    = {
     	// project local url
     	url: 'gulp.dev',
     	// set browser automaically opened
     	browser: 'google chrome'
+    	// for more options: http://www.browsersync.io/docs/options/
     };
 
 // define options
