@@ -19,7 +19,7 @@ module.exports = function (gulp, $, path, config) {
 	  $.nunjucksRender.nunjucks.configure([path.to.nunjucks.config], {watch: false});
 	  return gulp.src(path.to.nunjucks.src)
 	  // only pass through changed files
-	  .pipe($.changed(config.isProd ? gulp.dest(path.to.dist.prod) : gulp.dest(path.to.dist.dev)))
+	  .pipe($.changed(config.isProd ? path.to.dist.prod : path.to.dist.dev))
 	  .pipe($.nunjucksRender())
 	  .pipe(config.isProd ? gulp.dest(path.to.dist.prod) : gulp.dest(path.to.dist.dev))
 	  .pipe($.browserSync.reload({
