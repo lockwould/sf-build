@@ -1,6 +1,0 @@
-<!-- index.nunjucks -->
-{% extends "layouts/default.nunjucks" %}
-
-{% block content %} 
-<h1>Automate and enhance your workflow..yes no hello welcome again surrrre</h1>
-{% endblock %}

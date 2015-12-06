@@ -7,10 +7,7 @@ bower_components
 
 # project directory
 build
-/source/
 source
-source/*
-source/**/*
 test
 
 # logs
