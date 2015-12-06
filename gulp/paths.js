@@ -1,4 +1,5 @@
 // gulp/paths.js
+'use strict';
 
 // base paths
 var src    = './source/',

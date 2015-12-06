@@ -1,4 +1,5 @@
 // gulp/tasks/base/serve.js
+'use strict';
 
 // ----------------------------------
 // available tasks: 

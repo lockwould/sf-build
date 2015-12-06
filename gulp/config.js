@@ -1,4 +1,5 @@
 // gulp/config.js
+'use strict';
 
 var gutil    = require('gulp-util'),
     // --prod flag
@@ -7,6 +8,7 @@ var gutil    = require('gulp-util'),
     task     = {
     	nunjucks: 'nunjucks',
     	browserSync: 'serve',
+    	sass: 'sass',
     },
     // browser-sync options
     serve    = {

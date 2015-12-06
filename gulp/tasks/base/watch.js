@@ -1,4 +1,5 @@
 // gulp/tasks/base/watch.js
+'use strict';
 
 // ----------------------------------
 // watch tasks: 

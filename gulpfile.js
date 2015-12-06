@@ -1,4 +1,5 @@
 // gulpfile.js
+'use strict';
 
 // ----------------------------------
 // available tasks: 
