@@ -14,16 +14,26 @@ module.exports =
 	to:
 	{
 		dist:
-		{
-			dev: dist + dev,
-			prod: dist + prod
-		},
+			{
+				dev: dist + dev,
+				prod: dist + prod
+			},
 		dev: dev,
 		prod: prod,
 		nunjucks:
-		{
-			config: src + 'templates/',
-			src: src + 'templates/*.+(html|nunjucks)'
-		},
+			{
+				config: src + 'templates/',
+				src: src + 'templates/*.+(html|nunjucks)'
+			},
+		sass:
+			{
+				src: src + 'scss/**/*.+(scss|sass)',
+				foundation: src + 'bower_components/foundation-sites/scss',
+				dist: 
+				{
+					dev: dist + dev + assets + 'css',
+					prod: dist + prod + assets + 'css'
+				}
+			}
 	}
 };
