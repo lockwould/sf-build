@@ -4,11 +4,13 @@
 // available tasks: 
 //    'gulp'
 //    'gulp nunjucks'
+//    'gulp sass'
 // ----------------------------------
 // plugins:
 //     gulp, run-sequence, gulp-util
 //     gulp-load-plugins, gulp-load-subtasks
 //     gulp-nunjucks-render, gulp-changed
+//     gulp-sass, gulp-sourcemaps, browser-sync
 // ----------------------------------
 
 // main gulp plugins
