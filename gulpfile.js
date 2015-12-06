@@ -8,7 +8,7 @@
 // plugins:
 //     gulp, run-sequence, gulp-util
 //     gulp-load-plugins, gulp-load-subtasks
-//     gulp-nunjucks-render
+//     gulp-nunjucks-render, gulp-changed
 // ----------------------------------
 
 // main gulp plugins
