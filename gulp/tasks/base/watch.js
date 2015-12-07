@@ -6,7 +6,7 @@
 //    nunjucks
 // ----------------------------------
 
-module.exports = function (gulp, $, path, config) {
+module.exports = function(gulp, $, path, config) {
 
 	gulp.task('watch', function() {
 		gulp.watch(path.to.nunjucks.src, [config.task.nunjucks]);

@@ -12,6 +12,7 @@
 //     gulp-load-plugins, gulp-load-subtasks
 //     gulp-nunjucks-render, gulp-changed
 //     gulp-sass, gulp-sourcemaps, browser-sync
+//     gulp-prettify
 // ----------------------------------
 
 // main gulp plugins

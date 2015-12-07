@@ -14,7 +14,7 @@
 //     config.task.sass : task name
 // ----------------------------------
 
-module.exports = function (gulp, $, path, config) {
+module.exports = function(gulp, $, path, config) {
 
 	gulp.task(config.task.sass, function() {
 

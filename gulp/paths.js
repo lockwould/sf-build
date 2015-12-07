@@ -23,7 +23,7 @@ module.exports =
 		nunjucks:
 			{
 				config: src + 'templates/',
-				src: src + 'templates/*.+(html|nunjucks)'
+				src: src + 'templates/**/*.+(html|nunjucks)'
 			},
 		sass:
 			{

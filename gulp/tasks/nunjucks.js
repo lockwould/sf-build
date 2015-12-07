@@ -9,12 +9,13 @@
 //     gulp-nunjucks-render : $.nunjucksRender
 //     browser-sync : $.browserSync
 //     gulp-changed : $.changed
+//     gulp-prettify : $.prettify
 // ----------------------------------
 // config:
 //     config.task.nunjucks : task name
 // ----------------------------------
 
-module.exports = function (gulp, $, path, config) {
+module.exports = function(gulp, $, path, config) {
 
 	gulp.task(config.task.nunjucks, function() {
 
@@ -23,6 +24,13 @@ module.exports = function (gulp, $, path, config) {
 	    // only pass through changed files
 	    .pipe($.changed(config.isProd ? path.to.dist.prod : path.to.dist.dev))
 	    .pipe($.nunjucksRender())
+	    // beautify HTML
+	    .pipe($.prettify({
+	    	indent_size: 2,
+	    	preserve_newlines: true
+	    	// for more options: 
+	    	// https://github.com/beautify-web/js-beautify#css--html
+	    }))
 	    .pipe(config.isProd ? gulp.dest(path.to.dist.prod) : gulp.dest(path.to.dist.dev))
 	    .pipe($.browserSync.reload({
 	  	  stream: true
