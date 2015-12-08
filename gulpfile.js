@@ -31,8 +31,10 @@ $.loadSubtasks('./gulp/tasks/**/*.js', $, path, config);
 // common tasks
 gulp.task('default', function() {
     sequence (
+    	[
         config.task.nunjucks,
-        config.task.sass,
+        config.task.sass
+        ],
         config.task.browserSync,
         'watch'
     )

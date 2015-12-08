@@ -23,7 +23,8 @@ module.exports =
 		nunjucks:
 			{
 				config: src + 'templates/',
-				src: src + 'templates/**/*.+(html|nunjucks)'
+				src: src + 'templates/*.+(html|nunjucks)',
+				watch: src + 'templates/**/*.+(html|nunjucks)' // for watch task not render
 			},
 		sass:
 			{
