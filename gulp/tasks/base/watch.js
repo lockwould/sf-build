@@ -8,9 +8,9 @@
 
 module.exports = function(gulp, $, path, config) {
 
-	gulp.task('watch', function() {
-		gulp.watch(path.to.nunjucks.watch, [config.task.nunjucks]);
-		gulp.watch(path.to.sass.src, [config.task.sass]);
-	})
+    gulp.task('watch', function() {
+        gulp.watch(path.to.nunjucks.watch, [config.task.nunjucks]);
+        gulp.watch(path.to.sass.src, [config.task.sass]);
+    })
 
 };

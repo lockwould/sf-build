@@ -16,11 +16,11 @@
 // ----------------------------------
 
 // main gulp plugins
-var gulp     = require('gulp'),
-    path     = require('./gulp/paths.js'),
-    config   = require('./gulp/config.js'),
+var gulp = require('gulp'),
+    path = require('./gulp/paths.js'),
+    config = require('./gulp/config.js'),
     sequence = require('run-sequence'),
-    $        = require('gulp-load-plugins')({ 
+    $ = require('gulp-load-plugins')({
         // used for all plugins type not just with gulp-*
         pattern: '*'
     });
@@ -30,10 +30,10 @@ $.loadSubtasks('./gulp/tasks/**/*.js', $, path, config);
 
 // common tasks
 gulp.task('default', function() {
-    sequence (
-    	[
-        config.task.nunjucks,
-        config.task.sass
+    sequence(
+        [
+            config.task.nunjucks,
+            config.task.sass
         ],
         config.task.browserSync,
         'watch'

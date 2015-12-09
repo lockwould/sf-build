@@ -16,14 +16,14 @@
 
 module.exports = function(gulp, $, path, config) {
 
-	gulp.task(config.task.sass, function() {
+    gulp.task(config.task.sass, function() {
 
-		return gulp.src(path.to.sass.src)
-		.pipe($.sass({
-			includePaths: [ path.to.sass.foundation ]
-		}).on('error', $.sass.logError))
-		.pipe(gulp.dest(path.to.sass.dist.dev));
+        return gulp.src(path.to.sass.src)
+            .pipe($.sass({
+                includePaths: [path.to.sass.foundation]
+            }).on('error', $.sass.logError))
+            .pipe(gulp.dest(path.to.sass.dist.dev));
 
-	});
+    });
 
 };
