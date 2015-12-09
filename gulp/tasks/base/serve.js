@@ -24,6 +24,6 @@ module.exports = function(gulp, $, path, config) {
 
             browser: config.serve.browser
         })
-    })
+    });
 
 }

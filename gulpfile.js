@@ -38,4 +38,4 @@ gulp.task('default', function() {
         config.task.browserSync,
         'watch'
     )
-})
+});
