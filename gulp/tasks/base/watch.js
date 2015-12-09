@@ -4,6 +4,7 @@
 // ----------------------------------
 // watch tasks: 
 //    nunjucks
+//    sass
 // ----------------------------------
 
 module.exports = function(gulp, $, path, config) {
