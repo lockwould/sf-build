@@ -22,6 +22,8 @@ module.exports = function(gulp, $, path, config) {
             .pipe($.sass({
                 includePaths: [path.to.sass.foundation]
             }).on('error', $.sass.logError))
+            // replace relative path for files
+            // .pipe($.flatten())
             .pipe(gulp.dest(path.to.sass.dist.dev));
 
     });

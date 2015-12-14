@@ -6,7 +6,6 @@ var src = './source/',
     dist = './build/',
     dev = 'dev/',
     prod = 'prod/',
-    vendor = 'vendor/',
     assets = 'assets/';
 
 // taks paths
@@ -24,16 +23,19 @@ module.exports = {
             watch: src + 'templates/**/*.+(html|nunjucks)' // for watch task not render
         },
         sass: {
-            src: src + 'scss/**/*.+(scss|sass)',
-            vendor: src + 'scss/' + vendor,
-            foundation: src + 'bower_components/foundation-sites/scss',
+            src: [
+            	src + 'scss/**/*.+(scss|sass)',
+            	'!' + src + 'scss/vendor/lib/**/*.+(scss|sass)'
+            ],
+            vendor: src + 'scss/vendor/lib/',
+            foundation: src + 'scss/vendor/lib/foundation-sites/scss',
             dist: {
                 dev: dist + dev + assets + 'css',
                 prod: dist + prod + assets + 'css'
             }
         },
         js: {
-        	vendor: src + 'js/' + vendor
+        	vendor: src + 'js/vendor/'
         }
     }
 };

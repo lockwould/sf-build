@@ -24,7 +24,7 @@ module.exports = function(gulp, $, path, config) {
     gulp.task(config.task.bower + ':clean', function() {
 
         return $.del([
-            path.to.js.vendor,
+            path.to.js.vendor + '**/*',
             path.to.sass.vendor
         ]);
 
