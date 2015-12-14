@@ -63,4 +63,4 @@ module.exports = function(gulp, $, path, config) {
 
     });
 
-}
+};

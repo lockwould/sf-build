@@ -9,6 +9,7 @@
 //     gulp-sass : $.sass
 //     browser-sync : $.browserSync
 //     gulp-changed : $.changed
+//     gulp-flatten : $.flatten
 // ----------------------------------
 // config:
 //     config.task.sass : task name
@@ -24,7 +25,10 @@ module.exports = function(gulp, $, path, config) {
             }).on('error', $.sass.logError))
             // replace relative path for files
             // .pipe($.flatten())
-            .pipe(gulp.dest(path.to.sass.dist.dev));
+            .pipe(gulp.dest(path.to.sass.dist.dev))
+            .pipe($.browserSync.reload({
+                stream: true
+            }));
 
     });
 
