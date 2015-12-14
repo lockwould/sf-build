@@ -6,6 +6,7 @@ var src = './source/',
     dist = './build/',
     dev = 'dev/',
     prod = 'prod/',
+    vendor = 'vendor/',
     assets = 'assets/';
 
 // taks paths
@@ -24,11 +25,15 @@ module.exports = {
         },
         sass: {
             src: src + 'scss/**/*.+(scss|sass)',
+            vendor: src + 'scss/' + vendor,
             foundation: src + 'bower_components/foundation-sites/scss',
             dist: {
                 dev: dist + dev + assets + 'css',
                 prod: dist + prod + assets + 'css'
             }
+        },
+        js: {
+        	vendor: src + 'js/' + vendor
         }
     }
 };

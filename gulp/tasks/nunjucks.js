@@ -26,7 +26,7 @@ module.exports = function(gulp, $, path, config) {
         return gulp.src(path.to.nunjucks.src)
             // only pass through changed files
             .pipe($.changed(config.isProd ? path.to.dist.prod : path.to.dist.dev))
-            // pass through newer source files only
+            // only pass through newer source files
             .pipe($.newer(config.isProd ? path.to.dist.prod : path.to.dist.dev))
             // start render
             .pipe($.nunjucksRender())

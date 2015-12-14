@@ -1,7 +1,6 @@
 {
   "name": "Gulpfile Setup",
   "description": "",
-  "main": "",
   "authors": [
     "mohamdio"
   ],
@@ -13,7 +12,6 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "source/bower_components/",
     "test",
     "tests"
   ],
@@ -21,5 +19,27 @@
     "jquery": "~2.1.4",
     "foundation-sites": "~6.0.5",
     "bootstrap": "https://github.com/twbs/bootstrap/archive/v4.0.0-alpha.zip"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+      "scss/**/*.scss",
+      "dist/js/bootstrap.js",
+      "dist/js/bootstrap.min.js"
+      ]
+    },
+    "foundation-sites": {
+      "main": [
+      "scss/**/*.scss",
+      "dist/foundation.js",
+      "dist/foundation.min.js"
+      ]
+    },
+    "jquery": {
+      "main": [
+      "dist/jquery.js",
+      "dist/jquery.min.js"
+      ]
+    }
   }
 }

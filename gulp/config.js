@@ -9,6 +9,7 @@ var gutil = require('gulp-util'),
         nunjucks: 'nunjucks',
         browserSync: 'serve',
         sass: 'sass',
+        bower: 'bower',
     },
     // browser-sync options
     serve = {
