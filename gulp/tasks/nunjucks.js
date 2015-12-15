@@ -6,11 +6,11 @@
 //    'gulp nunjucks'
 // ----------------------------------
 // plugins:
-//     gulp-nunjucks-render : $.nunjucksRender
-//     browser-sync : $.browserSync
-//     gulp-changed : $.changed
-//     gulp-prettify : $.prettify
-//     gulp-newer : $.newer
+//     gulp-nunjucks-render: $.nunjucksRender
+//     browser-sync        : $.browserSync
+//     gulp-changed        : $.changed
+//     gulp-prettify       : $.prettify
+//     gulp-newer          : $.newer
 // ----------------------------------
 // config:
 //     config.task.nunjucks : task name

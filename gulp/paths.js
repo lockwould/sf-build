@@ -12,30 +12,30 @@ var src    = './source/',
 module.exports = {
     to: {
         dist: {
-            dev: dist + dev,
-            prod: dist + prod
+			dev : dist + dev,
+			prod: dist + prod
         },
-        dev: dev,
-        prod: prod,
+		dev : dev,
+		prod: prod,
         nunjucks: {
-            config: src + 'templates/',
-            src: src + 'templates/*.+(html|nunjucks)',
-            watch: src + 'templates/**/*.+(html|nunjucks)' // for watch task not render
+			config: src + 'templates/',
+			src   : src + 'templates/*.+(html|nunjucks)',
+			watch : src + 'templates/**/*.+(html|nunjucks)' // for watch task not render
         },
         sass: {
-            src: [
+            src       : [
             	src + 'scss/**/*.+(scss|sass)',
             	'!' + src + 'scss/vendor/lib/**/*.+(scss|sass)'
             ],
-            vendor: src + 'scss/vendor/lib/',
+            vendor    : src + 'scss/vendor/lib/',
             foundation: src + 'scss/vendor/lib/foundation-sites/scss',
-            dist: {
-                dev: dist + dev + assets + 'css',
-                prod: dist + prod + assets + 'css'
+            dist      : {
+				dev : dist + dev + assets + 'css',
+				prod: dist + prod + assets + 'css'
             }
         },
-        js: {
-        	vendor: src + 'js/vendor/'
+        js  : {
+			vendor: src + 'js/vendor/'
         }
     }
 };

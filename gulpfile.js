@@ -13,14 +13,14 @@
 //     gulp-nunjucks-render, gulp-changed
 //     gulp-sass, gulp-sourcemaps, browser-sync
 //     gulp-prettify, gulp-newer, main-bower-files
-//     gulp-flatten, del
+//     gulp-flatten, del, gulp-inject
 // ----------------------------------
 
 // main gulp plugins
 var gulp     = require('gulp'),
-	path     = require('./gulp/paths.js'),
-	config   = require('./gulp/config.js'),
-	sequence = require('run-sequence'),
+    path     = require('./gulp/paths.js'),
+    config   = require('./gulp/config.js'),
+    sequence = require('run-sequence'),
     $        = require('gulp-load-plugins')({
         // used for all plugins type not just with gulp-*
         pattern: '*'

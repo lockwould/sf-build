@@ -9,10 +9,10 @@
 //    'gulp bower:clean'
 // ----------------------------------
 // plugins:
-//     main-bower-files : $.mainBowerFiles
-//     gulp-flatten : $.flatten
-//     del: $.del
-//     run-sequence : $.runSequence
+//     main-bower-files: $.mainBowerFiles
+//     gulp-flatten    : $.flatten
+//     del             : $.del
+//     run-sequence    : $.runSequence
 // ----------------------------------
 // config:
 //     config.task.bower : task name

@@ -6,10 +6,10 @@
 //    'gulp sass'
 // ----------------------------------
 // plugins:
-//     gulp-sass : $.sass
-//     browser-sync : $.browserSync
-//     gulp-changed : $.changed
-//     gulp-flatten : $.flatten
+//     gulp-sass   : $.sass
+//     browser-sync: $.browserSync
+//     gulp-changed: $.changed
+//     gulp-flatten: $.flatten
 // ----------------------------------
 // config:
 //     config.task.sass : task name
