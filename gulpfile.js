@@ -13,7 +13,7 @@
 //     gulp-nunjucks-render, gulp-changed
 //     gulp-sass, gulp-sourcemaps, browser-sync
 //     gulp-prettify, gulp-newer, main-bower-files
-//     gulp-flatten, del
+//     gulp-flatten, del, gulp-inject
 // ----------------------------------
 
 // main gulp plugins
