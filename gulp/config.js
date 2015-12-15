@@ -17,7 +17,7 @@ var gutil  = require('gulp-util'),
         url: 'gulp.dev',
         // set browser automaically opened
         browser: 'google chrome'
-            // for more options: http://www.browsersync.io/docs/options
+        // for more options: http://www.browsersync.io/docs/options
     };
 
 // define options
