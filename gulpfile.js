@@ -30,15 +30,14 @@ var gulp     = require('gulp'),
 $.loadSubtasks('./gulp/tasks/**/*.js', $, path, config);
 
 // common tasks
-gulp.task('default', function() {
+gulp.task('default', function(cb) {
     sequence(
         [
-            config.task.nunjucks,
             config.task.sass,
-            // config.task.inject // should be last task
         ],
-        config.task.inject,
+        config.task.html,
         config.task.browserSync,
-        'watch'
+        'watch',
+        cb
     )
 });

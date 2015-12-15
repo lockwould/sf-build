@@ -3,7 +3,7 @@
 
 // ----------------------------------
 // available tasks: 
-//    'gulp sass'
+//    'gulp sass' : compile scss to css
 // ----------------------------------
 // plugins:
 //     gulp-sass   : $.sass

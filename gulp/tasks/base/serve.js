@@ -3,7 +3,7 @@
 
 // ----------------------------------
 // available tasks: 
-//    'gulp serve'
+//    'gulp serve' : start server & open browser
 // ----------------------------------
 // plugins:
 //     browser-sync : $.browserSync

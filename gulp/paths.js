@@ -17,7 +17,7 @@ module.exports = {
         },
 		dev : dev,
 		prod: prod,
-        nunjucks: {
+        html: {
 			config: src + 'templates/',
 			src   : src + 'templates/*.+(html|nunjucks)',
 			watch : src + 'templates/**/*.+(html|nunjucks)' // for watch task not render
@@ -35,7 +35,11 @@ module.exports = {
             }
         },
         js  : {
-			vendor: src + 'js/vendor/'
+			vendor: src + 'js/vendor/',
+			dist      : {
+				dev : dist + dev + assets + 'js',
+				prod: dist + prod + assets + 'js'
+            }
         }
     }
 };

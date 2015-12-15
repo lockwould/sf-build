@@ -3,10 +3,10 @@
 
 // ----------------------------------
 // available tasks: 
-//    'gulp bower'
-//    'gulp bower:js'
-//    'gulp bower:scss'
-//    'gulp bower:clean'
+//    'gulp bower'       : main task
+//    'gulp bower:js'    : dest js files
+//    'gulp bower:scss'  : dest scss files
+//    'gulp bower:clean' : clean before dest
 // ----------------------------------
 // plugins:
 //     main-bower-files: $.mainBowerFiles
@@ -52,13 +52,15 @@ module.exports = function(gulp, $, path, config) {
     });
 
     // main bower task
-    gulp.task(config.task.bower, function() {
+    gulp.task(config.task.bower, function(cb) {
 
         $.runSequence(
-            config.task.bower + ':clean', [
+            config.task.bower + ':clean', 
+            [
                 config.task.bower + ':js',
                 config.task.bower + ':scss'
-            ]
+            ],
+            cb
         )
 
     });

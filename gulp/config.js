@@ -6,11 +6,10 @@ var gutil  = require('gulp-util'),
     isProd = (gutil.env.prod === true ? true : false),
     // tasks names
     task   = {
-		nunjucks   : 'nunjucks',
 		browserSync: 'serve',
 		sass       : 'sass',
 		bower      : 'bower',
-		inject     : 'inject'
+		html       : 'html'
     },
     // browser-sync options
     serve  = {
