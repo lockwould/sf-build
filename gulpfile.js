@@ -34,8 +34,10 @@ gulp.task('default', function() {
     sequence(
         [
             config.task.nunjucks,
-            config.task.sass
+            config.task.sass,
+            // config.task.inject // should be last task
         ],
+        config.task.inject,
         config.task.browserSync,
         'watch'
     )

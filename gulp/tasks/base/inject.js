@@ -37,7 +37,10 @@ module.exports = function(gulp, $, path, config) {
                 relative: true,
                 // removeTags: true
             }))
-            .pipe(gulp.dest(path.to.dist.dev));
+            .pipe(gulp.dest(path.to.dist.dev))
+            .pipe($.browserSync.reload({
+                stream: true
+            }));
 
     });
 
@@ -61,7 +64,22 @@ module.exports = function(gulp, $, path, config) {
                 relative: true,
                 // removeTags: true
             }))
-            .pipe(gulp.dest(path.to.dist.dev));
+            .pipe(gulp.dest(path.to.dist.dev))
+            .pipe($.browserSync.reload({
+                stream: true
+            }));
+
+    });
+
+    // main inject task
+    gulp.task(config.task.inject, function() {
+
+        $.runSequence(
+            [
+                config.task.inject + ':css',
+                // config.task.inject + ':js'
+            ]
+        )
 
     });
 
