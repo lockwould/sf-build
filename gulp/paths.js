@@ -2,11 +2,11 @@
 'use strict';
 
 // base paths
-var src = './source/',
-    dist = './build/',
-    dev = 'dev/',
-    prod = 'prod/',
-    assets = 'assets/';
+var src    = './source/',
+	dist   = './build/',
+	dev    = 'dev/',
+	prod   = 'prod/',
+	assets = 'assets/';
 
 // taks paths
 module.exports = {
