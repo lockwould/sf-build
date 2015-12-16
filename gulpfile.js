@@ -4,8 +4,9 @@
 // ----------------------------------
 // available tasks: 
 //    'gulp'
-//    'gulp nunjucks'
 //    'gulp sass'
+//    'gulp html'
+//    'gulp bower'
 // ----------------------------------
 // plugins:
 //     gulp, run-sequence, gulp-util
@@ -32,6 +33,7 @@ $.loadSubtasks('./gulp/tasks/**/*.js', $, path, config);
 // common tasks
 gulp.task('default', function(cb) {
     sequence(
+    	config.task.bower,
         [
             config.task.sass,
         ],
