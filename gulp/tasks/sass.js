@@ -30,10 +30,14 @@ module.exports = function(gulp, $, path, config) {
                 config.isProd ? path.to.sass.dist.prod + '/**/*.css' : path.to.sass.dist.dev + '/**/*.css'))
             // start cache
             .pipe($.cached('sass'))
+            // prevent breaking errors
+            .pipe($.plumber({
+                errorHandler: config.error
+            }))
             // start compile
             .pipe($.sass({
                 includePaths: [path.to.sass.foundation]
-            }).on('error', $.sass.logError))
+            }))
             // replace relative path for files
             // .pipe($.flatten())
             .pipe(gulp.dest(config.isProd ? path.to.sass.dist.prod : path.to.sass.dist.dev))

@@ -35,8 +35,10 @@ module.exports = function(gulp, $, path, config) {
             // only pass through newer source files
             .pipe($.newer(
                 config.isProd ? path.to.dist.prod + '*.html' : path.to.dist.dev + '*.html'))
-            // start cache
-            .pipe($.cached('nunjucks'))
+            // prevent breaking errors
+            .pipe($.plumber({
+                errorHandler: config.error
+            }))
             // start render
             .pipe($.nunjucksRender())
             // beautify HTML
@@ -59,6 +61,10 @@ module.exports = function(gulp, $, path, config) {
         return gulp.src(
                 config.isProd ? path.to.dist.prod + '*.html' : path.to.dist.dev + '*.html'
             )
+            // prevent breaking errors
+            .pipe($.plumber({
+                errorHandler: config.error
+            }))
             /**
              * CSS files
              */

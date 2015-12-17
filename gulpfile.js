@@ -15,7 +15,7 @@
 //    'gulp watch'
 // ----------------------------------
 // plugins:
-//     gulp, run-sequence, gulp-util
+//     gulp, run-sequence, gulp-util, gulp-plumber
 //     gulp-load-plugins, gulp-load-subtasks
 //     gulp-nunjucks-render, gulp-changed
 //     gulp-sass, gulp-sourcemaps, browser-sync
@@ -40,7 +40,7 @@ $.loadSubtasks('./gulp/tasks/**/*.js', $, path, config);
 gulp.task('default', function(cb) {
     sequence(
     	// config.task.clean,
-    	config.task.clean + ':cache',
+    	// config.task.clean + ':cache',
     	config.task.bower,
         [
             config.task.sass,
