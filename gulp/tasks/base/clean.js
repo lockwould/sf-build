@@ -17,19 +17,19 @@
 module.exports = function(gulp, $, path, config) {
 
     // clear all caches enough
-	gulp.task(config.task.clean + ':cache', function() {
+    gulp.task(config.task.clean + ':cache', function() {
 
         $.cached.caches = {};
 
-	});
+    });
 
     // delete dest folder and clear all caches
-	gulp.task(config.task.clean, [config.task.clean + ':cache'], function() {
+    gulp.task(config.task.clean, [config.task.clean + ':cache'], function() {
 
-		return $.del([
+        return $.del([
             path.to.dist.main
         ]);
 
-	});
+    });
 
 };
