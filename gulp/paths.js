@@ -13,7 +13,8 @@ module.exports = {
     to: {
         dist: {
             dev: dist + dev,
-            prod: dist + prod
+            prod: dist + prod,
+            main: dist
         },
         dev: dev,
         prod: prod,

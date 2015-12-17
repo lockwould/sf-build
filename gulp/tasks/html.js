@@ -14,6 +14,7 @@
 //     gulp-prettify       : $.prettify
 //     gulp-newer          : $.newer
 //     gulp-inject         : $.inject
+//     gulp-cached         : $.cached
 // ----------------------------------
 // config:
 //     config.task.html : task name
@@ -34,6 +35,8 @@ module.exports = function(gulp, $, path, config) {
             // only pass through newer source files
             .pipe($.newer(
                 config.isProd ? path.to.dist.prod + '*.html' : path.to.dist.dev + '*.html'))
+            // start cache
+            .pipe($.cached('nunjucks'))
             // start render
             .pipe($.nunjucksRender())
             // beautify HTML

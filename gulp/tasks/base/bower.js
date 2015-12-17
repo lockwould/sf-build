@@ -13,6 +13,7 @@
 //     gulp-flatten    : $.flatten
 //     del             : $.del
 //     run-sequence    : $.runSequence
+//     gulp-cached     : $.cached
 // ----------------------------------
 // config:
 //     config.task.bower : task name
@@ -36,6 +37,7 @@ module.exports = function(gulp, $, path, config) {
         return gulp.src($.mainBowerFiles('**/*.js'), {
                 base: 'bower_components'
             })
+            .pipe($.cached('bowerJs')) // start cache
             .pipe($.flatten()) // replace relative path for files
             .pipe(gulp.dest(path.to.js.vendor));
 
@@ -47,6 +49,7 @@ module.exports = function(gulp, $, path, config) {
         return gulp.src($.mainBowerFiles('**/*.scss'), {
                 base: 'bower_components'
             })
+            .pipe($.cached('bowerScss')) // start cache
             .pipe(gulp.dest(path.to.sass.vendor));
 
     });

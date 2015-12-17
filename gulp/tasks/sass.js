@@ -11,6 +11,7 @@
 //     gulp-changed: $.changed
 //     gulp-newer  : $.newer
 //     gulp-flatten: $.flatten
+//     gulp-cached : $.cached
 // ----------------------------------
 // config:
 //     config.task.sass : task name
@@ -27,6 +28,8 @@ module.exports = function(gulp, $, path, config) {
             // only pass through newer source files
             .pipe($.newer(
                 config.isProd ? path.to.sass.dist.prod + '/**/*.css' : path.to.sass.dist.dev + '/**/*.css'))
+            // start cache
+            .pipe($.cached('sass'))
             // start compile
             .pipe($.sass({
                 includePaths: [path.to.sass.foundation]
