@@ -18,7 +18,7 @@ module.exports = function(gulp, $, path, config) {
 
     // clear all caches enough
     gulp.task(config.task.clean + ':cache', function() {
-
+        
         $.cached.caches = {};
 
     });
