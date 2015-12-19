@@ -6,12 +6,13 @@
 //    'gulp sass' : compile scss to css
 // ----------------------------------
 // plugins:
-//     gulp-sass   : $.sass
-//     browser-sync: $.browserSync
-//     gulp-changed: $.changed
-//     gulp-newer  : $.newer
-//     gulp-flatten: $.flatten
-//     gulp-cached : $.cached
+//     gulp-sass      : $.sass
+//     browser-sync   : $.browserSync
+//     gulp-changed   : $.changed
+//     gulp-newer     : $.newer
+//     gulp-flatten   : $.flatten
+//     gulp-cached    : $.cached
+//     gulp-sourcemaps: $.sourcemaps
 // ----------------------------------
 // config:
 //     config.task.sass : task name
@@ -34,10 +35,17 @@ module.exports = function(gulp, $, path, config) {
             .pipe($.plumber({
                 errorHandler: config.error
             }))
+            // initialize sourcemaps
+            .pipe($.sourcemaps.init())
             // start compile
             .pipe($.sass({
-                includePaths: [path.to.sass.foundation]
+                includePaths: [path.to.sass.foundation],
+                outputStyle: 'expanded'
+                // more options
+                // https://github.com/sass/node-sass#usage-1
             }))
+            // writing sourcemaps
+            .pipe($.sourcemaps.write('./maps'))
             // replace relative path for files
             // .pipe($.flatten())
             .pipe(gulp.dest(config.isProd ? path.to.sass.dist.prod : path.to.sass.dist.dev))
