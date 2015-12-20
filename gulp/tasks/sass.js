@@ -3,16 +3,19 @@
 
 // ----------------------------------
 // available tasks: 
-//    'gulp sass' : compile scss to css
+//    'gulp sass'     : compile scss to css
+//    'gulp sass:doc' : release sass docs
 // ----------------------------------
 // plugins:
-//     gulp-sass      : $.sass
-//     browser-sync   : $.browserSync
-//     gulp-changed   : $.changed
-//     gulp-newer     : $.newer
-//     gulp-flatten   : $.flatten
-//     gulp-cached    : $.cached
-//     gulp-sourcemaps: $.sourcemaps
+//     gulp-sass        : $.sass
+//     browser-sync     : $.browserSync
+//     gulp-changed     : $.changed
+//     gulp-newer       : $.newer
+//     gulp-flatten     : $.flatten
+//     gulp-cached      : $.cached
+//     gulp-sourcemaps  : $.sourcemaps
+//     gulp-autoprefixer: $.autoprefixer
+//     sassdoc          : $.sassdoc
 // ----------------------------------
 // config:
 //     config.task.sass : task name
@@ -20,6 +23,7 @@
 
 module.exports = function(gulp, $, path, config) {
 
+    // main sass task
     gulp.task(config.task.sass, function() {
 
         return gulp.src(path.to.sass.src)
@@ -41,9 +45,11 @@ module.exports = function(gulp, $, path, config) {
             .pipe($.sass({
                 includePaths: [path.to.sass.foundation],
                 outputStyle: 'expanded'
-                // more options
-                // https://github.com/sass/node-sass#usage-1
+                    // more options
+                    // https://github.com/sass/node-sass#usage-1
             }))
+            // prefixing css
+            .pipe($.autoprefixer())
             // writing sourcemaps
             .pipe($.sourcemaps.write('./maps'))
             // replace relative path for files
@@ -52,6 +58,19 @@ module.exports = function(gulp, $, path, config) {
             .pipe($.browserSync.reload({
                 stream: true
             }));
+
+    });
+
+    // release sass docs task
+    gulp.task(config.task.sass + ':doc', function() {
+
+        return gulp.src(path.to.sass.src)
+            .pipe($.sassdoc({
+                dest: config.isProd ? path.to.sass.dist.prod + '/sassdoc' : path.to.sass.dist.dev + '/sassdoc',
+                // for more options
+                // http://sassdoc.com/gulp/
+            }))
+            .resume();
 
     });
 

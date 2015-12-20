@@ -9,6 +9,7 @@
 //    'gulp bower'
 //          bower:clean - bower:scss - bower:js
 //    'gulp sass'
+//          sass:doc
 //    'gulp html'
 //          html:nunjucks - html:inject
 //    'gulp serve'
@@ -17,10 +18,11 @@
 // plugins:
 //     gulp, run-sequence, gulp-util, gulp-plumber
 //     gulp-load-plugins, gulp-load-subtasks
-//     gulp-nunjucks-render, gulp-changed
+//     gulp-nunjucks-render, gulp-changed,
 //     gulp-sass, gulp-sourcemaps, browser-sync
 //     gulp-prettify, gulp-newer, main-bower-files
 //     gulp-flatten, del, gulp-inject, gulp-cached
+//     gulp-autoprefixer, sassdoc
 // ----------------------------------
 
 // main gulp plugins
@@ -44,6 +46,7 @@ gulp.task('default', function(cb) {
     	config.task.bower,
         [
             config.task.sass,
+            // config.task.sass + ':doc',
         ],
         config.task.html,
         config.task.browserSync,
