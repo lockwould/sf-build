@@ -3,8 +3,10 @@
 
 // ----------------------------------
 // available tasks: 
-//    'gulp sass'     : compile scss to css
-//    'gulp sass:doc' : release sass docs
+//    'gulp sass'          : main sass task
+//    'gulp sass:compile'  : compile scss to css
+//    'gulp sass:doc'      : release sass docs
+//    'gulp sass:minifycss': css minification
 // ----------------------------------
 // plugins:
 //     gulp-sass        : $.sass
@@ -16,6 +18,9 @@
 //     gulp-sourcemaps  : $.sourcemaps
 //     gulp-autoprefixer: $.autoprefixer
 //     sassdoc          : $.sassdoc
+//     gulp-minify-css  : $.minifyCss
+//     gulp-rename      : $.rename
+//     lazypipe         : $.lazypipe
 // ----------------------------------
 // config:
 //     config.task.sass : task name
@@ -23,18 +28,23 @@
 
 module.exports = function(gulp, $, path, config) {
 
-    // main sass task
-    gulp.task(config.task.sass, function() {
+    // split out commonly used stream chains [ changed - newer - cached ]
+    var cacheFiles = $.lazypipe()
+        // only pass through changed files
+        .pipe($.changed,
+            config.isProd ? path.to.sass.dist.prod + '/**/*.css' : path.to.sass.dist.dev + '/**/*.css')
+        // only pass through newer source files
+        .pipe($.newer,
+            config.isProd ? path.to.sass.dist.prod + '/**/*.css' : path.to.sass.dist.dev + '/**/*.css')
+        // start cache
+        .pipe($.cached,'sass');
+
+    // compile sass task
+    gulp.task(config.task.sass + ':compile', function() {
 
         return gulp.src(path.to.sass.src)
-            // only pass through changed files
-            .pipe($.changed(
-                config.isProd ? path.to.sass.dist.prod + '/**/*.css' : path.to.sass.dist.dev + '/**/*.css'))
-            // only pass through newer source files
-            .pipe($.newer(
-                config.isProd ? path.to.sass.dist.prod + '/**/*.css' : path.to.sass.dist.dev + '/**/*.css'))
-            // start cache
-            .pipe($.cached('sass'))
+            // only pass through changed & newer & not cached files
+            .pipe(cacheFiles())
             // prevent breaking errors
             .pipe($.plumber({
                 errorHandler: config.error
@@ -51,7 +61,7 @@ module.exports = function(gulp, $, path, config) {
             // prefixing css
             .pipe($.autoprefixer())
             // writing sourcemaps
-            .pipe($.sourcemaps.write('./maps'))
+            .pipe($.sourcemaps.write('./_maps'))
             // replace relative path for files
             // .pipe($.flatten())
             .pipe(gulp.dest(config.isProd ? path.to.sass.dist.prod : path.to.sass.dist.dev))
@@ -65,12 +75,49 @@ module.exports = function(gulp, $, path, config) {
     gulp.task(config.task.sass + ':doc', function() {
 
         return gulp.src(path.to.sass.src)
+            // only pass through changed & newer & not cached files
+            .pipe(cacheFiles())
+            // start sassdoc
             .pipe($.sassdoc({
-                dest: config.isProd ? path.to.sass.dist.prod + '/sassdoc' : path.to.sass.dist.dev + '/sassdoc',
+                dest: config.isProd ? path.to.sass.dist.prod + '/_sassdoc' : path.to.sass.dist.dev + '/_sassdoc',
                 // for more options
                 // http://sassdoc.com/gulp/
             }))
             .resume();
+
+    });
+
+    // css minification task
+    gulp.task(config.task.sass + ':minifycss', function() {
+
+        return gulp.src([
+                config.isProd ? path.to.sass.dist.prod + '/**/*.css' : path.to.sass.dist.dev + '/**/*.css',
+                config.isProd ? '!' + path.to.sass.dist.prod + '/**/_*{,/**}/' : '!' + path.to.sass.dist.dev + '/**/_*{,/**}/'
+            ])
+            // only pass through changed & newer & not cached files
+            .pipe(cacheFiles())
+            // minify
+            .pipe($.minifyCss())
+            // rename files
+            .pipe($.rename({
+                suffix: '.min'
+            }))
+            .pipe(gulp.dest(config.isProd ? path.to.sass.dist.prod + '/_min' : path.to.sass.dist.dev + '/_min'))
+            .pipe($.browserSync.reload({
+                stream: true
+            }));
+
+    });
+
+    // main sass task
+    gulp.task(config.task.sass, function(cb) {
+
+        $.runSequence(
+            config.task.sass + ':compile',
+            config.task.sass + ':doc',
+            config.task.sass + ':minifycss',
+            cb
+        )
 
     });
 

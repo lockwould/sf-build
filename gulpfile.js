@@ -22,7 +22,8 @@
 //     gulp-sass, gulp-sourcemaps, browser-sync
 //     gulp-prettify, gulp-newer, main-bower-files
 //     gulp-flatten, del, gulp-inject, gulp-cached
-//     gulp-autoprefixer, sassdoc
+//     gulp-autoprefixer, sassdoc, gulp-minify-css
+//     gulp-rename, lazypipe
 // ----------------------------------
 
 // main gulp plugins
