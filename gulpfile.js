@@ -9,7 +9,7 @@
 //    'gulp bower'
 //          bower:clean - bower:scss - bower:js
 //    'gulp sass'
-//          sass:doc
+//          sass:compile - sass:doc - sass:minifycss
 //    'gulp html'
 //          html:nunjucks - html:inject
 //    'gulp serve'
