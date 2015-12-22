@@ -14,6 +14,7 @@
 //          nunjucks:render - nunjucks:inject
 //    'gulp serve'
 //    'gulp watch'
+//    'gulp build'
 // ----------------------------------
 // plugins:
 //     gulp, run-sequence, gulp-util, gulp-plumber
