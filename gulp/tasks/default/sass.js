@@ -21,6 +21,7 @@
 //     gulp-minify-css  : $.minifyCss
 //     gulp-rename      : $.rename
 //     lazypipe         : $.lazypipe
+//     gulp-plumber     : $.plumber
 // ----------------------------------
 // config:
 //     config.task.sass : task name
@@ -31,11 +32,9 @@ module.exports = function(gulp, $, path, config) {
     // split out commonly used stream chains [ changed - newer - cached ]
     var cacheFiles = $.lazypipe()
         // only pass through changed files
-        .pipe($.changed,
-            config.isProd ? path.to.sass.dist.prod + '/**/*.css' : path.to.sass.dist.dev + '/**/*.css')
+        .pipe($.changed, path.to.sass.dist.dev + '/**/*.css')
         // only pass through newer source files
-        .pipe($.newer,
-            config.isProd ? path.to.sass.dist.prod + '/**/*.css' : path.to.sass.dist.dev + '/**/*.css')
+        .pipe($.newer, path.to.sass.dist.dev + '/**/*.css')
         // start cache
         .pipe($.cached,'sass');
 
@@ -64,7 +63,7 @@ module.exports = function(gulp, $, path, config) {
             .pipe($.sourcemaps.write('./_maps'))
             // replace relative path for files
             // .pipe($.flatten())
-            .pipe(gulp.dest(config.isProd ? path.to.sass.dist.prod : path.to.sass.dist.dev))
+            .pipe(gulp.dest(path.to.sass.dist.dev))
             .pipe($.browserSync.reload({
                 stream: true
             }));
@@ -79,7 +78,7 @@ module.exports = function(gulp, $, path, config) {
             .pipe(cacheFiles())
             // start sassdoc
             .pipe($.sassdoc({
-                dest: config.isProd ? path.to.sass.dist.prod + '/_sassdoc' : path.to.sass.dist.dev + '/_sassdoc',
+                dest: path.to.sass.dist.dev + '/_sassdoc',
                 // for more options
                 // http://sassdoc.com/gulp/
             }))
@@ -91,8 +90,8 @@ module.exports = function(gulp, $, path, config) {
     gulp.task(config.task.sass + ':minifycss', function() {
 
         return gulp.src([
-                config.isProd ? path.to.sass.dist.prod + '/**/*.css' : path.to.sass.dist.dev + '/**/*.css',
-                config.isProd ? '!' + path.to.sass.dist.prod + '/**/_*{,/**}/' : '!' + path.to.sass.dist.dev + '/**/_*{,/**}/'
+                path.to.sass.dist.dev + '/**/*.css',
+                '!' + path.to.sass.dist.dev + '/**/_*{,/**}/'
             ])
             // only pass through changed & newer & not cached files
             .pipe(cacheFiles())
@@ -102,7 +101,7 @@ module.exports = function(gulp, $, path, config) {
             .pipe($.rename({
                 suffix: '.min'
             }))
-            .pipe(gulp.dest(config.isProd ? path.to.sass.dist.prod + '/_min' : path.to.sass.dist.dev + '/_min'))
+            .pipe(gulp.dest(path.to.sass.dist.prod + '/_min'))
             .pipe($.browserSync.reload({
                 stream: true
             }));

@@ -1,4 +1,4 @@
-// gulp/tasks/bas/bower.js
+// gulp/tasks/base/bower.js
 'use strict';
 
 // ----------------------------------

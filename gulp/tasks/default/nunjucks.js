@@ -1,54 +1,44 @@
-// gulp/tasks/nunjucks.js
+// gulp/tasks/default/nunjucks.js
 'use strict';
 
 // ----------------------------------
 // available tasks: 
-//    'gulp html'         : main task
-//    'gulp html:nunjucks': render nunjucks files
-//    'gulp html:inject'  : inject css/js files
+//    'gulp nunjucks'       : main task
+//    'gulp nunjucks:render': render nunjucks files
+//    'gulp nunjucks:inject': inject css/js files
 // ----------------------------------
 // plugins:
 //     gulp-nunjucks-render: $.nunjucksRender
 //     browser-sync        : $.browserSync
 //     gulp-changed        : $.changed
-//     gulp-prettify       : $.prettify
 //     gulp-newer          : $.newer
 //     gulp-inject         : $.inject
-//     gulp-cached         : $.cached
+//     gulp-plumber        : $.plumber
 // ----------------------------------
 // config:
-//     config.task.html : task name
+//     config.task.nunjucks : task name
 // ----------------------------------
 
 module.exports = function(gulp, $, path, config) {
 
     // render nunjucks files task
-    gulp.task(config.task.html + ':nunjucks', function() {
+    gulp.task(config.task.nunjucks + ':render', function() {
 
-        $.nunjucksRender.nunjucks.configure([path.to.html.config], {
+        $.nunjucksRender.nunjucks.configure([path.to.nunjucks.config], {
             watch: false
         });
-        return gulp.src(path.to.html.src)
+        return gulp.src(path.to.nunjucks.src)
             // only pass through changed files
-            .pipe($.changed(
-                config.isProd ? path.to.dist.prod + '*.html' : path.to.dist.dev + '*.html'))
+            .pipe($.changed(path.to.dist.dev + '*.html'))
             // only pass through newer source files
-            .pipe($.newer(
-                config.isProd ? path.to.dist.prod + '*.html' : path.to.dist.dev + '*.html'))
+            .pipe($.newer(path.to.dist.dev + '*.html'))
             // prevent breaking errors
             .pipe($.plumber({
                 errorHandler: config.error
             }))
             // start render
             .pipe($.nunjucksRender())
-            // beautify HTML
-            .pipe($.prettify({
-                indent_size: 2,
-                preserve_newlines: true
-                    // for more options: 
-                    // https://github.com/beautify-web/js-beautify#css--html
-            }))
-            .pipe(gulp.dest(config.isProd ? path.to.dist.prod : path.to.dist.dev))
+            .pipe(gulp.dest(path.to.dist.dev))
             .pipe($.browserSync.reload({
                 stream: true
             }));
@@ -56,11 +46,9 @@ module.exports = function(gulp, $, path, config) {
     });
 
     // inject css/js files task
-    gulp.task(config.task.html + ':inject', function() {
+    gulp.task(config.task.nunjucks + ':inject', function() {
 
-        return gulp.src(
-                config.isProd ? path.to.dist.prod + '*.html' : path.to.dist.dev + '*.html'
-            )
+        return gulp.src(path.to.dist.dev + '*.html')
             // prevent breaking errors
             .pipe($.plumber({
                 errorHandler: config.error
@@ -70,7 +58,7 @@ module.exports = function(gulp, $, path, config) {
              */
             // inject vendor files
             .pipe($.inject(gulp.src(
-                config.isProd ? path.to.sass.dist.prod + '/vendor/**/*.css' : path.to.sass.dist.dev + '/vendor/**/*.css', {
+                path.to.sass.dist.dev + '/vendor/**/*.css', {
                     read: false
                 }), {
                 relative: true,
@@ -80,7 +68,7 @@ module.exports = function(gulp, $, path, config) {
             }))
             // inject main files
             .pipe($.inject(gulp.src(
-                config.isProd ? path.to.sass.dist.prod + '/*.css' : path.to.sass.dist.dev + '/*.css', {
+                path.to.sass.dist.dev + '/*.css', {
                     read: false
                 }), {
                 relative: true,
@@ -91,7 +79,7 @@ module.exports = function(gulp, $, path, config) {
              */
             // inject vendor files
             .pipe($.inject(gulp.src(
-                config.isProd ? path.to.js.dist.prod + '/vendor/**/*.js' : path.to.js.dist.dev + '/vendor/**/*.js', {
+                path.to.js.dist.dev + '/vendor/**/*.js', {
                     read: false
                 }), {
                 relative: true,
@@ -100,25 +88,25 @@ module.exports = function(gulp, $, path, config) {
             }))
             // inject main files
             .pipe($.inject(gulp.src(
-                config.isProd ? path.to.js.dist.prod + '/*.js' : path.to.js.dist.dev + '/*.js', {
+                path.to.js.dist.dev + '/*.js', {
                     read: false
                 }), {
                 relative: true,
                 // removeTags: true
             }))
-            .pipe(gulp.dest(config.isProd ? path.to.dist.prod : path.to.dist.dev))
+            .pipe(gulp.dest(path.to.dist.dev))
             .pipe($.browserSync.reload({
                 stream: true
             }));
 
     });
 
-    // main html task
-    gulp.task(config.task.html, function(cb) {
+    // main nunjucks task
+    gulp.task(config.task.nunjucks, function(cb) {
 
         $.runSequence(
-            config.task.html + ':nunjucks',
-            config.task.html + ':inject',
+            config.task.nunjucks + ':render',
+            config.task.nunjucks + ':inject',
             cb
         )
 

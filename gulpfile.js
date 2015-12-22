@@ -10,8 +10,8 @@
 //          bower:clean - bower:scss - bower:js
 //    'gulp sass'
 //          sass:compile - sass:doc - sass:minifycss
-//    'gulp html'
-//          html:nunjucks - html:inject
+//    'gulp nunjucks'
+//          nunjucks:render - nunjucks:inject
 //    'gulp serve'
 //    'gulp watch'
 // ----------------------------------
@@ -49,9 +49,19 @@ gulp.task('default', function(cb) {
             config.task.sass,
             // config.task.sass + ':doc',
         ],
-        config.task.html,
+        config.task.nunjucks,
         config.task.browserSync,
         'watch',
+        cb
+    )
+});
+
+// build tasks
+gulp.task(config.task.build, function(cb) {
+    sequence(
+    	// config.task.build + ':css',
+    	// config.task.build + ':js',
+    	config.task.build + ':html',
         cb
     )
 });

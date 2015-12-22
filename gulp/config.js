@@ -9,8 +9,9 @@ var gutil  = require('gulp-util'),
         browserSync: 'serve',
         sass: 'sass',
         bower: 'bower',
-        html: 'html',
-        clean: 'clean'
+        nunjucks: 'nunjucks',
+        clean: 'clean',
+        build: 'build'
     },
     // browser-sync options
     serve  = {
