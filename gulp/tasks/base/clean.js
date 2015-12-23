@@ -23,7 +23,16 @@ module.exports = function(gulp, $, path, config) {
 
     });
 
-    // delete dest folder and clear all caches
+    // delete production folder [build/prod]
+    gulp.task(config.task.clean + ':prod', function() {
+        
+        return $.del([
+            path.to.dist.prod
+        ]);
+
+    });
+
+    // delete dest folder [build] and clear all caches
     gulp.task(config.task.clean, [config.task.clean + ':cache'], function() {
 
         return $.del([
