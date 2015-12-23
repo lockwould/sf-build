@@ -6,9 +6,9 @@ bower_components
 *.node
 
 # project directory
-/build
-/source
-/test
+/build/
+/source/
+/test/
 
 # logs
 logs

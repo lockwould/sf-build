@@ -5,7 +5,7 @@
 // watch tasks: 
 //    bower
 //    sass
-//    html
+//    nunjucks
 // ----------------------------------
 
 module.exports = function(gulp, $, path, config) {
