@@ -6,7 +6,6 @@
 //    'gulp sass'          : main sass task
 //    'gulp sass:compile'  : compile scss to css
 //    'gulp sass:doc'      : release sass docs
-//    'gulp sass:minifycss': css minification
 // ----------------------------------
 // plugins:
 //     gulp-sass        : $.sass
@@ -20,6 +19,7 @@
 //     sassdoc          : $.sassdoc
 //     lazypipe         : $.lazypipe
 //     gulp-plumber     : $.plumber
+//     gulp-filter      : $.filter
 // ----------------------------------
 // config:
 //     config.task.sass : task name
@@ -34,7 +34,12 @@ module.exports = function(gulp, $, path, config) {
         // only pass through newer source files
         .pipe($.newer, path.to.sass.dist.dev + '/**/*.css')
         // start cache
-        .pipe($.cached,'sass');
+        .pipe($.cached, 'sass');
+
+    // avoid writing sourcemaps of sourcemaps
+    var filter = $.filter(['*.css', '!*.map'], {
+        restore: true
+    });
 
     // compile sass task
     gulp.task(config.task.sass + ':compile', function() {
@@ -50,17 +55,21 @@ module.exports = function(gulp, $, path, config) {
             .pipe($.sourcemaps.init())
             // start compile
             .pipe($.sass({
-                includePaths: [path.to.sass.foundation],
+                includePaths: [
+                    path.to.sass.vendor, path.to.sass.foundation, path.to.sass.bootstrap
+                ],
                 outputStyle: 'expanded'
                     // more options
                     // https://github.com/sass/node-sass#usage-1
             }))
-            // .pipe($.sourcemaps.write({includeContent: false}))
-            // .pipe($.sourcemaps.init({loadMaps: true}))
-            // prefixing css
-            .pipe($.autoprefixer())
             // writing sourcemaps
             .pipe($.sourcemaps.write('./_maps'))
+            // filter css files
+            .pipe(filter)
+            // prefixing css
+            .pipe($.autoprefixer())
+            // restoring filtered files
+            .pipe(filter.restore)
             // replace relative path for files
             // .pipe($.flatten())
             .pipe(gulp.dest(path.to.sass.dist.dev))

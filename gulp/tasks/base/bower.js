@@ -6,6 +6,7 @@
 //    'gulp bower'       : main task
 //    'gulp bower:js'    : dest js files
 //    'gulp bower:scss'  : dest scss files
+//    'gulp bower:css'   : dest css files
 //    'gulp bower:clean' : clean before dest
 // ----------------------------------
 // plugins:
@@ -14,6 +15,7 @@
 //     del             : $.del
 //     run-sequence    : $.runSequence
 //     gulp-cached     : $.cached
+//     gulp-rename     : $.rename
 // ----------------------------------
 // config:
 //     config.task.bower : task name
@@ -54,6 +56,23 @@ module.exports = function(gulp, $, path, config) {
 
     });
 
+    // copy css files
+    gulp.task(config.task.bower + ':css', function() {
+
+        return gulp.src($.mainBowerFiles('**/*.css'), {
+                base: 'bower_components'
+            })
+            .pipe($.cached('bowerCss')) // start cache
+            .pipe($.flatten()) // replace relative path for files
+            // rename files
+            .pipe($.rename({
+                suffix: "-css",
+                extname: '.scss'
+            }))
+            .pipe(gulp.dest(path.to.sass.vendor));
+
+    });
+
     // main bower task
     gulp.task(config.task.bower, function(cb) {
 
@@ -61,7 +80,8 @@ module.exports = function(gulp, $, path, config) {
             config.task.bower + ':clean', 
             [
                 config.task.bower + ':js',
-                config.task.bower + ':scss'
+                config.task.bower + ':scss',
+                config.task.bower + ':css'
             ],
             cb
         )

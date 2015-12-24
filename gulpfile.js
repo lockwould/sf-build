@@ -7,12 +7,13 @@
 //    'gulp clean'
 //          clean:cache - clean:prod
 //    'gulp bower'
-//          bower:clean - bower:scss - bower:js
+//          bower:clean - bower:scss - bower:js - bower:css
 //    'gulp sass'
 //          sass:compile - sass:doc - sass:minifycss
 //    'gulp nunjucks'
 //          nunjucks:render - nunjucks:inject
 //    'gulp serve'
+//          serve:prod
 //    'gulp watch'
 //    'gulp build'
 //          build:html - build:css - build:js
@@ -26,6 +27,7 @@
 //     gulp-flatten, del, gulp-inject, gulp-cached
 //     gulp-autoprefixer, sassdoc, gulp-minify-css
 //     gulp-rename, lazypipe, gulp-concat, gulp-uncss
+//     gulp-strip-css-comments, gulp-filter
 // ----------------------------------
 
 // main gulp plugins
@@ -66,6 +68,7 @@ gulp.task(config.task.build, function(cb) {
     	config.task.build + ':css',
     	// config.task.build + ':js',
     	config.task.build + ':html',
+    	config.task.browserSync + ':prod',
         cb
     )
 });

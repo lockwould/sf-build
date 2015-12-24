@@ -42,13 +42,13 @@ module.exports = function(gulp, $, path, config) {
             // concat all css files
             .pipe($.concat('style.css'))
             // dest unminified file
-            .pipe(gulp.dest(path.to.sass.dist.prod))
+            // .pipe(gulp.dest(path.to.sass.dist.prod))
             // minify
-            .pipe($.minifyCss({keepSpecialComments : 1}))
-            // rename files
-            .pipe($.rename({
-                suffix: '.min'
-            }))
+            // .pipe($.minifyCss({keepSpecialComments : 1}))
+            // // rename files
+            // .pipe($.rename({
+            //     suffix: '.min'
+            // }))
             // writing sourcemaps
             .pipe($.sourcemaps.write('.'))
             .pipe(gulp.dest(path.to.sass.dist.prod));

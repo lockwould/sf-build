@@ -24,6 +24,7 @@
     "bootstrap": {
       "main": [
       "scss/**/*.scss",
+      "dist/css/bootstrap.css",
       "dist/js/bootstrap.js",
       "dist/js/bootstrap.min.js"
       ]
@@ -31,8 +32,8 @@
     "foundation-sites": {
       "main": [
       "scss/**/*.scss",
-      "dist/foundation.js",
-      "dist/foundation.min.js"
+      "dist/foundation.css",
+      "dist/*.js"
       ]
     },
     "jquery": {

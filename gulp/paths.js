@@ -26,10 +26,12 @@ module.exports = {
         sass: {
             src: [
                 src + 'scss/**/*.+(scss|sass)',
-                '!' + src + 'scss/vendor/lib/**/*.+(scss|sass)'
+                '!' + src + 'scss/vendor/lib/**/*.+(scss|sass)',
+                '!' + src + 'scss/vendor/bootstrap.scss'
             ],
             vendor: src + 'scss/vendor/lib/',
             foundation: src + 'scss/vendor/lib/foundation-sites/scss',
+            bootstrap: src + 'scss/vendor/lib/bootstrap/scss',
             dist: {
                 dev: dist + dev + assets + 'css',
                 prod: dist + prod + assets + 'css'
