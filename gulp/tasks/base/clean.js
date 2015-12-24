@@ -4,6 +4,7 @@
 // ----------------------------------
 // available tasks: 
 //    'gulp clean'       : clean dest folder & caches
+//    'gulp clean:prod'  : clean prod folder enough
 //    'gulp clean:cache' : clear all caches enough
 // ----------------------------------
 // plugins:

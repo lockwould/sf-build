@@ -18,8 +18,6 @@
 //     gulp-sourcemaps  : $.sourcemaps
 //     gulp-autoprefixer: $.autoprefixer
 //     sassdoc          : $.sassdoc
-//     gulp-minify-css  : $.minifyCss
-//     gulp-rename      : $.rename
 //     lazypipe         : $.lazypipe
 //     gulp-plumber     : $.plumber
 // ----------------------------------
@@ -57,6 +55,8 @@ module.exports = function(gulp, $, path, config) {
                     // more options
                     // https://github.com/sass/node-sass#usage-1
             }))
+            // .pipe($.sourcemaps.write({includeContent: false}))
+            // .pipe($.sourcemaps.init({loadMaps: true}))
             // prefixing css
             .pipe($.autoprefixer())
             // writing sourcemaps
@@ -86,35 +86,12 @@ module.exports = function(gulp, $, path, config) {
 
     });
 
-    // css minification task
-    gulp.task(config.task.sass + ':minifycss', function() {
-
-        return gulp.src([
-                path.to.sass.dist.dev + '/**/*.css',
-                '!' + path.to.sass.dist.dev + '/**/_*{,/**}/'
-            ])
-            // only pass through changed & newer & not cached files
-            .pipe(cacheFiles())
-            // minify
-            .pipe($.minifyCss())
-            // rename files
-            .pipe($.rename({
-                suffix: '.min'
-            }))
-            .pipe(gulp.dest(path.to.sass.dist.prod + '/_min'))
-            .pipe($.browserSync.reload({
-                stream: true
-            }));
-
-    });
-
     // main sass task
     gulp.task(config.task.sass, function(cb) {
 
         $.runSequence(
             config.task.sass + ':compile',
             config.task.sass + ':doc',
-            config.task.sass + ':minifycss',
             cb
         )
 

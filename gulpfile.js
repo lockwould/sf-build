@@ -5,7 +5,7 @@
 // available tasks: 
 //    'gulp'
 //    'gulp clean'
-//          clean:cache
+//          clean:cache - clean:prod
 //    'gulp bower'
 //          bower:clean - bower:scss - bower:js
 //    'gulp sass'
@@ -15,6 +15,7 @@
 //    'gulp serve'
 //    'gulp watch'
 //    'gulp build'
+//          build:html - build:css - build:js
 // ----------------------------------
 // plugins:
 //     gulp, run-sequence, gulp-util, gulp-plumber
@@ -24,7 +25,7 @@
 //     gulp-prettify, gulp-newer, main-bower-files
 //     gulp-flatten, del, gulp-inject, gulp-cached
 //     gulp-autoprefixer, sassdoc, gulp-minify-css
-//     gulp-rename, lazypipe
+//     gulp-rename, lazypipe, gulp-concat, gulp-uncss
 // ----------------------------------
 
 // main gulp plugins
@@ -40,7 +41,7 @@ var gulp     = require('gulp'),
 // require all tasks : gulp-load-subtasks
 $.loadSubtasks('./gulp/tasks/**/*.js', $, path, config);
 
-// common tasks
+// common default tasks : for dev mode
 gulp.task('default', function(cb) {
     sequence(
     	// config.task.clean,
@@ -57,10 +58,12 @@ gulp.task('default', function(cb) {
     )
 });
 
-// build tasks
+// build tasks : for prod mode
 gulp.task(config.task.build, function(cb) {
     sequence(
-    	// config.task.build + ':css',
+    	// config.task.clean + ':cache',
+    	// config.task.clean + ':prod',
+    	config.task.build + ':css',
     	// config.task.build + ':js',
     	config.task.build + ':html',
         cb
