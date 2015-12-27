@@ -58,7 +58,7 @@ module.exports = function(gulp, $, path, config) {
             // concat all css files
             .pipe($.concat('style.css'))
             // writing sourcemaps
-            .pipe($.sourcemaps.write('.'))
+            .pipe($.sourcemaps.write('./maps'))
             // dest unminified file
             .pipe(gulp.dest(path.to.sass.dist.prod))
             // filter css files
@@ -74,7 +74,7 @@ module.exports = function(gulp, $, path, config) {
                 suffix: '.min'
             }))
             // writing sourcemaps for minified file
-            .pipe($.sourcemaps.write('.'))
+            .pipe($.sourcemaps.write('./maps'))
             // restoring filtered files
             .pipe(filter.restore)
             .pipe(gulp.dest(path.to.sass.dist.prod));
