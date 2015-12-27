@@ -27,7 +27,7 @@
 //     gulp-flatten, del, gulp-inject, gulp-cached
 //     gulp-autoprefixer, sassdoc, gulp-minify-css
 //     gulp-rename, lazypipe, gulp-concat, gulp-uncss
-//     gulp-strip-css-comments, gulp-filter
+//     gulp-strip-css-comments, gulp-filter, gulp-cssbeautify
 // ----------------------------------
 
 // main gulp plugins
@@ -64,7 +64,7 @@ gulp.task('default', function(cb) {
 gulp.task(config.task.build, function(cb) {
     sequence(
     	// config.task.clean + ':cache',
-    	// config.task.clean + ':prod',
+    	config.task.clean + ':prod',
     	config.task.build + ':css',
     	// config.task.build + ':js',
     	config.task.build + ':html',
