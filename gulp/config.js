@@ -2,8 +2,6 @@
 'use strict';
 
 var gutil  = require('gulp-util'),
-    // --prod flag
-    isProd = (gutil.env.prod === true ? true : false),
     // tasks names
     task   = {
         browserSync: 'serve',
@@ -24,7 +22,6 @@ var gutil  = require('gulp-util'),
 
 // define options
 module.exports = {
-    isProd: isProd,
     task: task,
     serve: serve,
     // error handler

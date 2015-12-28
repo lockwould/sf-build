@@ -21,13 +21,13 @@
 // plugins:
 //     gulp, run-sequence, gulp-util, gulp-plumber
 //     gulp-load-plugins, gulp-load-subtasks
-//     gulp-nunjucks-render, gulp-changed,
+//     gulp-nunjucks-render, gulp-cssbeautify
 //     gulp-sass, gulp-sourcemaps, browser-sync
 //     gulp-prettify, gulp-newer, main-bower-files
 //     gulp-flatten, del, gulp-inject, gulp-cached
 //     gulp-autoprefixer, sassdoc, gulp-minify-css
 //     gulp-rename, lazypipe, gulp-concat, gulp-uncss
-//     gulp-strip-css-comments, gulp-filter, gulp-cssbeautify
+//     gulp-strip-css-comments, gulp-filter, gulp-changed
 // ----------------------------------
 
 // main gulp plugins

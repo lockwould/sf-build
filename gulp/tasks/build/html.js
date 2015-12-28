@@ -53,7 +53,7 @@ module.exports = function(gulp, $, path, config) {
             }))
             // inject main css file
             .pipe($.inject(gulp.src(
-                path.to.sass.dist.prod + '/*.css', {
+                path.to.sass.dist.prod + '/*.min.css', {
                     read: false
                 }), {
                 relative: true,
