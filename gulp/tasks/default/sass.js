@@ -1,4 +1,4 @@
-// gulp/tasks/sass.js
+// gulp/tasks/default/sass.js
 'use strict';
 
 // ----------------------------------

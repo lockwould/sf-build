@@ -28,6 +28,8 @@
 //     gulp-autoprefixer, sassdoc, gulp-minify-css
 //     gulp-rename, lazypipe, gulp-concat, gulp-uncss
 //     gulp-strip-css-comments, gulp-filter, gulp-changed
+//     browserify, vinyl-source-stream, vinyl-buffer 
+//     gulp-uglify
 // ----------------------------------
 
 // main gulp plugins
@@ -52,6 +54,7 @@ gulp.task('default', function(cb) {
         [
             config.task.sass,
             // config.task.sass + ':doc',
+            config.task.scripts
         ],
         config.task.nunjucks,
         config.task.browserSync,

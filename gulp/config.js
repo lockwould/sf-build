@@ -6,6 +6,7 @@ var gutil  = require('gulp-util'),
     task   = {
         browserSync: 'serve',
         sass: 'sass',
+        scripts: 'js',
         bower: 'bower',
         nunjucks: 'nunjucks',
         clean: 'clean',

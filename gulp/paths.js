@@ -38,6 +38,13 @@ module.exports = {
             }
         },
         js: {
+        	src: {
+	        	main: src + 'js/main.js',
+	        	watch: [
+		        	src + 'js/**/*.js',
+		        	'!' + src + 'js/vendor/**/*.js'
+		        ]
+        	},
             vendor: src + 'js/vendor/',
             dist: {
                 dev: dist + dev + assets + 'js',
