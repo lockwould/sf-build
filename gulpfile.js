@@ -29,7 +29,7 @@
 //     gulp-rename, lazypipe, gulp-concat, gulp-uncss
 //     gulp-strip-css-comments, gulp-filter, gulp-changed
 //     browserify, vinyl-source-stream, vinyl-buffer 
-//     gulp-uglify
+//     gulp-uglify, watchify, lodash.assign
 // ----------------------------------
 
 // main gulp plugins
@@ -39,7 +39,10 @@ var gulp     = require('gulp'),
     sequence = require('run-sequence'),
     $        = require('gulp-load-plugins')({
         // used for all plugins type not just with gulp-*
-        pattern: '*'
+        pattern: '*',
+        rename: {
+			'lodash.assign': 'assign'
+		}
     });
 
 // require all tasks : gulp-load-subtasks
@@ -53,7 +56,6 @@ gulp.task('default', function(cb) {
     	config.task.bower,
         [
             config.task.sass,
-            // config.task.sass + ':doc',
             config.task.scripts
         ],
         config.task.nunjucks,

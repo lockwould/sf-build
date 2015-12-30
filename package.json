@@ -27,10 +27,12 @@
     "gulp-uncss": "^1.0.4",
     "gulp-util": "^3.0.7",
     "lazypipe": "^1.0.1",
+    "lodash.assign": "^3.2.0",
     "main-bower-files": "^2.11.0",
     "run-sequence": "^1.1.5",
     "sassdoc": "^2.1.19",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.6.1"
   }
 }
