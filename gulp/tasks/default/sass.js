@@ -36,13 +36,13 @@ module.exports = function(gulp, $, path, config) {
         // start cache
         .pipe($.cached, 'sass');
 
-    // avoid writing sourcemaps of sourcemaps
-    var filter = $.filter(['*.css', '!*.map'], {
-        restore: true
-    });
-
     // compile sass task
     gulp.task(config.task.sass + ':compile', function() {
+
+        // avoid writing sourcemaps of sourcemaps
+        var filter = $.filter(['*.css', '!*.map'], {
+            restore: true
+        });
 
         return gulp.src(path.to.sass.src)
             // only pass through changed & newer & not cached files
