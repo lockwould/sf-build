@@ -11,7 +11,7 @@
 
 module.exports = function(gulp, $, path, config) {
 
-	// copy js files task
+    // copy js files task
     gulp.task(config.task.build + ':js', function() {
 
         return gulp.src(path.to.js.dist.dev + '/*.{js,map}')
