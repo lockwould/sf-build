@@ -16,23 +16,15 @@
 module.exports = function(gulp, $, path, config) {
 
     gulp.task(config.task.browserSync, function() {
-        $.browserSync({
-            // server: {
-            // 	baseDir: path.to.dist.dev
-            // },
-            proxy: config.serve.url + '/' + path.to.dev,
-            browser: config.serve.browser
-        })
+        $.browserSync(
+            config.serve.dev // options
+        )
     });
 
     gulp.task(config.task.browserSync + ':prod', function() {
-        $.browserSync({
-            // server: {
-            //  baseDir: path.to.dist.prod
-            // },
-            proxy: config.serve.url + '/' + path.to.prod,
-            browser: config.serve.browser
-        })
+        $.browserSync(
+            config.serve.prod // options
+        )
     });
 
 };

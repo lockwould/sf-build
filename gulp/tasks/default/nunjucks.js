@@ -60,40 +60,26 @@ module.exports = function(gulp, $, path, config) {
             .pipe($.inject(gulp.src(
                 path.to.sass.dist.dev + '/vendor/**/*.css', {
                     read: false
-                }), {
-                relative: true,
-                name: 'vendor',
-                // removeTags: true
-                // more options : https://github.com/klei/gulp-inject#api
-            }))
+                }), 
+                config.nunjucks.injectCss.vendorOptions // options
+            ))
             // inject main files
             .pipe($.inject(gulp.src(
                 path.to.sass.dist.dev + '/*.css', {
                     read: false
-                }), {
-                relative: true,
-                // removeTags: true
-            }))
+                }), 
+                config.nunjucks.injectCss.mainOptions // options
+            ))
             /**
              * JS files
              */
-            // inject vendor files
-            .pipe($.inject(gulp.src(
-                path.to.js.dist.dev + '/vendor/**/*.js', {
-                    read: false
-                }), {
-                relative: true,
-                name: 'vendor',
-                // removeTags: true
-            }))
             // inject main files
             .pipe($.inject(gulp.src(
                 path.to.js.dist.dev + '/*.js', {
                     read: false
-                }), {
-                relative: true,
-                // removeTags: true
-            }))
+                }), 
+                config.nunjucks.injectJs.options // options
+            ))
             .pipe(gulp.dest(path.to.dist.dev))
             .pipe($.browserSync.reload({
                 stream: true

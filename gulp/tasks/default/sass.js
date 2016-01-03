@@ -54,14 +54,9 @@ module.exports = function(gulp, $, path, config) {
             // initialize sourcemaps
             .pipe($.sourcemaps.init())
             // start compile
-            .pipe($.sass({
-                includePaths: [
-                    path.to.sass.vendor, path.to.sass.foundation, path.to.sass.bootstrap
-                ],
-                outputStyle: 'expanded'
-                    // more options
-                    // https://github.com/sass/node-sass#usage-1
-            }))
+            .pipe($.sass(
+                config.sass.options // options
+            ))
             // writing sourcemaps
             .pipe($.sourcemaps.write('./_maps'))
             // filter css files
@@ -86,11 +81,9 @@ module.exports = function(gulp, $, path, config) {
             // only pass through changed & newer & not cached files
             .pipe(cacheFiles())
             // start sassdoc
-            .pipe($.sassdoc({
-                dest: path.to.sass.dist.dev + '/_sassdoc',
-                // for more options
-                // http://sassdoc.com/gulp/
-            }))
+            .pipe($.sassdoc(
+                config.sass.sassdocOptions // options
+            ))
             .resume();
 
     });

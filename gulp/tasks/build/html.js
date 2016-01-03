@@ -33,12 +33,9 @@ module.exports = function(gulp, $, path, config) {
                 errorHandler: config.error
             }))
             // beautify HTML
-            .pipe($.prettify({
-                indent_size: 2,
-                preserve_newlines: true
-                    // for more options: 
-                    // https://github.com/beautify-web/js-beautify#css--html
-            }))
+            .pipe($.prettify(
+                config.html.prettifyOptions // options
+            ))
             .pipe(gulp.dest(path.to.dist.prod));
 
     });
@@ -55,25 +52,16 @@ module.exports = function(gulp, $, path, config) {
             .pipe($.inject(gulp.src(
                 path.to.sass.dist.prod + '/*.min.css', {
                     read: false
-                }), {
-                relative: true,
-                name: 'build',
-                starttag: '<!-- build:css -->',
-                endtag: '<!-- endbuild -->',
-                removeTags: true
-                    // more options : https://github.com/klei/gulp-inject#api
-            }))
+                }), 
+                config.html.injectCss.options // options
+            ))
             // inject main js file
             .pipe($.inject(gulp.src(
                 path.to.js.dist.prod + '/*.js', {
                     read: false
-                }), {
-                relative: true,
-                name: 'build',
-                starttag: '<!-- build:js -->',
-                endtag: '<!-- endbuild -->',
-                removeTags: true
-            }))
+                }), 
+                config.html.injectJs.options // options
+            ))
             .pipe(gulp.dest(path.to.dist.prod));
 
     });

@@ -40,19 +40,17 @@ module.exports = function(gulp, $, path, config) {
                 errorHandler: config.error
             }))
             // remove unused css selectors
-            .pipe($.uncss({
-                html: [path.to.dist.dev + '*.html'],
-                // more options
-                // https://github.com/giakki/uncss#within-nodejs
-            }))
+            .pipe($.uncss(
+                config.css.uncssOptions // options
+            ))
             // strip unimportant css comments
-            .pipe($.stripCssComments({
-                preserve: true
-            }))
+            .pipe($.stripCssComments(
+                config.css.stripCommentsOptions // options
+            ))
             // beautify final css code
-            .pipe($.cssbeautify({
-                indent: '  '
-            }))
+            .pipe($.cssbeautify(
+                config.css.cssbeautifyOptions // options
+            ))
             // initialize sourcemaps
             .pipe($.sourcemaps.init())
             // concat all css files
@@ -66,13 +64,13 @@ module.exports = function(gulp, $, path, config) {
             // initialize sourcemaps before minify
             .pipe($.sourcemaps.init())
             // minify
-            .pipe($.minifyCss({
-                keepSpecialComments: 1
-            }))
+            .pipe($.minifyCss(
+                config.css.minifyCssOptions // options
+            ))
             // rename files
-            .pipe($.rename({
-                suffix: '.min'
-            }))
+            .pipe($.rename(
+                config.css.renameOptions // options
+            ))
             // writing sourcemaps for minified file
             .pipe($.sourcemaps.write('./maps'))
             // restoring filtered files

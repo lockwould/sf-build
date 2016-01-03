@@ -36,9 +36,9 @@ module.exports = function(gulp, $, path, config) {
     // copy JS files
     gulp.task(config.task.bower + ':js', function() {
 
-        return gulp.src($.mainBowerFiles('**/*.js'), {
-                base: 'bower_components'
-            })
+        return gulp.src($.mainBowerFiles('**/*.js'), 
+                config.mainBowerFiles.options // options
+            )
             .pipe($.cached('bowerJs')) // start cache
             .pipe($.flatten()) // replace relative path for files
             .pipe(gulp.dest(path.to.js.vendor));
@@ -48,9 +48,9 @@ module.exports = function(gulp, $, path, config) {
     // copy SCSS files
     gulp.task(config.task.bower + ':scss', function() {
 
-        return gulp.src($.mainBowerFiles('**/*.scss'), {
-                base: 'bower_components'
-            })
+        return gulp.src($.mainBowerFiles('**/*.scss'), 
+                config.mainBowerFiles.options // options
+            )
             .pipe($.cached('bowerScss')) // start cache
             .pipe(gulp.dest(path.to.sass.vendor));
 
@@ -59,16 +59,15 @@ module.exports = function(gulp, $, path, config) {
     // copy css files
     gulp.task(config.task.bower + ':css', function() {
 
-        return gulp.src($.mainBowerFiles('**/*.css'), {
-                base: 'bower_components'
-            })
+        return gulp.src($.mainBowerFiles('**/*.css'), 
+                config.mainBowerFiles.options // options
+            )
             .pipe($.cached('bowerCss')) // start cache
             .pipe($.flatten()) // replace relative path for files
             // rename files
-            .pipe($.rename({
-                suffix: "-css",
-                extname: '.scss'
-            }))
+            .pipe($.rename(
+                config.mainBowerFiles.rename // options
+            ))
             .pipe(gulp.dest(path.to.sass.vendor));
 
     });
