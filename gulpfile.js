@@ -73,7 +73,7 @@ gulp.task(config.task.build, function(cb) {
     	// config.task.clean + ':cache',
     	config.task.clean + ':prod',
     	config.task.build + ':css',
-    	// config.task.build + ':js',
+    	config.task.build + ':js',
     	config.task.build + ':html',
     	config.task.browserSync + ':prod',
         cb
