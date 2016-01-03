@@ -10,6 +10,8 @@
 //          bower:clean - bower:scss - bower:js - bower:css
 //    'gulp sass'
 //          sass:compile - sass:doc - sass:minifycss
+//    'gulp js'
+//          js:browserify - js:copySrc
 //    'gulp nunjucks'
 //          nunjucks:render - nunjucks:inject
 //    'gulp serve'
