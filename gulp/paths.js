@@ -50,7 +50,9 @@ module.exports = {
         },
         images: {
         	src: src + 'images/**/*',
+        	logo: src + 'images/logo.png', // change it depend on logo name
         	dist: {
+        		favicons: dist + dev + assets + 'images/favicons',
                 dev: dist + dev + assets + 'images',
                 prod: dist + prod + assets + 'images'
             }

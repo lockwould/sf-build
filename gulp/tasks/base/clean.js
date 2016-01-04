@@ -37,7 +37,9 @@ module.exports = function(gulp, $, path, config) {
     gulp.task(config.task.clean, [config.task.clean + ':cache'], function() {
 
         return $.del([
-            path.to.dist.main
+            path.to.dist.main,
+            // this file created from images:favicons task
+            path.to.nunjucks.config + 'includes/favicons.nunjucks'
         ]);
 
     });
