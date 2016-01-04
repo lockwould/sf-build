@@ -39,7 +39,8 @@ module.exports = function(gulp, $, path, config) {
         return $.del([
             path.to.dist.main,
             // this file created from images:favicons task
-            path.to.nunjucks.config + 'includes/favicons.nunjucks'
+            // in source/templates/includes/ >> default [favicons.nunjucks]
+            config.images.faviconsOptions.html
         ]);
 
     });
