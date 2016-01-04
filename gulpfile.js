@@ -12,6 +12,8 @@
 //          sass:compile - sass:doc - sass:minifycss
 //    'gulp js'
 //          js:browserify - js:copySrc
+//    'gulp images'
+//          images:minify - images:favicons
 //    'gulp nunjucks'
 //          nunjucks:render - nunjucks:inject
 //    'gulp serve'
