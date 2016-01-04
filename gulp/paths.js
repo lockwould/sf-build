@@ -20,13 +20,13 @@ module.exports = {
         prod: prod,
         nunjucks: {
             config: src + 'templates/',
-            src: src + 'templates/*.+(html|nunjucks)',
+            src: src + 'templates/*.{html,nunjucks}',
             watch: src + 'templates/**/*.+(html|nunjucks)' // for watch task not render
         },
         sass: {
             src: [
-                src + 'scss/**/*.+(scss|sass)',
-                '!' + src + 'scss/vendor/lib/**/*.+(scss|sass)',
+                src + 'scss/**/*.{scss,sass}',
+                '!' + src + 'scss/vendor/lib/**/*.{scss,sass}',
                 '!' + src + 'scss/vendor/bootstrap.scss'
             ],
             vendor: src + 'scss/vendor/lib/',
