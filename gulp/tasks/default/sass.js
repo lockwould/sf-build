@@ -45,12 +45,12 @@ module.exports = function(gulp, $, path, config) {
         });
 
         return gulp.src(path.to.sass.src)
-            // only pass through changed & newer & not cached files
-            .pipe(cacheFiles())
             // prevent breaking errors
             .pipe($.plumber({
                 errorHandler: config.error
             }))
+            // only pass through changed & newer & not cached files
+            .pipe(cacheFiles())
             // initialize sourcemaps
             .pipe($.sourcemaps.init())
             // start compile

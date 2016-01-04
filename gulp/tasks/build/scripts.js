@@ -1,4 +1,4 @@
-// gulp/tasks/build/js.js
+// gulp/tasks/build/scripts.js
 'use strict';
 
 // ----------------------------------

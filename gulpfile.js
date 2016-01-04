@@ -31,7 +31,8 @@
 //     gulp-rename, lazypipe, gulp-concat, gulp-uncss
 //     gulp-strip-css-comments, gulp-filter, gulp-changed
 //     browserify, vinyl-source-stream, vinyl-buffer 
-//     gulp-uglify, watchify, lodash.assign
+//     gulp-uglify, watchify, lodash.assign, gulp-imagemin
+//     imagemin-pngquant
 // ----------------------------------
 
 // main gulp plugins
@@ -58,7 +59,8 @@ gulp.task('default', function(cb) {
     	config.task.bower,
         [
             config.task.sass,
-            config.task.scripts
+            config.task.scripts,
+            config.task.images
         ],
         config.task.nunjucks,
         config.task.browserSync,
@@ -74,6 +76,7 @@ gulp.task(config.task.build, function(cb) {
     	config.task.clean + ':prod',
     	config.task.build + ':css',
     	config.task.build + ':js',
+    	config.task.build + ':images',
     	config.task.build + ':html',
     	config.task.browserSync + ':prod',
         cb

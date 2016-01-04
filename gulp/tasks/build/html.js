@@ -24,14 +24,14 @@ module.exports = function(gulp, $, path, config) {
     gulp.task(config.task.build + ':html:copy', function() {
 
         return gulp.src(path.to.dist.dev + '*.html')
-            // only pass through changed files
-            .pipe($.changed(path.to.dist.prod + '*.html'))
-            // only pass through newer source files
-            .pipe($.newer(path.to.dist.prod + '*.html'))
             // prevent breaking errors
             .pipe($.plumber({
                 errorHandler: config.error
             }))
+            // only pass through changed files
+            .pipe($.changed(path.to.dist.prod + '*.html'))
+            // only pass through newer source files
+            .pipe($.newer(path.to.dist.prod + '*.html'))
             // beautify HTML
             .pipe($.prettify(
                 config.html.prettifyOptions // options

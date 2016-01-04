@@ -28,14 +28,14 @@ module.exports = function(gulp, $, path, config) {
             watch: false
         });
         return gulp.src(path.to.nunjucks.src)
-            // only pass through changed files
-            .pipe($.changed(path.to.dist.dev + '*.html'))
-            // only pass through newer source files
-            .pipe($.newer(path.to.dist.dev + '*.html'))
             // prevent breaking errors
             .pipe($.plumber({
                 errorHandler: config.error
             }))
+            // only pass through changed files
+            .pipe($.changed(path.to.dist.dev + '*.html'))
+            // only pass through newer source files
+            .pipe($.newer(path.to.dist.dev + '*.html'))
             // start render
             .pipe($.nunjucksRender())
             .pipe(gulp.dest(path.to.dist.dev))

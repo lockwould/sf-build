@@ -47,6 +47,13 @@ module.exports = {
                 dev: dist + dev + assets + 'js',
                 prod: dist + prod + assets + 'js'
             }
+        },
+        images: {
+        	src: src + 'images/**/*',
+        	dist: {
+                dev: dist + dev + assets + 'images',
+                prod: dist + prod + assets + 'images'
+            }
         }
     }
 };

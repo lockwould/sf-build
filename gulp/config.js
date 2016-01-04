@@ -2,8 +2,10 @@
 'use strict';
 
 // require gulp-util & paths
-var gutil = require('gulp-util'),
-    path = require('./paths.js');
+var gutil    = require('gulp-util'),
+    path     = require('./paths.js'),
+    // require for imagemin options
+    pngquant = require('imagemin-pngquant');
 
 // project local url
 var url = 'gulp.dev';
@@ -15,6 +17,7 @@ module.exports = {
 		browserSync: 'serve',
 		sass       : 'sass',
 		scripts    : 'js',
+		images     : 'images',
 		bower      : 'bower',
 		nunjucks   : 'nunjucks',
 		clean      : 'clean',
@@ -145,6 +148,16 @@ module.exports = {
         renameOptions: {
             suffix: '.min'
         }
+    },
+    // images task options
+    images: {
+    	// imagemin options
+    	imageminOptions: {
+    		optimizationLevel: 7,
+        	progressive: true,
+        	interlaced: true,
+        	use: [pngquant()] // imagemin-pngquant
+    	}
     },
     // error handler
     error: function(error) {
