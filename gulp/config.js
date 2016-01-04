@@ -151,43 +151,43 @@ module.exports = {
     },
     // images task options
     images: {
-    	// imagemin options
-    	imageminOptions: {
-    		optimizationLevel: 7,
-        	progressive: true,
-        	interlaced: true,
-        	use: [pngquant()] // imagemin-pngquant
-    	},
-    	// favicons options
-    	faviconsOptions: {
-			appName: 'Gulpfile Setup',
-			appDescription: 'Gulpfile setup',
-			developerName: 'mohamdio',
-			developerURL: 'http://mohamd.io/',
-			background: '#020307',
-			path: 'assets/images/favicons/',
-			url: '/',
-			display: 'standalone',
-			orientation: 'portrait',
-			version: 1.0,
-			logging: false,
-			online: false,
-			html: path.to.nunjucks.config + 'includes/favicons.nunjucks',
-			replace: true,
-			icons: {
-	            android: false,              // create Android homescreen icon
-	            appleIcon: false,            // create Apple touch icons
-	            appleStartup: false,         // create Apple startup images
-	            coast: false,                // create Opera Coast icon
-	            favicons: true,             // create regular favicons
-	            firefox: false,              // create Firefox OS icons
-	            opengraph: false,            // create Facebook OpenGraph image
-	            twitter: false,              // create Twitter Summary Card image
-	            windows: false,              // create Windows 8 tile icons
-	            yandex: false                // create Yandex browser icon
-	        }
-	        // options from here : https://github.com/haydenbleasel/favicons#nodejs
-    	}
+        // imagemin options
+        imageminOptions: {
+            optimizationLevel: 7,
+            progressive: true,
+            interlaced: true,
+            use: [pngquant()] // imagemin-pngquant
+        },
+        // favicons options
+        faviconsOptions: {
+            appName: 'Gulpfile Setup',
+            appDescription: 'Gulpfile setup',
+            developerName: 'mohamdio',
+            developerURL: 'http://mohamd.io/',
+            background: '#020307',
+            path: 'assets/images/favicons/',
+            url: '/',
+            display: 'standalone',
+            orientation: 'portrait',
+            version: 1.0,
+            logging: false,
+            online: false,
+            html: path.to.nunjucks.config + 'includes/favicons.nunjucks',
+            replace: true,
+            icons: {
+                android: false, // create Android homescreen icon
+                appleIcon: false, // create Apple touch icons
+                appleStartup: false, // create Apple startup images
+                coast: false, // create Opera Coast icon
+                favicons: true, // create regular favicons
+                firefox: false, // create Firefox OS icons
+                opengraph: false, // create Facebook OpenGraph image
+                twitter: false, // create Twitter Summary Card image
+                windows: false, // create Windows 8 tile icons
+                yandex: false // create Yandex browser icon
+            }
+            // options from here : https://github.com/haydenbleasel/favicons#nodejs
+        }
     },
     // error handler
     error: function(error) {
