@@ -56,6 +56,14 @@ module.exports = {
                 dev: dist + dev + assets + 'images',
                 prod: dist + prod + assets + 'images'
             }
+        },
+        fonts: {
+        	src: src + 'fonts/**/*',
+        	vendor: src + 'fonts/vendor/',
+        	dist: {
+                dev: dist + dev + assets + 'fonts',
+                prod: dist + prod + assets + 'fonts'
+            }
         }
     }
 };

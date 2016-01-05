@@ -28,7 +28,8 @@ module.exports = function(gulp, $, path, config) {
 
         return $.del([
             path.to.js.vendor + '**/*',
-            path.to.sass.vendor
+            path.to.sass.vendor,
+            path.to.fonts.vendor + '**/*'
         ]);
 
     });
@@ -72,6 +73,17 @@ module.exports = function(gulp, $, path, config) {
 
     });
 
+    // copy fonts
+    gulp.task(config.task.bower + ':fonts', function() {
+
+        return gulp.src($.mainBowerFiles('**/*.{svg,ttf,otf,eot,woff,woff2}'), 
+                config.mainBowerFiles.options // options
+            )
+            .pipe($.cached('bowerFonts')) // start cache
+            .pipe(gulp.dest(path.to.fonts.vendor));
+
+    });
+
     // main bower task
     gulp.task(config.task.bower, function(cb) {
 
@@ -80,7 +92,8 @@ module.exports = function(gulp, $, path, config) {
             [
                 config.task.bower + ':js',
                 config.task.bower + ':scss',
-                config.task.bower + ':css'
+                config.task.bower + ':css',
+                config.task.bower + ':fonts'
             ],
             cb
         )

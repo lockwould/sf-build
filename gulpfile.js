@@ -59,6 +59,7 @@ gulp.task('default', function(cb) {
     	// config.task.clean,
     	// config.task.clean + ':cache',
     	config.task.bower,
+    	config.task.fonts,
         [
             config.task.sass,
             config.task.scripts,
@@ -76,6 +77,7 @@ gulp.task(config.task.build, function(cb) {
     sequence(
     	// config.task.clean + ':cache',
     	config.task.clean + ':prod',
+    	config.task.build + ':fonts',
     	config.task.build + ':css',
     	config.task.build + ':js',
     	config.task.build + ':images',

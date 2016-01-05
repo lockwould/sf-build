@@ -15,6 +15,7 @@ module.exports = {
     // tasks names
     task: {
 		browserSync: 'serve',
+		fonts      : 'fonts',
 		sass       : 'sass',
 		scripts    : 'js',
 		images     : 'images',
