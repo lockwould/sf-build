@@ -14,6 +14,7 @@
 //     gulp-newer          : $.newer
 //     gulp-inject         : $.inject
 //     gulp-plumber        : $.plumber
+//     gulp-prettify       : $.prettify
 // ----------------------------------
 // config:
 //     config.task.nunjucks : task name
@@ -38,6 +39,10 @@ module.exports = function(gulp, $, path, config) {
             .pipe($.newer(path.to.dist.dev + '*.html'))
             // start render
             .pipe($.nunjucksRender())
+            // beautify HTML
+            .pipe($.prettify(
+                config.html.prettifyOptions // options
+            ))
             .pipe(gulp.dest(path.to.dist.dev))
             .pipe($.browserSync.reload({
                 stream: true
