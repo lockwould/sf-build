@@ -13,7 +13,6 @@
 //     browser-sync     : $.browserSync
 //     gulp-changed     : $.changed
 //     gulp-newer       : $.newer
-//     gulp-flatten     : $.flatten
 //     gulp-cached      : $.cached
 //     gulp-sourcemaps  : $.sourcemaps
 //     gulp-autoprefixer: $.autoprefixer
@@ -67,8 +66,6 @@ module.exports = function(gulp, $, path, config) {
             .pipe($.autoprefixer())
             // restoring filtered files
             .pipe(filter.restore)
-            // replace relative path for files
-            // .pipe($.flatten())
             .pipe(gulp.dest(path.to.sass.dist.dev))
             .pipe($.browserSync.reload({
                 stream: true
