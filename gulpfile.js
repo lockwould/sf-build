@@ -7,9 +7,10 @@
 //    'gulp clean'
 //          clean:cache - clean:prod
 //    'gulp bower'
-//          bower:clean - bower:scss - bower:js - bower:css
+//          bower:clean - bower:scss - bower:js - bower:css - bower:fonts
+//    'gulp fonts'
 //    'gulp sass'
-//          sass:compile - sass:doc - sass:minifycss
+//          sass:compile - sass:doc - sass:cssRebaseUrl 
 //    'gulp js'
 //          js:browserify - js:copySrc
 //    'gulp images'
@@ -34,7 +35,7 @@
 //     gulp-strip-css-comments, gulp-filter, gulp-changed
 //     browserify, vinyl-source-stream, vinyl-buffer 
 //     gulp-uglify, watchify, lodash.assign, gulp-imagemin
-//     imagemin-pngquant, gulp-favicons
+//     imagemin-pngquant, gulp-favicons, gulp-replace
 // ----------------------------------
 
 // main gulp plugins
@@ -60,11 +61,9 @@ gulp.task('default', function(cb) {
     	// config.task.clean + ':cache',
     	config.task.bower,
     	config.task.fonts,
-        [
-            config.task.sass,
-            config.task.scripts,
-            config.task.images
-        ],
+        config.task.sass,
+        config.task.scripts,
+        config.task.images,
         config.task.nunjucks,
         config.task.browserSync,
         'watch',

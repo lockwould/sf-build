@@ -15,6 +15,7 @@
 //     gulp-filter            : $.filter
 //     gulp-cssbeautify       : $.cssbeautify
 //     gulp-strip-css-comments: $.stripCssComments
+//     gulp-replace           : $.replace
 // ----------------------------------
 // config:
 //     config.task.build : task name
@@ -31,6 +32,7 @@ module.exports = function(gulp, $, path, config) {
     gulp.task(config.task.build + ':css', function() {
 
         return gulp.src([
+                // order css files for concat
                 path.to.sass.dist.dev + '/vendor/*.css',
                 path.to.sass.dist.dev + '/*.css',
                 '!' + path.to.sass.dist.dev + '/**/_*{,/**}/'
@@ -39,6 +41,8 @@ module.exports = function(gulp, $, path, config) {
             .pipe($.plumber({
                 errorHandler: config.error
             }))
+            // replace url references in css
+            .pipe($.replace('url("../../fonts/', 'url("../fonts/'))
             // remove unused css selectors
             .pipe($.uncss(
                 config.css.uncssOptions // options

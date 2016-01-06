@@ -3,9 +3,10 @@
 
 // ----------------------------------
 // available tasks: 
-//    'gulp sass'          : main sass task
-//    'gulp sass:compile'  : compile scss to css
-//    'gulp sass:doc'      : release sass docs
+//    'gulp sass'              : main sass task
+//    'gulp sass:compile'      : compile scss to css
+//    'gulp sass:doc'          : release sass docs
+//    'gulp sass:cssRebaseUrl' : replace url in css
 // ----------------------------------
 // plugins:
 //     gulp-sass        : $.sass
@@ -20,6 +21,7 @@
 //     lazypipe         : $.lazypipe
 //     gulp-plumber     : $.plumber
 //     gulp-filter      : $.filter
+//     gulp-replace     : $.replace
 // ----------------------------------
 // config:
 //     config.task.sass : task name
@@ -88,12 +90,26 @@ module.exports = function(gulp, $, path, config) {
 
     });
 
+    // replace url references in css
+    gulp.task(config.task.sass + ':cssRebaseUrl', function() {
+
+        return gulp.src([
+                path.to.sass.dist.dev + '/**/*.css',
+                '!' + path.to.sass.dist.dev + '/**/_*{,/**}/'
+            ])
+            // start replace
+            .pipe($.replace('url("../fonts/', 'url("../../fonts/'))
+            .pipe(gulp.dest(path.to.sass.dist.dev));
+
+    });
+
     // main sass task
     gulp.task(config.task.sass, function(cb) {
 
         $.runSequence(
             config.task.sass + ':compile',
             config.task.sass + ':doc',
+            config.task.sass + ':cssRebaseUrl',
             cb
         )
 

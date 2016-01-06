@@ -7,6 +7,7 @@
 //    'gulp bower:js'    : dest js files
 //    'gulp bower:scss'  : dest scss files
 //    'gulp bower:css'   : dest css files
+//    'gulp bower:fonts' : dest fonts
 //    'gulp bower:clean' : clean before dest
 // ----------------------------------
 // plugins:
