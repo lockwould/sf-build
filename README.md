@@ -1,2 +1,2 @@
-##gulpfile tasks setup
+##Gulp workflow for front-end development
 work in progress..
