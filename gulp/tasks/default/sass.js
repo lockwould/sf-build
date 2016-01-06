@@ -92,6 +92,7 @@ module.exports = function(gulp, $, path, config) {
 
         return gulp.src([
                 path.to.sass.dist.dev + '/**/*.css',
+                '!' + path.to.sass.dist.dev + '/*.css',
                 '!' + path.to.sass.dist.dev + '/**/_*{,/**}/'
             ])
             // start replace
