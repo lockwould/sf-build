@@ -9,7 +9,7 @@ An organized front-end workflow for your next project using gulp.
 ##Features
 - Organized & splitting tasks files
 - Using gulp-load-plugins
-- Change tasks options & paths from one file
+- Define tasks options & paths from one file
 - Using bower to get dependencies
 - Preview server with BrowserSync
 - Cleans up file directories
@@ -23,6 +23,39 @@ An organized front-end workflow for your next project using gulp.
 - Image optimization
 - Generate favicons
 - Concat css/js files
+- & more, take a look at the gulp plugins used in [package.json](https://github.com/mohamdio/gulp-workflow/blob/master/package.json)
+
+###Gulp Tasks Structure
+This is gulp folder structure:
+- `config.js` file : to define tasks options
+- `paths.js` file : to define all paths for tasks
+- `base` folder : contain base tasks
+- `default` folder : contain common tasks for development
+- `build` folder : contain build tasks for production
+
+```
+gulp
+├── config.js
+├── paths.js
+└── tasks
+    ├── base
+    │   ├── bower.js
+    │   ├── clean.js
+    │   ├── serve.js
+    │   └── watch.js
+    ├── build
+    │   ├── css.js
+    │   ├── fonts.js
+    │   ├── html.js
+    │   ├── images.js
+    │   └── scripts.js
+    └── default
+        ├── fonts.js
+        ├── images.js
+        ├── nunjucks.js
+        ├── sass.js
+        └── scripts.js
+```
 
 ##Getting Started
 
