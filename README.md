@@ -60,11 +60,11 @@ gulp
 
 ##Getting Started
 1. Install [Node.js](https://nodejs.org/)
-2. Install [Gulp](http://gulpjs.com/) & [bower](http://bower.io/)
+2. Install [Gulp](http://gulpjs.com/) & [bower](http://bower.io/) globally 
 ```
 npm install -g gulp bower
 ```
-3. 
+3. test 
 
 ##Folders Structure
 
