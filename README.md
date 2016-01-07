@@ -73,7 +73,17 @@ git clone https://github.com/mohamdio/gulp-workflow.git
 ```
 git clone https://github.com/mohamdio/gulp-source-structure.git
 ```
-- 
+- Install Gulp dependencies 
+```
+npm install
+```
+- Install front-end/bower dependencies 
+```
+bower install
+```
+- After all done installing, you can run tasks
+  * `gulp` to run default tasks for development
+  * `gulp build` to build your project for production
 
 ##Folders Structure
 
