@@ -33,7 +33,7 @@ module.exports = {
             proxy: url + '/' + path.to.dev,
             // set browser automaically opened
             browser: 'google chrome'
-                // for more options: http://www.browsersync.io/docs/options
+            // for more options: http://www.browsersync.io/docs/options
         },
         prod: {
             proxy: url + '/' + path.to.prod,
@@ -85,8 +85,8 @@ module.exports = {
                 path.to.sass.vendor, path.to.sass.foundation, path.to.sass.bootstrap
             ],
             outputStyle: 'expanded'
-                // more options
-                // https://github.com/sass/node-sass#usage-1
+            // more options
+            // https://github.com/sass/node-sass#usage-1
         },
         // sass:doc options
         sassdocOptions: {
@@ -101,8 +101,8 @@ module.exports = {
         prettifyOptions: {
             indent_size: 2,
             preserve_newlines: true
-                // for more options: 
-                // https://github.com/beautify-web/js-beautify#css--html
+            // for more options: 
+            // https://github.com/beautify-web/js-beautify#css--html
         },
         // build:html:inject options
         injectCss: {
@@ -112,7 +112,7 @@ module.exports = {
                 starttag: '<!-- build:css -->',
                 endtag: '<!-- endbuild -->',
                 removeTags: true
-                    // more options : https://github.com/klei/gulp-inject#api
+                // more options : https://github.com/klei/gulp-inject#api
             }
         },
         injectJs: {
