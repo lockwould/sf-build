@@ -12,6 +12,7 @@ var url = 'gulp.dev';
 
 // define options
 module.exports = {
+
     // tasks names
     task: {
 		browserSync: 'serve',
@@ -24,6 +25,7 @@ module.exports = {
 		clean      : 'clean',
 		build      : 'build'
     },
+
     // serve task browser-sync options
     serve: {
         dev: {
@@ -41,6 +43,7 @@ module.exports = {
             browser: 'google chrome'
         }
     },
+
     // bower task mainBowerFiles options
     mainBowerFiles: {
         // main options
@@ -55,6 +58,7 @@ module.exports = {
         // watch src
         watch: ['./bower_components/**', './bower.json']
     },
+
     // nunjucks task options
     nunjucks: {
         // inject task options
@@ -77,6 +81,7 @@ module.exports = {
             }
         }
     },
+
     // sass task options
     sass: {
         // main options
@@ -95,6 +100,7 @@ module.exports = {
             // http://sassdoc.com/gulp/
         }
     },
+
     // html task options
     html: {
         // build:html:copy prettify options
@@ -125,6 +131,7 @@ module.exports = {
             }
         }
     },
+
     // css task options
     css: {
         // uncss options
@@ -150,6 +157,7 @@ module.exports = {
             suffix: '.min'
         }
     },
+
     // images task options
     images: {
         // imagemin options
@@ -190,6 +198,7 @@ module.exports = {
             // options from here : https://github.com/haydenbleasel/favicons#nodejs
         }
     },
+
     // error handler
     error: function(error) {
         // output an error message
@@ -201,4 +210,5 @@ module.exports = {
         // emit the end event, to properly end the task
         this.emit('end');
     }
+    
 };

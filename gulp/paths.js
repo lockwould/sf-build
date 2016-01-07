@@ -11,6 +11,7 @@ var src    = './source/',
 // taks paths
 module.exports = {
     to: {
+
     	// dest folders
         dist: {
             dev: dist + dev,
@@ -19,12 +20,14 @@ module.exports = {
         },
         dev: dev,
         prod: prod,
+
         // nunjucks files
         nunjucks: {
             config: src + 'templates/',
             src: src + 'templates/*.{html,nunjucks}',
             watch: src + 'templates/**/*.+(html|nunjucks)' // for watch task not render
         },
+
         // sass files
         sass: {
             src: [
@@ -40,6 +43,7 @@ module.exports = {
                 prod: dist + prod + assets + 'css'
             }
         },
+
         // js files
         js: {
             src: {
@@ -52,6 +56,7 @@ module.exports = {
                 prod: dist + prod + assets + 'js'
             }
         },
+
         // images
         images: {
             src: src + 'images/**/*',
@@ -62,6 +67,7 @@ module.exports = {
                 prod: dist + prod + assets + 'images'
             }
         },
+
         // fonts
         fonts: {
             src: src + 'fonts/**/*',
@@ -71,5 +77,6 @@ module.exports = {
                 prod: dist + prod + assets + 'fonts'
             }
         }
+        
     }
 };
