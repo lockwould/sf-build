@@ -85,6 +85,11 @@ bower install
   * `gulp` to run default tasks for development
   * `gulp build` to build your project for production
 
+###Available Tasks
+Task Name | Description
+--- | ---
+clean | clean dest folder & caches
+
 ##Folders Structure
 
 ##Configuration & Paths
