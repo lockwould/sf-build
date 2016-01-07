@@ -64,7 +64,16 @@ gulp
 ```
 npm install -g gulp bower
 ```
-- test 
+- In terminal/command line, `cd` into your project directory
+- Clone this workflow 
+```
+git clone https://github.com/mohamdio/gulp-workflow.git
+```
+- Clone [source folder structure](https://github.com/mohamdio/gulp-source-structure) 
+```
+git clone https://github.com/mohamdio/gulp-source-structure.git
+```
+- 
 
 ##Folders Structure
 
