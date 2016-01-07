@@ -1,6 +1,7 @@
 ##Gulp workflow [![Build Status](https://travis-ci.org/mohamdio/gulp-workflow.svg?branch=master)](https://travis-ci.org/mohamdio/gulp-workflow)
 An organized front-end workflow for your next project using gulp.
 * [Features](https://github.com/mohamdio/gulp-workflow#features)
+* [Gulp Tasks Structure](https://github.com/mohamdio/gulp-workflow#gulp-tasks-structure)
 * [Getting Started](https://github.com/mohamdio/gulp-workflow#getting-started)
 * [Folders Structure](https://github.com/mohamdio/gulp-workflow#folders-structure)
 * [Configuration & Paths](https://github.com/mohamdio/gulp-workflow#configuration--paths)
@@ -25,7 +26,7 @@ An organized front-end workflow for your next project using gulp.
 - Concat css/js files
 - & more, take a look at the gulp plugins used in [package.json](https://github.com/mohamdio/gulp-workflow/blob/master/package.json)
 
-###Gulp Tasks Structure
+##Gulp Tasks Structure
 This is gulp folder structure:
 - `config.js` file : to define tasks options
 - `paths.js` file : to define all paths for tasks
