@@ -189,6 +189,40 @@ gulp-workflow
 ```
 
 ##Configuration & Paths
+- From [`gulp/config.js`](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/config.js) you can define tasks & plugins options without change anything in task file, example :
+```javascript
+// bower task mainBowerFiles options
+    mainBowerFiles: {
+        // main options
+        options: {
+            base: 'bower_components'
+        },
+        // bower:css rename options
+        rename: {
+            suffix: "-css",
+            extname: '.scss'
+        },
+        // watch src
+        watch: ['./bower_components/**', './bower.json']
+    },
+```
+
+- From [`gulp/paths.js`](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/paths.js) you can define define all paths for tasks, example :
+```javascript
+// base paths
+var src    = './source/',
+    dist   = './build/',
+    dev    = 'dev/',
+    prod   = 'prod/',
+    assets = 'assets/';
+
+// nunjucks files
+        nunjucks: {
+            config: src + 'templates/',
+            src: src + 'templates/*.{html,nunjucks}',
+            watch: src + 'templates/**/*.+(html|nunjucks)'
+        },
+```
 
 ##License
 The code is available under the [MIT License](https://github.com/mohamdio/gulp-workflow/LICENSE).
