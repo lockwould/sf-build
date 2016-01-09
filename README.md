@@ -207,7 +207,7 @@ gulp-workflow
     },
 ```
 
-- From [`gulp/paths.js`](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/paths.js) you can define define all paths for tasks, example :
+- From [`gulp/paths.js`](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/paths.js) you can define all paths for tasks, example :
 ```javascript
 // base paths
 var src    = './source/',
