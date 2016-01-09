@@ -29,16 +29,19 @@ module.exports = {
     // serve task browser-sync options
     serve: {
         dev: {
-            // server: {
-            // 	baseDir: path.to.dist.dev
-            // },
-            proxy: url + '/' + path.to.dev,
+            server: {
+            	baseDir: path.to.dist.dev
+            },
+            // proxy: url + '/' + path.to.dev,
             // set browser automaically opened
             browser: 'google chrome'
             // for more options: http://www.browsersync.io/docs/options
         },
         prod: {
-            proxy: url + '/' + path.to.prod,
+        	server: {
+            	baseDir: path.to.dist.prod
+            },
+            // proxy: url + '/' + path.to.prod,
             // set browser automaically opened
             browser: 'google chrome'
         }
