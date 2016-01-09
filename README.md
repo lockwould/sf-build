@@ -88,7 +88,8 @@ bower install
 ####Available Tasks
 Task Name | Subtasks | Description
 --- | --- | ---
-clean | clean:cache - clean:prod |clean dest folders & caches
+`clean` | `clean:cache` - `clean:prod` | clean dest folders (dev & prod) & caches
+`bower` | `bower:clean` - `bower:scss` - `bower:js` - `bower:css` - `bower:fonts` | dest all bower dependencies to source folder
 
 ##Folders Structure
 
