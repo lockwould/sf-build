@@ -91,7 +91,12 @@ Task Name | Subtasks | Description
 `clean` | `clean:cache` - `clean:prod` | clean dest folders (dev & prod) & caches
 `bower` | `bower:clean` - `bower:scss` - `bower:js` - `bower:css` - `bower:fonts` | dest all bower dependencies to source folder
 `fonts` | --- | copy all fonts to dev folder
-`sass` | `sass:compile` - `sass:doc` - `sass:cssRebaseUrl` | compile sass files with docs & rebase css url 
+`sass` | `sass:compile` - `sass:doc` - `sass:cssRebaseUrl` | compile sass files with docs & rebase css url
+`js` | `js:browserify` - `js:copySrc` | browserify js files & copy source js files to dev folder
+`images` | `images:minify` - `images:favicons` | minify images & generate favicons
+`nunjucks` | `nunjucks:render` - `nunjucks:inject` | render nunjucks files & inject css/js files
+`serve` | `serve:prod` | start server & open browser for dev or prod mode
+`watch` | --- | start gulp watch for tasks (bower - sass - nunjucks - js)
 
 ##Folders Structure
 

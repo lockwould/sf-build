@@ -21,7 +21,7 @@
 //          serve:prod
 //    'gulp watch'
 //    'gulp build'
-//          build:html - build:css - build:js
+//          build:fonts - build:css - build:js - build:images - build:html
 // ----------------------------------
 // plugins:
 //     gulp, run-sequence, gulp-util, gulp-plumber
