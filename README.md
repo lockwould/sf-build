@@ -90,15 +90,19 @@ Task Name | Subtasks | Description
 --- | --- | ---
 `clean` | `clean:cache` - `clean:prod` | clean dest folders (dev & prod) & caches :: [base/clean.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/base/clean.js)
 `bower` | `bower:clean` - `bower:scss` - `bower:js` - `bower:css` - `bower:fonts` | dest all bower dependencies to source folder :: [base/bower.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/base/bower.js)
-`fonts` | --- | copy all fonts to dev folder :: [fonts.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/default/fonts.js)
+`fonts` | --- | copy all fonts to dev folder :: [default/fonts.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/default/fonts.js)
 `sass` | `sass:compile` - `sass:doc` - `sass:cssRebaseUrl` | compile sass files with docs & rebase css url :: [default/sass.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/default/sass.js)
-`js` | `js:browserify` - `js:copySrc` | browserify js files & copy source js files to dev folder :: [default/scripts.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/default/scripts.js)
+`js` | `js:browserify` - `js:copySrc` | browserify & uglify js files & copy source js files to dev folder :: [default/scripts.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/default/scripts.js)
 `images` | `images:minify` - `images:favicons` | minify images & generate favicons :: [default/images.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/default/images.js)
 `nunjucks` | `nunjucks:render` - `nunjucks:inject` | render nunjucks files & inject css/js files :: [default/nunjucks.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/default/nunjucks.js)
 `serve` | `serve:prod` | start server & open browser for dev or prod mode :: [base/serve.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/base/serve.js)
 `watch` | --- | start gulp watch for tasks (bower - sass - nunjucks - js) :: [base/watch.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/base/watch.js)
 `build` | --- | main build task for prod mode
 --- | `build:fonts` | copy fonts to prod folder :: [build/fonts.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/build/fonts.js)
+--- | `build:css` | rebase url/remove unused selectors/strip comments/beautify/concat/minify :: [build/css.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/build/css.js)
+--- | `build:js` | copy js files to prod folder :: [build/scripts.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/build/scripts.js)
+--- | `build:images` | copy images to prod folder :: [build/images.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/build/images.js)
+--- | `build:html` | copy & prettify html files and inject minified css/js files :: [build/html.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/build/html.js)
 
 ##Folders Structure
 
