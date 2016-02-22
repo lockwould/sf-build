@@ -84,6 +84,7 @@ bower install
 - After all done installing, you can run tasks
   * `gulp` to run default tasks for development
   * `gulp build` to build your project for production
+  * `gulp help` to get a listing of available tasks
 
 ####Available Tasks
 Task Name | Subtasks | Description
@@ -105,8 +106,124 @@ Task Name | Subtasks | Description
 --- | `build:html` | copy & prettify html files and inject minified css/js files :: [build/html.js](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/tasks/build/html.js)
 
 ##Folders Structure
+- `source` folder : contain all source files
+- `build` folder : contain dest folders `dev` for development & `prod` for production
+- `bower_components` folder : contain all bower dependencies
+- `gulp` folder : contain all gulp tasks files
+- `node_modules` folder : contain all gulp dependencies
+- `bower.json` file : define bower dependencies
+- `gulpfile.js` file : define gulp tasks for default & build
+- `package.json` file : define gulp dependencies
+
+```
+gulp-workflow
+├── bower_components
+│   ├── # bower dependencies
+├── gulp
+│   ├── # gulp tasks
+├── node_modules
+│   ├── # Gulp dependencies
+├── build
+│   ├── dev
+│   │   ├── assets
+│   │   │   ├── css
+│   │   │   │   ├── _maps
+│   │   │   │   ├── _sassdoc
+│   │   │   │   ├── base
+│   │   │   │   ├── vendor
+│   │   │   │   └── main.css
+│   │   │   ├── fonts
+│   │   │   │   ├── # all fonts
+│   │   │   ├── images
+│   │   │   │   ├── favicons
+│   │   │   │   └── logo.png
+│   │   │   └── js
+│   │   │       ├── src
+│   │   │       ├── scripts.js
+│   │   │       └── scripts.js.map
+│   │   └── index.html
+│   └── prod
+│       ├── assets
+│       │   ├── css
+│       │   │   ├── maps
+│       │   │   ├── style.css
+│       │   │   └── style.min.css
+│       │   ├── fonts
+│       │   │   ├── # all fonts
+│       │   ├── images
+│       │   │   ├── favicons
+│       │   │   └── logo.png
+│       │   └── js
+│       │       ├── scripts.js
+│       │       └── scripts.js.map
+│       └── index.html
+├── source
+│   ├── fonts
+│   │   └── vendor
+│   │       └── # all vendor fonts
+│   ├── images
+│   │   └── logo.png
+│   ├── js
+│   │   ├── modules
+│   │   │   └── module.js
+│   │   ├── vendor
+│   │   │   ├── # all vendors
+│   │   └── main.js
+│   ├── scss
+│   │   ├── base
+│   │   │   └── base.scss
+│   │   ├── vendor
+│   │   │   ├── lib
+│   │   │   └── vendor.scss
+│   │   └── main.scss
+│   └── templates
+│       ├── includes
+│       ├── layouts
+│       │   └── default.nunjucks
+│       ├── macros
+│       └── index.nunjucks
+├── LICENSE
+├── README.md
+├── bower.json
+├── gulpfile.js
+└── package.json
+```
 
 ##Configuration & Paths
+- From [`gulp/config.js`](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/config.js) you can define tasks & plugins options without change anything in task file, example :
+```javascript
+// bower task mainBowerFiles options
+    mainBowerFiles: {
+        // main options
+        options: {
+            base: 'bower_components'
+        },
+        // bower:css rename options
+        rename: {
+            suffix: "-css",
+            extname: '.scss'
+        },
+        // watch src
+        watch: ['./bower_components/**', './bower.json']
+    },
+```
+
+- From [`gulp/paths.js`](https://github.com/mohamdio/gulp-workflow/blob/master/gulp/paths.js) you can define all paths for tasks, example :
+```javascript
+// base paths
+var src    = './source/',
+    dist   = './build/',
+    dev    = 'dev/',
+    prod   = 'prod/',
+    assets = 'assets/';
+
+// nunjucks files
+        nunjucks: {
+            config: src + 'templates/',
+            src: src + 'templates/*.{html,nunjucks}',
+            watch: src + 'templates/**/*.+(html|nunjucks)'
+        },
+```
 
 ##License
 The code is available under the [MIT License](https://github.com/mohamdio/gulp-workflow/LICENSE).

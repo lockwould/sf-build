@@ -1,4 +1,17 @@
 {
+  "name": "gulp-workflow",
+  "version": "1.0.0",
+  "description": "Gulp workflow for front-end development",
+  "main": "gulpfile.js",
+  "author": {
+    "name": "mohamdio",
+    "url": "https://mohamd.io"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohamdio/gulp-workflow"
+  },
   "devDependencies": {
     "browser-sync": "^2.11.0",
     "browserify": "^12.0.2",
@@ -12,6 +25,7 @@
     "gulp-favicons": "2.2.3",
     "gulp-filter": "^3.0.1",
     "gulp-flatten": "^0.2.0",
+    "gulp-help": "^1.6.1",
     "gulp-imagemin": "^2.4.0",
     "gulp-inject": "^3.0.0",
     "gulp-load-plugins": "^1.2.0",

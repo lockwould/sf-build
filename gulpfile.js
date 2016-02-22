@@ -25,7 +25,7 @@
 // ----------------------------------
 // plugins:
 //     gulp, run-sequence, gulp-util, gulp-plumber
-//     gulp-load-plugins, gulp-load-subtasks
+//     gulp-load-plugins, gulp-load-subtasks, gulp-help
 //     gulp-nunjucks-render, gulp-cssbeautify
 //     gulp-sass, gulp-sourcemaps, browser-sync
 //     gulp-prettify, gulp-newer, main-bower-files
@@ -39,7 +39,7 @@
 // ----------------------------------
 
 // main gulp plugins
-var gulp     = require('gulp'),
+var gulp     = require('gulp-help')(require('gulp')),
     path     = require('./gulp/paths.js'),
     config   = require('./gulp/config.js'),
     sequence = require('run-sequence'),
@@ -55,7 +55,7 @@ var gulp     = require('gulp'),
 $.loadSubtasks('./gulp/tasks/**/*.js', $, path, config);
 
 // common default tasks : for dev mode
-gulp.task('default', function(cb) {
+gulp.task('default', 'common default tasks for dev mode', function(cb) {
     sequence(
     	config.task.clean,
     	config.task.bower,
@@ -71,7 +71,7 @@ gulp.task('default', function(cb) {
 });
 
 // build tasks : for prod mode
-gulp.task(config.task.build, function(cb) {
+gulp.task(config.task.build, 'main build task for prod mode', function(cb) {
     sequence(
     	config.task.clean + ':cache',
     	config.task.clean + ':prod',
