@@ -1,4 +1,11 @@
+
+
+
 jQuery(document).ready(function($) {
+
+
+
+//header scroll change	
   $(window).scroll(function() {
     var scrollPos = $(window).scrollTop(),
         navbar = $('.header--banner');
@@ -9,4 +16,9 @@ jQuery(document).ready(function($) {
       navbar.removeClass('scrolled');
     }
   });
+
+
+//next script goes here
+
+
 });
