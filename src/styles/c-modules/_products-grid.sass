@@ -1,0 +1,157 @@
+.products-grid
+	+outer-container
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+
+	.product
+		padding: $space-teeny $space-teeny $space-xxsmall $space-teeny
+		background-color: $light-gray
+		+shadow
+		position: relative
+		flex-basis: 13.9432em
+		flex-grow: 1
+		margin: 0 $gutter 0 $gutter
+
+		.product-image-container
+
+		.product-heading-container
+			+clearfix
+			position: relative
+			margin-bottom: 16px
+			h2
+				font-size: $base
+				float: left
+				margin-top: 12px
+				margin-bottom: 0
+				+media($bp-desk-med)
+					font-size: $med
+					float: none
+					display: block
+					margin-bottom: 16px
+					text-align: center
+			.button--small
+				float: right
+				+media($bp-desk-med)
+					float: left
+					width: 100%
+					text-align: center
+		p
+			font-size: 15px
+			margin-bottom: 21px
+			+media ($bp-desk-med)
+				text-align: center
+		.product-heading-container--extended
+			+clearfix
+			position: relative
+			margin-bottom: 16px
+
+			h2
+				+font-size($lrg-p--font-sizes)
+				display: block
+				margin-bottom: 12px
+				+media($bp-desk-med)
+					font-size: $med
+					display: block
+					margin-bottom: 16px
+					text-align: center
+			h3
+				+font-size($p--font-sizes)
+				margin-bottom: 16px
+				color: $almost-dark-gray
+				+media($bp-desk-med)
+					margin-bottom: 0
+					display: block
+					text-align: center
+
+
+
+		.product-content-container--extended
+			position: relative
+			p
+				padding-bottom: 48px
+				+media($bp-desk-small)
+					padding-bottom: 0px
+
+.button--med.position--bottom
+	position: absolute
+	bottom: 0
+	margin-bottom: 21px
+	margin-top: 21px
+	+media($bp-desk-med)
+		width: 80%
+		text-align: center
+		margin-left: auto
+		margin-right: auto
+		left: 0
+		right: 0
+	+media($bp-desk-small)
+		width: auto
+		position: relative
+	+media($bp-mob-med)
+		width: 100%
+
+
+
++media($bp-desk-small)
+	.products-grid
+
+		.product
+			margin-bottom: 21px
+			flex-basis: 100%
+			padding: 21px
+
+			.product-image-container, .prodct-image-container--extended
+				+span-columns(4)
+				float: left
+				height: 100%
+			.product-heading-container, .product-heading-container--extended, p
+				+span-columns(8)
+				display: block
+				margin-right: 0
+				margin-bottom: 21px
+				text-align: left
+				h2
+					text-align: left
+					+font-size($h2--font-sizes)
+				h3
+					text-align: left
+					+font-size($lrg-p--font-sizes)
+				.button--small,.button--med.position--bottom
+					float: none
+					position: relative
+					width: auto
+					text-align: center
+					font-size: 16px
+					margin-top: 10px
+					padding: 8px 20px
++media($bp-mob-med)
+	.products-grid
+		.product
+			position: relative
+			padding: 26px
+
+			.product-image-container, .product-image-container--extended
+				width: 100%
+				height: auto
+				margin-bottom: 0
+				text-align: center
+				img
+					width: 70%
+					margin: 0 auto
+			.product-heading-container, .product-heading-container--extended, p
+				text-align: center
+				width: 100%
+				display: block
+				h2, h3
+					text-align: center
+
+				.button--small, .button--med.position--bottom
+					width: 100%
+
+
+
+
+.pull-up
+	position: relative
+	top: -40px

@@ -1,0 +1,20 @@
+
+.hero-text--centered
+	text-align: center
+	+span-columns(8)
+	+shift(2)
+	float: none
+	+clearfix
+
+
++media($bp-tab-med)
+	.hero-text--centered
+		+span-columns(10)
+		+shift(1)
+		float: none
+
++media($bp-mob-med)
+	.hero-text--centered
+		+span-columns(12)
+		+shift(0)
+		float: none

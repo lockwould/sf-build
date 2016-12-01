@@ -1,0 +1,17 @@
+.products-header--container
+	+outer-container()
+	padding: $space-big 0 $space-xlarge 0
+	h1
+		+font-size($sub-h1--font-sizes)
+	h1,h3
+		+span-columns(8)
+		+shift(2)
+		color: #ffffff
+		text-align: center
+
+.products-tablet--container
+	+outer-container
+	padding: $space-xlarge 0 $space-xlarge 0
+
+	.tablet-image--container
+		margin-top: $space-large

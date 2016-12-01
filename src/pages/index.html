@@ -1,0 +1,89 @@
+<!-- index.nunjucks -->
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="home" class="main" role="main">
+<div class="hero-video--container">
+<video class="video--hero" poster="assets/images/background--video-placeholder.jpg" playsinline autoplay muted loop>
+  <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+<source src="assets/video/background--smartflower-video.mp4" type="video/mp4">
+</video>
+</div>
+	<header class="header--video">
+		<section class="home-header--container">
+			<h1>Solar,&nbsp;smarter than&nbsp;ever</h1>
+			<p>watch the video <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></p>
+			<h3 class="subhead">Meet smartflower: the most intelligent &amp; stunning solar solution under the sun</h3>
+			<div class="button--row">
+			<a class="button--special-white">for your home</a>
+			<a class="button--special-white">for business &amp; government</a>
+			</div>
+			</section>
+	</header>
+<section class="home-intro--container">
+	<section class="products-grid pull-up">
+		<div class="product">
+			<div class="product-image-container"><img src="../assets/images/product--smartflower--800.png"></div>
+			<div class="product-heading-container">
+				<h2>smartflower</h2>
+				<a class="button--small">learn more</a>
+			</div>
+			<p class="p--tight">A fully integrated, plug-and-play solar system that powers your world with clean energy.</p>
+		</div>
+		<div class="product">
+			<div class="product-image-container"><img src="../assets/images/product--smartflowerplus--800.png"></div>
+			<div class="product-heading-container">
+				<h2>smartflower plus</h2>
+				<a class="button--small">learn more</a>
+			</div>
+			<p class="p--tight">Clean energy whenever you need it. Generate and store power whether you’re on or off the grid.</p>
+		</div>
+		<div class="product">
+			<div class="product-image-container"><img src="../assets/images/product--smartflowerev-800.png"></div>
+			<div class="product-heading-container">
+				<h2>smartflower ev</h2>
+				<a class="button--small">learn more</a>
+			</div>
+			<p class="p--tight">An all-in-one solar system combined with an electric vehicle charging station.</p>
+		</div>
+	</section>
+	<section class="home-intro">
+		<div class="hero-text--centered">
+			<h2>Solar made simple</h2>
+			<h3 class="subhead--berry">simpy, setup, connect, and start producing clean energy</h3>
+			<p>smartflower is a fully integrated, all-in-one solar system that can live anywhere. Designed to be a plug-and-play system like any other household appliance, smartflower makes solar simple. All it takes is a quick setup, and you'll be producing clean energy for your home or business. And if you ever have to move it, smartflower can be easily packed up and set up wherever there's solid ground.</p>
+		</div>
+
+	</section>
+
+	<div class="intro-image--container">
+		<img src="assets/images/background--smartflower-petals-shine.png">
+	</div>
+
+</section>
+
+<section class="">
+</section>
+
+<section class="home-features--container">
+	<div class="hero-text--centered">
+		<h2>Smart enough to take care of itself</h2>
+		<h3 class="subhead--berry">Expertly designed for nearly effortless clean energy</h3>
+		<p>smartflower combines several smart features into one sophisticated package with the goal of maximizing its efficiency and making it early effortless to operate</p>
+	</div>
+</section>
+<section class="home-awards--container">
+	<div class="home-awards">
+	<h2>Creative thinking gets noticed—our awards</h2>
+		<div class="owl-carousel owl-theme" id="awards--carousel">
+		  <div><img src="assets/images/good-design-award--613-transparent.png"></div>
+		  <div><img src="assets/images/reddot-design-award--613-transparent.png"></div>
+		  <div><img src="assets/images/sea-sustainable-entrepreneurship-award--613-transparent.png"></div>
+		  <div><img src="assets/images/verbund-enovation-award--613-transparent.png"></div>
+		  <div><img src="assets/images/austria-award--613-transparent.png"></div>
+		</div>
+	</div>
+</section>
+{% include "../templates/partials/cta.html" %}
+</div>
+{% endblock %}

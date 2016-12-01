@@ -1,0 +1,71 @@
+/* Fonts */
+$header-font  : 'Museo Slab'
+$sans-font : 'Museo Sans'
+$serif-font : 'Times'
+$mono-font  : 'Consolas'
+
+/* Modular Scale */
+$em-base            : em(16)
+$modular-scale-ratio: $perfect-fourth
+$modular-scale-base : $em-base
+
+/* Font Sizes */
+$tiny    : modular-scale(-2)
+$small   : modular-scale(-1)
+$base    : $modular-scale-base
+$med     : modular-scale(1)
+$large   : modular-scale(2)
+$larger  : modular-scale(3)
+$xlarge  : modular-scale(4)
+$big     : modular-scale(5)
+$humongus: modular-scale(6)
+
+/* Default Fallbacks */
+$sans     : $sans-font, -apple-system, BlinkMacSystemFont,  "Open Sans", "Helvetica Neue", Arial, sans-serif !default
+$serif    : $serif-font, Georgia, "Times New Roman", Times, serif !default
+$monospace:  $mono-font, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default
+$header   : $header-font
+
+h1, h2, h3, h4, h6, h6, p, blockquote, figure, ol, ul
+    margin: 0
+    padding: 0
+
+h1, h2, h3, h4, h5, h6
+    font-family: $header
+
+h1
+    font-size: $humongus
+
+h2
+    font-size: $big
+
+h3
+    font-size: $xlarge
+
+h4
+    font-size: $larger
+
+h5
+    font-size: $large
+
+h6
+    font-size: $med
+
+p
+    font-size: $base
+
+small
+    font-size: $small
+
+strong
+    font-weight: 700
+
+a
+    background-color: transparent
+    -webkit-text-decoration-skip: objects
+    -ms-touch-action: manipulation
+    touch-action: manipulation
+
+a:active, a:hover
+    outline-width: 0
+

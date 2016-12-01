@@ -1,0 +1,150 @@
+
+.header--prod-smartflower
+	color: #ffffff
+	padding: $space-humongous 0 $space-big 0
+.prod-header--container
+	+outer-container()
+.prod--head
+	+font-size($lrg-p--font-sizes)
+	font-family: $base-font-family
+	font-weight: 300
+	position: relative
+	display: inline-block
+
+.prod--head::after
+	content: ''
+	display: block
+	border-bottom: solid 1.5px #ffffff
+	position: relative
+	margin-left: 4px
+	top: -8px
+	width: 300%
+	left: 100%
+
+.prod-header-content--container
+	+span-columns(6)
+.prod-sf-header-image--container
+	+span-columns(6)
+
+.prod-intro--container
+	+outer-container()
+	padding: 0 0 $space-big 0
+.prod-bubbles--container
+	+span-columns(7)
+#bubble-parallax
+	position: relative
+.bubbles-position--container
+	position: absolute
+	top: -380px
+	height: 1000px
+	width: 100%
+.prod-intro-content--container
+	+span-columns(5)
+	h2
+		+font-size($h3--font-sizes)
+	.subhead
+		+font-size($lrg-p--font-sizes)
+		color: $berry
+
+.prod-bubble
+	border-radius: 50%
+	position: absolute
+	display: block
+	+shadow
+
+.prod-bubbles--container.smartflower
+	.sml-vio
+		width: 80px
+		height: 80px
+		background-color: $lavendar
+		top: 0px
+		left: 200px
+	.med-blue
+		width: 70px
+		height: 70px
+		background-color: $blue
+		top: 130px
+		left: 120px
+	.med-bg
+		height: 95px
+		width: 95px
+		top: 130px
+		left: 400px
+		background: url(../assets/images/background--bubble-smartflower-3.jpg) no-repeat top left
+		-webkit-background-size: cover
+		-moz-background-size: cover
+		-o-background-size: cover
+		background-size: cover
+	.xl-bg
+		height: 480px
+		width: 480px
+		background: url(../assets/images/background--bubble-smartflower.jpg) no-repeat top left
+		-webkit-background-size: cover
+		-moz-background-size: cover
+		-o-background-size: cover
+		background-size: cover
+		top: 180px
+	.sml-mer
+		height: 40px
+		width: 40px
+		background-color: $mermaid
+		top: 180px
+		left: 490px
+	.sml-bg
+		height: 96px
+		width: 96px
+		background: url(../assets/images/background--bubble-smartflower-4.jpg) no-repeat top left
+		-webkit-background-size: cover
+		-moz-background-size: cover
+		-o-background-size: cover
+		background-size: cover
+		top: 600px
+	.sml-ber
+		height: 54px
+		width: 54px
+		background-color: $berry
+		left: 200px
+		top: 680px
+	.lrg-bg
+		height: 138px
+		width: 138px
+		top: 600px
+		left: 400px
+		background: url(../assets/images/background--bubble-smartflower-2.jpg) no-repeat top left
+		-webkit-background-size: cover
+		-moz-background-size: cover
+		-o-background-size: cover
+		background-size: cover
+	.med-amb
+		height: 90px
+		width: 90px
+		background-color: $amber
+		top: 820px
+		left: 120px
+
+.prod--down-arrow
+	font-family: arial
+	font-size: 26px
+	display: block
+	height: 56px
+	width: 56px
+	border: solid 2px #ffffff
+	line-height: 45px
+	text-align: center
+	border-radius: 50%
+
+
+@keyframes arrow
+	0%
+		bottom: -13px
+	50%
+		bottom: -8px
+	100%
+		bottom: -13px
+
+.arrow-bounce
+	-webkit-animation:  arrow 1s infinite
+	-moz-animation:     arrow 1s infinite
+	-o-animation:       arrow 1s infinite
+	animation:          arrow 1s infinite
+	animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1)

@@ -1,0 +1,255 @@
+header[role="banner"]
+	border-top: 10px solid $dark-gray
+	padding-top: 21px
+	position: fixed
+	z-index: 999
+	width: 100%
+	background-color: transparent
+	transition: all 0.3s
+
+header.scrolled
+	background-color: $dark-gray
+	padding-top: 8px
+	padding-bottom: 8px
+	border-top: 3px solid $berry
+.navigation-wrapper
+	+outer-container()
+nav
+	float: right
+	li
+		display: inline-block
+
+.navigation
+	position: relative
+	a
+		position: relative
+		display: block
+		margin: 0 25px 0 0
+		outline: none
+		color: #ffffff
+		text-decoration: none
+		text-transform: uppercase
+		letter-spacing: 1px
+		font-weight: 100
+		font-size: $small
+
+		&:hover
+			color: #ffffff
+.nav-item--single
+	a
+		&::after
+			position: absolute
+			top: 100%
+			left: 0
+			width: 100%
+			height: 1px
+			background: $berry
+			content: ''
+			opacity: 0
+			transition: all 0.3s
+			transform: translateY(-10px)
+		&:hover::after
+			height: 3px
+			opacity: 1
+			transform: translateY(0px)
+.nav-item--drop
+	position: relative
+	.drop--wrapper
+		border-top: 3px solid $berry
+		position: absolute
+		top: 100%
+		left: 0
+		background: #fff
+		padding: 0
+		transform: translateY(-10px)
+		height: 0
+		overflow: hidden
+		opacity: 0
+		transition: all 0.3s
+		li
+			padding: 0
+		a
+			color: $dark-gray
+			white-space: nowrap
+			width: 100%
+			padding: 16px
+			display: block
+			&:hover
+				color: $berry
+	&:hover > ul
+		display: block
+		height: auto
+		transform: translateY(0px)
+		opacity: 1
+
+#hamburger
+	display: none
+
+
+
+$lineWidth: 5px
+$lineLength: 25px
+$baseMargin: 8px
+$animationDuration: .2s
+
+
+.menuicon
+	position: relative
+	float: right
+	top: 0
+	right: 0
+	display: block
+	cursor: pointer
+	height: 42px
+	width: 46px
+	padding: 10px
+	background-color: $berry
+	display: none
+	z-index: 10
+
+	span
+		display: block
+		top: 8px
+		width: 100%
+		height: 5px
+		background-color: #fff
+		position: relative
+		transition-duration: 0.3s
+		border-radius: 5px
+
+		&::after, &::before
+			display: block
+			content: ''
+			border-radius: 5px
+			position: absolute
+			width: 100%
+			height: 5px
+			background-color: #fff
+			transition: all 0.3s
+
+		&::before
+			margin-top: -8px
+		&::after
+			margin-top: 8px
+.scrolled .menu-icon
+
+
+
+#hamburger:checked ~ .menuicon
+  span
+    background-color: rgba(0,0,0,0)
+    &::before, &::after
+      margin-top: 0px
+      -webkit-transition-delay: 0, 0.3s
+      -moz-transition-delay: 0, 0.3s
+      -ms-transition-delay: 0, 0.3s
+      -o-transition-delay: 0, 0.3s
+      transition-delay: 0, 0.3s
+
+    &::before
+      -webkit-transform: rotate(45deg)
+      -moz-transform: rotate(45deg)
+      -ms-transform: rotate(45deg)
+      -o-transform: rotate(45deg)
+      transform: rotate(45deg)
+
+    &::after
+      -webkit-transform: rotate(-45deg)
+      -moz-transform: rotate(-45deg)
+      -ms-transform: rotate(-45deg)
+      -o-transform: rotate(-45deg)
+      transform: rotate(-45deg)
+
+
++media($bp-tab-med)
+	#hamburger:checked ~ .navigation
+		position: absolute
+		left: 0!important
+
+	.menuicon
+		display: block
+	nav
+		float: right
+		li
+			display: block
+			padding: 0px
+			background: #fff
+	.navigation
+		width: 100%
+		height: 100%
+		position: absolute
+		top: 0
+		background: #fff
+		left: -100%
+		transition: all .3s ease-in-out
+		padding-top: 60px
+		height: 100%
+		min-height: 720px
+		overflow: scroll
+
+		a
+			position: relative
+			display: block
+			margin: 0px
+			outline: none
+			color: $dark-gray
+			text-align: center
+			text-decoration: none
+			text-transform: uppercase
+			letter-spacing: 1px
+			font-weight: 100
+			font-size: $med
+			padding: 10px
+
+			&:hover
+				color: $berry
+	.nav-item--single, .nav-item--drop
+		a
+			font-weight: 400
+			&::after
+				position: absolute
+				top: 100%
+				left: 0
+				width: 100%
+				height: 1px
+				background: $berry
+				content: ''
+				opacity: 0
+				transition: all 0.3s
+				transform: translateY(-10px)
+			&:hover::after
+				height: 3px
+				opacity: 1
+				transform: translateY(0px)
+	.nav-item--drop
+		position: relative
+		.drop--wrapper
+			border-top: none
+			position: relative
+			top: 100%
+			left: 0
+			background: transparent
+			padding: 0
+			transform: translateY(0px)
+			height: auto
+			overflow: visible
+			opacity: 1
+			transition: all 0.3s
+			li
+				padding: 0px
+				display: block
+			a
+				color: $dark-gray
+				white-space: wrap
+				font-weight: 100
+				&:hover
+					color: $berry
+		&:hover > ul
+			display: block
+			height: auto
+			transform: translateY(0px)
+			opacity: 1
+
+.logo
+	display: inline-block
+	width: 138px

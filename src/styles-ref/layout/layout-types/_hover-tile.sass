@@ -1,0 +1,34 @@
+.hover-tile-outer
+  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png")
+  background-color: beige
+  background-position: top
+  background-size: cover
+  border: 1px solid $border-color
+  cursor: pointer
+  height: $hover-tile-height
+  margin-bottom: $base-spacing
+
+  .hover-tile-container
+    height: $hover-tile-height
+    overflow: hidden
+
+  .hover-tile-container:hover > .hover-tile
+    transform: translate(0, -100%)
+
+  .hover-tile
+    background: inherit
+    color: white
+    height: inherit
+    overflow: hidden
+    padding: $base-spacing
+    transition: all 0.2s ease-in-out
+
+  .hover-tile-hidden
+    background: $disabled
+
+    p
+      color: white
+      line-height: $base-spacing
+
+    h4
+      margin: 0 0 0.5em 0

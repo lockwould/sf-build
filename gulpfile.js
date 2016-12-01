@@ -1,86 +1,124 @@
-// gulpfile.js
-'use strict';
+var gulp         = require('gulp');
+    clean        = require('gulp-clean');
+    plumber      = require('gulp-plumber');
+    rename       = require('gulp-rename');
+    inject       = require('gulp-inject');
+    browserSync  = require('browser-sync').create();
+    sass         = require('gulp-sass');
+    flatten      = require('gulp-flatten');
+    uncss        = require('gulp-uncss');
+    autoprefixer = require('gulp-autoprefixer');
+    cleanCSS     = require('gulp-clean-css');
+    csscomb      = require('gulp-csscomb');
+    concat       = require('gulp-concat');
+    uglify       = require('gulp-uglify');
+    coffee       = require('gulp-coffee');
+    del          = require('del');
+    wiredep      = require('wiredep').stream;
+    inject       = require('gulp-inject');
+    reload       = browserSync.reload;
+    useref       = require('gulp-useref');
+    nunjucks     = require('gulp-nunjucks');
+    nunjucksRender = require('gulp-nunjucks-render');
+    filter = require('gulp-filter');
 
-// ----------------------------------
-// available tasks: 
-//    'gulp'
-//    'gulp clean'
-//          clean:cache - clean:prod
-//    'gulp bower'
-//          bower:clean - bower:scss - bower:js - bower:css - bower:fonts
-//    'gulp fonts'
-//    'gulp sass'
-//          sass:compile - sass:doc - sass:cssRebaseUrl
-//    'gulp js'
-//          js:browserify - js:copySrc
-//    'gulp images'
-//          images:minify - images:favicons
-//    'gulp nunjucks'
-//          nunjucks:render - nunjucks:inject
-//    'gulp serve'
-//          serve:prod
-//    'gulp watch'
-//    'gulp build'
-//          build:fonts - build:css - build:js - build:images - build:html
-// ----------------------------------
-// plugins:
-//     gulp, run-sequence, gulp-util, gulp-plumber
-//     gulp-load-plugins, gulp-load-subtasks, gulp-help
-//     gulp-nunjucks-render, gulp-cssbeautify
-//     gulp-sass, gulp-sourcemaps, browser-sync
-//     gulp-prettify, gulp-newer, main-bower-files
-//     gulp-flatten, del, gulp-inject, gulp-cached
-//     gulp-autoprefixer, sassdoc, gulp-minify-css
-//     gulp-rename, lazypipe, gulp-concat, gulp-uncss
-//     gulp-strip-css-comments, gulp-filter, gulp-changed
-//     browserify, vinyl-source-stream, vinyl-buffer 
-//     gulp-uglify, watchify, lodash.assign, gulp-imagemin
-//     imagemin-pngquant, gulp-favicons, gulp-replace
-// ----------------------------------
+var src = {
+    sass    : 'src/styles/main.sass',
+    jesass  : 'src/styles/**/*.sass',
+    css     : 'dist/css/',
+    coffee  : 'scripts/**/*.coffee',
+    js      : 'src/scripts/**/*.js',
+    templ   : 'src/**/*.html',
+    html    : 'dist/*.html'
+};
 
-// main gulp plugins
-var gulp     = require('gulp-help')(require('gulp')),
-    path     = require('./gulp/paths.js'),
-    config   = require('./gulp/config.js'),
-    sequence = require('run-sequence'),
-    $        = require('gulp-load-plugins')({
-        // used for all plugins type not just with gulp-*
-        pattern: '*',
-        rename: {
-			'lodash.assign': 'assign'
-		}
+
+
+/* Scripts */
+gulp.task('scripts', function() {
+    return gulp.src(src.js)
+        .pipe(plumber())
+        .pipe(coffee({bare: true}))
+        .pipe(concat('plugins.js'))
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('./dist/js/'))
+        .pipe(reload({stream: true}))
+});
+
+/* Styles: Main right now because i'm using bourbon straight,
+there's scss, so it's not watching for scss, jsut need to save
+main.sass to update.. will figure out solution later
+ */
+gulp.task('styles', function() {
+    return gulp.src(src.sass)
+        .pipe(plumber())
+        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(autoprefixer())
+        .pipe(csscomb())
+        .pipe(cleanCSS())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest(src.css))
+        .pipe(reload({stream: true}))
+});
+
+var paths = {
+     csspath: ['dist/css/*.css'],
+     jspath: [ 'dist/js/*.js']
+
+      };
+
+ gulp.task('inject', function(){
+     return gulp.src('dist/index.html')
+         .pipe(inject(
+             gulp.src(paths.jspath,
+                 {read: false}), {relative: true}))
+         .pipe(gulp.dest('dist/'))
+         .pipe(inject(
+             gulp.src(paths.csspath,
+             {read: false}), {relative: true}))
+         .pipe(gulp.dest('dist/'));
+ });
+
+
+gulp.task('nunjucks', function() {
+  // Gets .html and .nunjucks files in pages
+  return gulp.src('src/pages/**/*.+(html|nunjucks)')
+  // Renders template with nunjucks
+  .pipe(nunjucksRender({
+      path: ['src/templates']
+    }))
+  // output files in app folder
+  .pipe(gulp.dest('dist'))
+
+/* Inject vendor assets */
+gulp.task('bower', function() {
+    gulp.src('./')
+        .pipe(wiredep())
+        .pipe(gulp.dest('./'))
+});
+
+});
+
+/* Serve */
+gulp.task('serve', ['scripts', 'styles', 'nunjucks', 'inject'], function() {
+    browserSync.init({
+        server: './dist',
+        port: 3000
     });
-
-// require all tasks : gulp-load-subtasks
-$.loadSubtasks('./gulp/tasks/**/*.js', $, path, config);
-
-// common default tasks : for dev mode
-gulp.task('default', 'common default tasks for dev mode', function(cb) {
-    sequence(
-    	config.task.clean,
-    	config.task.bower,
-    	config.task.fonts,
-        config.task.sass,
-        config.task.scripts,
-        config.task.images,
-        config.task.nunjucks,
-        config.task.browserSync,
-        'watch',
-        cb
-    )
+    gulp.watch(src.jesass, ['styles']);
+    gulp.watch(src.templ, ['nunjucks']);
+    gulp.watch(src.html, ['inject']);
+    gulp.watch(src.html).on('change', reload)
 });
 
-// build tasks : for prod mode
-gulp.task(config.task.build, 'main build task for prod mode', function(cb) {
-    sequence(
-    	config.task.clean + ':cache',
-    	config.task.clean + ':prod',
-    	config.task.build + ':fonts',
-    	config.task.build + ':css',
-    	config.task.build + ':js',
-    	config.task.build + ':images',
-    	config.task.build + ':html',
-    	config.task.browserSync + ':prod',
-        cb
-    )
+/* Clean up */
+gulp.task('doomtodist', function() {
+    return del([
+        'dist/'
+    ]);
 });
+
+
+gulp.task('travis', ['scripts', 'styles', 'bower'])
+gulp.task('default', ['serve']);

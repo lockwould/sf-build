@@ -1,0 +1,326 @@
+/* Accordion Tabs */
+.accordion-tabs
+  $large-screen: 50em !default
+
+  +clearfix
+
+  padding: 0
+
+  .tab-header-and-content
+    list-style: none
+
+    +media($large-screen)
+      display: inline
+
+  .tab-link
+    display: block
+    padding-right: 1em
+
+    +media($large-screen)
+      display: inline-block
+
+  .is-active
+    color: #ff0000
+
+  .tab-content
+    display: none
+    width: 100%
+
+    +media($large-screen)
+      float: left
+
+/* Accordion */
+.accordion
+  > li > a
+    font-weight: normal
+
+  ul.submenu
+    display: none
+
+  .is-expanded
+    > a
+      color: red
+
+    display: block
+
+/* Dropdown */
+.dropdown
+    $dropdown-distance-from-menu: 50px
+    .dropdown--wrapper
+        display: inline-block
+        position: relative
+        text-align: center
+    .dropdown--description
+        float: left
+        padding-right: 1em
+    .dropdown--button
+        cursor: pointer
+        float: left
+        position: relative
+        &:after
+            display: block
+            position: absolute
+    .dropdown--menu
+        transition: all 0.2s ease-in-out
+        cursor: pointer
+        display: none
+        overflow: show
+        position: absolute
+        text-align: left
+        top: $dropdown-distance-from-menu
+        width: 228px
+        z-index: 999999
+    .dropdown--show
+        display: block
+
+/* Expander */
+.expander
+    width: $expander-width
+    .expander--trigger
+        display: block
+        &:before
+            font-family: 'FontAwesome'
+            content: '\f101'
+            margin-right: 0.5em
+    .expander--hidden
+        &:before
+            font-family: 'FontAwesome'
+            content: '\f105'
+    .expander--hidden + .expander--content
+        display: none
+
+/* Horizontal Navigation */
+.nav--horizontal
+  $large-screen: 50em !default
+  $medium-screen: 30em !default
+
+  // Mobile view
+  .navigation-menu-button
+    display: block
+    float: right
+    margin: 0
+    padding-top: 0.5em
+
+    +media($medium-screen)
+      display: none
+
+  // Nav menu
+  .navigation-wrapper
+    +clearfix
+
+    position: relative
+
+  .logo
+    float: left
+
+    +media($medium-screen)
+      float: none
+      text-align: center
+      display: block
+
+
+    +media($large-screen)
+      float: left
+
+
+    img
+      max-height: 2em
+      padding-right: 1em
+
+  nav
+    float: none
+
+    +media($medium-screen)
+      float: left
+      text-align: center
+      line-height: 1.5em
+      padding-top: 0.3em
+
+  ul.navigation-menu
+    clear: both
+    display: none
+    margin: 0 auto
+    overflow: visible
+    padding: 0
+    width: 100%
+
+    +media($medium-screen)
+      display: block
+      margin: 0
+      padding: 0
+
+
+    &.show
+      display: block
+
+  // Nav items
+  ul li.nav-link
+    display: block
+    text-align: right
+    width: 100%
+
+    +media($medium-screen)
+      background: transparent
+      display: inline
+      text-decoration: none
+      width: auto
+
+  li.nav-link a
+    display: inline-block
+
+    +media($large-screen)
+      padding-right: 1em
+
+/* Centered Navigation */
+.navigation--centered
+  $large-screen: 50em !default
+  $centered-navigation-height: 60px
+  $centered-navigation-logo-height: 2em
+
+  width: 100%
+
+  // Mobile view
+  .mobile-logo
+    display: inline
+    float: left
+
+    +media($large-screen)
+      display: none
+
+
+    img
+      max-height: $centered-navigation-logo-height
+
+  .navigation-centered-mobile-menu
+    float: right
+    padding-top: 0.5em
+
+    +media($large-screen)
+      display: none
+
+  // Nav menu
+  .navigation-centered-wrapper
+    +clearfix
+
+    +outer-container
+
+    position: relative
+
+  ul.navigation-centered-menu
+    clear: both
+    display: none
+    margin: 0 auto
+    overflow: visible
+    padding: 0
+    width: 100%
+
+    &.show
+      display: block
+
+    +media($large-screen)
+      display: block
+      text-align: center
+
+  // Nav items
+  ul li.nav-link
+    display: block
+    text-align: right
+    width: 100%
+
+    a
+      display: inline-block
+
+    &:last-child a
+      padding-right: 0
+
+    +media($large-screen)
+      display: inline
+
+      a
+        padding-right: 1em
+
+  // Centered logo
+  li.logo.nav-link
+    display: none
+    line-height: 0
+
+    +media($large-screen)
+      display: inline
+
+  .logo img
+    margin-bottom: -$centered-navigation-logo-height / 3
+    max-height: $centered-navigation-logo-height
+
+/* Navigation - Slider */
+.sliding-panel-content
+  position: fixed
+  margin: 0 auto
+  padding: 0
+  width: 220px
+  transform: translateX(-220px)
+  transition: all 0.25s linear
+  background: #fff
+  -webkit-overflow-scrolling: touch
+  overflow-y: auto
+  z-index: 999999
+
+  &.is-visible
+    transform: translateX(0)
+
+.sliding-panel-fade-screen
+  position: fixed
+  transition: all 0.25s linear
+  background: #000
+  opacity: 0
+  visibility: hidden
+  z-index: 9999
+
+  &.is-visible
+    opacity: 0.4
+    visibility: visible
+
+.sliding-panel-close
+  cursor: pointer
+
+/* Vertical tabs */
+.vertical-tabs-container
+  $medium-screen: 30em !default
+  $vertical-tabs-height: 20em
+
+  +clearfix
+
+  .vertical-tabs
+    display: none
+
+    +media($medium-screen)
+      display: inline
+      float: left
+      height: $vertical-tabs-height
+      width: 20%
+
+  .vertical-tab
+    +media($medium-screen)
+      display: block
+
+      &.is-active
+        color: #ff0000
+
+  .vertical-tab-content-container
+    display: block
+
+    +media($medium-screen)
+      +size(80% $vertical-tabs-height)
+
+      display: inline-block
+
+  .vertical-tab-content
+    +media($medium-screen)
+      display: none
+
+  .vertical-tab-accordion-heading
+    cursor: pointer
+    display: block
+
+    +media($medium-screen)
+      display: none
+

@@ -1,0 +1,62 @@
+/*
+ * Correct the display of semantic elements in IE
+ */
+article,
+aside,
+footer,
+header,
+main,
+nav,
+section
+    display: block
+
+/* ==================================================
+   Extended hidden elements for accessibility
+   [from html5bp]
+   ================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+.hidden
+    display: none !important
+
+/*
+ * Hide visually, but have it available for screen readers
+ */
+.visuallyhidden
+    border: 0
+    clip: rect(0 0 0 0)
+    height: 1px
+    margin: -1px
+    overflow: hidden
+    padding: 0
+    position: absolute
+    width: 1px
+
+/*
+ * Extends .visuallyhidden to allow the element
+ * to be focusable when navigated to via the keyboard
+ */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus
+    clip: auto
+    height: auto
+    margin: 0
+    overflow: visible
+    position: static
+    width: auto
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible
+    visibility: hidden
+
+/* Selection color */
+::-moz-selection
+    background: $selection-color
+    text-shadow: none
+
+::selection
+    background: $selection-color
+    text-shadow: none

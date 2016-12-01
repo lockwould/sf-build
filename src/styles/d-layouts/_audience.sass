@@ -1,0 +1,293 @@
+.audience-header--container
+	+outer-container()
+	padding: $space-big 0 $space-large 0
+	h1
+		+font-size($sub-h1--font-sizes)
+	h1,h3
+		+span-columns(10)
+		+shift(1)
+		color: #ffffff
+		text-align: center
+
+.audience-header-image--container
+	+outer-container(45%)
+
+.for-home-your-life-container
+	padding: $space-xlarge 0 $space-large 0
+
+.for-home-carousel--container
+	+outer-container(100%)
+	margin-top: $space-med
+	position: relative
+	+clearfix
+	#your-life--carousel
+		+span-columns(12)
+		+clearfix
+		.owl-stage-outer
+			padding: 4px 0 4px 0
+
+		.your-life--card
+			background-color: $light-gray
+			text-align: center
+			+shadow
+			padding: $space-vinsmall
+			height: 100%
+			margin: 3px
+
+			p
+				+font-size($lrg-p--font-sizes)
+				strong
+					color: $berry
+.for-home-smarter--container
+	padding: $space-humongous 0 $space-humongous 0
+	position: relative
+.smarter-image--container
+	position: absolute
+	z-index: 0
+	transition: all 0.3s
+	top: 0
+	bottom: 0
+	left: 60%
+	width: 100%
+	img
+		height: 100%
+.for-home-smarter-content--container
+	+outer-container()
+	.for-home-smarter-content
+		+span-columns(8)
+		color: #ffffff
+		h2
+			+font-size($variant-h2--font-sizes)
+
+.for-home-products-grid--container, .biz-gov-products-grid--container
+	padding: $space-xlarge 0 $space-big 0
+	.simple-label--small
+		+outer-container()
+		text-align: center
+	.smarter-image--container
+		display: none
+
+.for-home-versus--container
+	+clearfix
+	padding: 0 0 $space-xlarge 0
+.versus-carousel--container
+	+outer-container()
+	position: relative
+.versus-slide
+	+span-columns(12)
+	padding: 3px
+	display: flex
+
+
+.vs-smartflower--card, .vs-rooftop--card
+	+span-columns(6)
+	background: $light-gray
+	+shadow
+	h3
+		display: block
+		color: #ffffff
+		font-weight: bold
+		text-align: center
+		+font-size($lrg-p--font-sizes)
+		padding: 10px 0 10px 0
+.vs-card--content
+	padding: $space-small
+	text-align: center
+.vs-smartflower--card h3
+	background-color: $berry
+.vs-rooftop--card h3
+	background-color: $blue
+.versus-circle
+    display: block
+    background-color: $pearl
+    +shadow
+    width: 60px
+    height: 60px
+    border-radius: 50%
+    text-align: center
+    color: #ffffff
+    line-height: 60px
+    font-weight: 100
+    font-size: 21px
+    position: absolute
+    z-index: 99
+    left: 50%
+    margin-left: -30px
+    margin-top: -30px
+    top: 50%
+    +media($bp-tab-med)
+    	font-size: 16px
+    	width: 40px
+    	height: 40px
+    	line-height: 40px
+    	margin-left: -20px
+    	margin-top: -20px
+.vs-carousel--nav
+	margin: $space-vinsmall 0 $space-xxsmall 0
+	li
+		display: inline-block
+		margin: 0 8px
+		a
+			font-weight: 100
+			color: $berry
+
+.vs-nav
+	margin: 42px 0 42px
+.vs-nav .owl-dot
+	display: inline-block
+
+.vs-nav .owl-dot span
+	font-size: 16px
+	width: auto
+	height: auto
+	margin: 8px
+	font-weight: 100
+	+font-size($lrg-p--font-sizes)
+	background: transparent
+	color: $pearl
+	cursor: pointer
+	&:hover
+		color: $berry
+
+.vs-nav .owl-dot.active span
+	color: $berry
+	background: transparent
+.for-home-four-steps--container
+	padding: $space-xlarge 0 $space-xlarge 0
+.four-steps--container
+	+outer-container()
+	.four-steps
+		ul
+			margin-top: $space-large
+			li
+				text-align: center
+				+span-columns(3)
+				h3
+					font-weight: bold
+					color: $berry
+					+font-size($lrg-p--font-sizes)
+					margin-bottom: 8px
+.biz-gov-carousel--container
+	+outer-container
+#stats--carousel
+	.owl-stage-outer
+		padding: 4px 0 4px 0
+.stats--card
+	+shadow
+	background: $light-gray
+	text-align: center
+	padding: $space-xxsmall
+	h3
+		+font-size($h2--font-sizes)
+		font-weight: bold
+	h3.stat-blue
+		color: $blue
+	h3.stat-amber
+		color: $amber
+	h3.stat-mermaid
+		color: $mermaid
+.biz-gov-carousel-below
+	+outer-container(80%)
+	text-align: center
+.biz-gov-powered-by--container
+	padding: $space-big 0 $space-big
+
+.powered-by--outer
+	+outer-container()
+	color: #ffffff
+	h2
+		text-align: center
+.powered-by--grid
+	+span-columns(12)
+	display: flex
+	margin-top: $space-xxsmall
+	flex-wrap: wrap
+.powered-by--card
+	+shadow
+	background: #ffffff
+	display: flex
+	width: 100%
+	flex-grow: 1
+	margin-bottom: $space-vinsmall
+	+span-columns(4)
+	&:nth-child(3)
+		margin-right: 0
+
+
+.powered-by--image
+	padding: $space-big $space-vinsmall $space-vinsmall $space-vinsmall
+	display: block
+	h3
+		font-weight: bold
+		text-align: left
+		margin-bottom: 0
+.powered-by--content
+	padding: $space-vinsmall $space-vinsmall $space-xxsmall $space-vinsmall
+	color: $dark-gray
+	line-height: 1.5
+	display: block
+
+
+
+
++media($bp-desk-small)
+	.smarter-image--container
+		left: 50%
+
+	.powered-by--card
+		+span-columns(6)
+		&:nth-child(3)
+			margin-right: 1.36015%
+		&:nth-child(2n)
+			margin-right: 0
+
++media($bp-tab-med)
+	.for-home-smarter-content--container
+		.for-home-smarter-content
+			+span-columns(12)
+			text-align: center
+			color: #ffffff
+
+
++media($bp-mob-large)
+	.powered-by--card
+		+span-columns(12)
+		&:nth-child(3)
+			margin-right: 1.36015%
+		&:nth-child(2n)
+			margin-right: 1.36015%
+	.versus-slide
+		display: block
+		+shadow
+		background-color: $light-gray
+	.vs-card--content
+		padding: $space-xxsmall
+	.vs-smartflower--card, .vs-rooftop--card
+		+span-columns(12)
+		-webkit-box-shadow: none
+		-moz-box-shadow: none
+		box-shadow: none
+		background: transparent
+		p
+			font-size: 15px
+			line-height: 1.4
+		h3
+			background: transparent
+			margin-bottom: 0px
+			font-size: 15px
+			line-height: 1.2
+	.vs-smartflower--card
+		margin-bottom: 42px
+		h3
+			color: $berry
+			border-bottom: 1.5px solid tint($berry, 80%)
+	.vs-rooftop--card
+		h3
+			color: $blue
+			border-bottom: 1.5px solid tint($blue, 80%)
+	.versus--carousel .owl-item
+		padding: 4px
+	.versus-circle
+		
+
+

@@ -1,0 +1,45 @@
+.home-header--container
+	+outer-container()
+	padding: $space-humongous 0 $space-xlarge 0
+	color: #fff
+
+	h1
+		color: #ffffff
+		+span-columns(8)
+		float: none
+		margin-bottom: 0
+		+media($bp-tab-med)
+			+span-columns(12)
+
+	h3
+		+span-columns(8)
+		float: none
+		+media($bp-tab-med)
+			+span-columns(12)
+
+.home-intro
+	+outer-container()
+	margin: $space-xlarge 0 $space-xlarge 0
+
+
+.intro-image--container
+	+outer-container()
+
+.home-features--container
+	+outer-container
+	padding: $space-xlarge 0 $space-xlarge 0
+
+.home-awards--container
+	background-color: $light-gray
+	padding: $space-med 0 $space-med 0
+
+.home-awards
+	+outer-container()
+	h2
+		+font-size($h3--font-sizes)
+		text-align: center
+		color: $pearl
+		margin-bottom: $space-small
+
+
+

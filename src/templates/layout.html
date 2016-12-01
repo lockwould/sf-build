@@ -1,0 +1,128 @@
+<!-- layout.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/main.min.css">
+  <!-- endinject -->
+  <link rel="stylesheet" href="css/vendor/owl.carousel.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+
+{% include "partials/header.html" %}
+  <!-- You write code for this content block in another file -->
+{% block content %} {% endblock %}
+{% include "partials/footer.html" %}
+  <!-- inject:js -->
+  <!-- endinject -->
+  <script src="js/scripts.js"></script>
+  <script src="js/jquery.scrollme.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script>
+    jQuery(document).ready(function(){
+        //start parallax
+       
+     });
+
+  </script>
+  <script>
+  	$(document).ready(function(){
+
+
+      //create custom pager for versus
+      function customPager() {
+        $.each($('.versus-slide'), function (i) {
+            var titleData = jQuery(this).find('span').attr('title');
+            var paginationLinks = jQuery('.vs-nav .owl-dot span');
+
+            $(paginationLinks[i]).append(titleData);
+        });
+
+      }
+      //homepage carousel - 1st
+      $('#awards--carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        dots : false,
+        responsiveClass:true,
+        autoPlay:true,
+        responsive:{
+            0:{
+                items:2,
+            },
+            600:{
+                items:3,
+            },
+            1000:{
+                items:5,
+                loop:false
+            }
+        }
+      });
+
+      //for home carousel - 2nd
+      $('#your-life--carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        responsiveClass:true,
+        autoplay:true,
+        autoplayTimeout:5000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1,
+            },
+            520:{
+                items:2,
+            },
+            720:{
+                items:3,
+            },
+            1000:{
+                items:4,
+            }
+        }
+      });
+      //versus carousel - 3nd
+       $('#versus--carousel').owlCarousel({
+        loop          : false,
+        items         : 1,
+        nav           : false,
+        dotsContainer : '#vs-carousel--nav',
+        onInitialized : customPager
+    });
+
+       //stats carousel - 4th
+       $('#stats--carousel').owlCarousel({
+        loop          : false,
+        responsiveClass: true,
+        autoplay: true,
+        dots: false,
+        autoplayTimeout: 5000,
+        margin: 10,
+        items         : 3,
+        nav           : false,
+        responsive:{
+            0:{
+                items:1,
+            },
+            520:{
+                items:2,
+            },
+            720:{
+                items:2,
+            },
+            1000:{
+                items:3,
+            }
+        }
+
+    });
+  })
+  </script>
+</body>
+</html>

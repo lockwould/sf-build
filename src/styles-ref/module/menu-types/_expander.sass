@@ -1,0 +1,14 @@
+.expander
+    width: $expander-width
+    .expander--trigger
+        display: block
+        &:before
+            font-family: 'FontAwesome'
+            content: '\f101'
+            margin-right: 0.5em
+    .expander--hidden
+        &:before
+            font-family: 'FontAwesome'
+            content: '\f105'
+    .expander--hidden + .expander--content
+        display: none

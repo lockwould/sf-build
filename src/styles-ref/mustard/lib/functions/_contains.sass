@@ -1,0 +1,8 @@
+/* Checks if a list contains a value */
+
+@function contains($list, $values...)
+  @each $value in $values
+    @if type-of(index($list, $value)) != "number"
+      @return false
+
+  @return true

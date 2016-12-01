@@ -1,0 +1,27 @@
+/*
+ * All of these can be overridden
+ */
+
+/* Grid Settings */
+$column                  : 4.2358em !default
+$gutter                  : 1.618em !default
+$grid-columns            : 12 !default
+$max-width               : 800px !default
+$default-feature         : min-width
+$default-layout-direction: LTR !default
+
+/* Visual Grid Settings */
+$visual-grid            : false !default
+$visual-grid-color      : #eee !default
+$visual-grid-index      : back !default
+$visual-grid-opacity    : 0.4 !default
+$visual-grid-breakpoints: () !default
+
+/* Breakpoint Settings */
+$hd-size    : 100em !default // 1600px
+$tablet-size: 50em !default // 800px
+$mobile-size: 30em !default // 480px
+
+$hd    : new-breakpoint(min-width $hd-size)
+$tablet: new-breakpoint(max-width $tablet-size 8)
+$mobile: new-breakpoint(max-width $mobile-size 4)

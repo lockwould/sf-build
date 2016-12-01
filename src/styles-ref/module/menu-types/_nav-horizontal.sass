@@ -1,0 +1,63 @@
+.nav--horizontal
+  .navigation-menu-button
+    display: none
+    +media($tablet)
+      display: block
+      float: right
+      margin: 0
+      padding-top: 0.5em
+
+  // Nav menu
+  .navigation-wrapper
+    +clearfix
+    position: relative
+
+  .logo
+    float: left
+    text-align: center
+    display: block
+    +media($mobile)
+      float: none
+
+    img
+      max-height: 2em
+      padding-right: 1em
+
+  nav
+    float: left
+    text-align: center
+    line-height: 1.5em
+    padding-top: 0.3em
+    +media($mobile)
+      float: none
+
+  ul.navigation-menu
+    display: block
+    margin: 0
+    padding: 0
+    +media($mobile)
+      clear: both
+      display: none
+      margin: 0 auto
+      overflow: visible
+      padding: 0
+      width: 100%
+
+
+    &.show
+      display: block
+
+  // Nav items
+  ul li.nav-link
+    background: transparent
+    display: inline
+    text-decoration: none
+    width: auto
+      +media($mobile)
+        display: block
+        text-align: right
+        width: 100%
+
+  li.nav-link a
+    display: inline-block
+    padding-right: 1em
