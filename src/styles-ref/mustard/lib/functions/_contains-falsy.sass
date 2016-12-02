@@ -1,8 +1,0 @@
-/* Checks if there is not a value */
-
-@function contains-falsy($list)
-  @each $item in $list
-    @if not $item
-      @return true
-
-  @return false

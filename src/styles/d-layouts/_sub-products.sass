@@ -1,5 +1,5 @@
 
-.header--prod-smartflower
+.header--prod
 	color: #ffffff
 	padding: $space-humongous 0 $space-big 0
 .prod-header--container
@@ -50,6 +50,7 @@
 	border-radius: 50%
 	position: absolute
 	display: block
+	transition: left 0.3s, top 0.3s, right 0.3s, height 0.3s, width 0.3s
 	+shadow
 
 .prod-bubbles--container.smartflower
@@ -148,3 +149,189 @@
 	-o-animation:       arrow 1s infinite
 	animation:          arrow 1s infinite
 	animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1)
+
++media($bp-desk-med)
+	.prod-bubbles--container.smartflower
+		.sml-vio
+			width: 70px
+			height: 70px
+			top: 40px
+			left: 180px
+		.med-blue
+			width: 60px
+			height: 60px
+			left: 80px
+		.med-bg
+			height: 85px
+			width: 85px
+			top: 160px
+			left: 200px
+		.xl-bg
+			height: 380px
+			width: 380px
+			top: 280px
+		.sml-mer
+			top: 280px
+			left: 350px
+		.sml-bg
+			height: 86px
+			width: 86px
+		.sml-ber
+			height: 34px
+			width: 34px
+			left: 200px
+			top: 680px
+		.lrg-bg
+			height: 138px
+			width: 138px
+			top: 600px
+			left: 270px
+		.med-amb
+			height: 60px
+			width: 60px
+			top: 820px
+			left: 120px
+	.prod-bubbles--container
+		+span-columns(6)
+	.prod-intro-content--container
+		+span-columns(6)
+
++media($bp-desk-small)
+	.prod-bubbles--container.smartflower
+		.xl-bg
+			height: 350px
+			width: 350px
+			top: 280px
+		.lrg-bg
+			height: 108px
+			width: 108px
+			top: 700px
+			left: 230px
+		.med-amb
+			top: 720px
+		.sml-ber
+			top: 620px
+		.sml-mer
+			top: 280px
+			left: 270px
+	.prod-bubbles--container
+		+span-columns(5)
+	.bubbles-position--container
+		top: -330px
+		left: -80px
+		height: 800px
+	.prod-intro-content--container
+		+span-columns(7)
++media($bp-tab-med)
+	.prod-bubbles--container.smartflower
+		.sml-vio
+			width: 40px
+			height: 40px
+			top: 70px
+		.med-blue
+			width: 50px
+			height: 50px
+		.med-bg
+			height: 65px
+			width: 65px
+			left: 180px
+		.xl-bg
+			height: 300px
+			width: 300px
+			top: 280px
+		.sml-mer
+			top: 280px
+			left: 250px
+		.sml-bg
+			height: 86px
+			width: 86px
+			left: 60px
+			top: 570px
+		.sml-ber
+			height: 34px
+			width: 34px
+			left: 200px
+			top: 680px
+		.lrg-bg
+			display: none
+		.med-amb
+			height: 60px
+			width: 60px
+			top: 720px
+			left: 120px
+	.prod-bubbles--container
+		+span-columns(5)
+	.bubbles-position--container
+		top: -300px
+		left: -80px
+		height: 800px
+	.prod-intro-content--container
+		+span-columns(7)
++media($bp-mob-large)
+	.header--prod
+		color: #ffffff
+		padding: $space-big 0 $space-big 0
+		.prod--down-arrow
+			display: none
+	.prod-bubble
+		position: absolute
+		display: block
+		float: left
+
+	.prod-bubbles--container.smartflower
+		.sml-vio
+			width: 40px
+			height: 40px
+			top: -100px
+			left: 90px
+		.med-blue
+			width: 70px
+			height: 70px
+			top: 0px
+			left: 80%
+		.med-bg
+			height: 86px
+			width: 86px
+			left: 0px
+			top: 0px
+		.xl-bg
+			height: 290px
+			width: 290px
+			top: 0px
+			position: relative
+			margin: 0 auto
+			float: none
+		.sml-mer
+			top: 80px
+			left: 50px
+		.sml-bg
+			height: 86px
+			width: 86px
+			left: 90%
+			top: 200px
+		.sml-ber
+			height: 44px
+			width: 44px
+			left: 84%
+			top: 170px
+		.med-amb
+			height: 30px
+			width: 30px
+			top: 300px
+			left: 0px
+			opacity: 0.3
+	.prod-bubbles--container
+		+span-columns(12)
+		position: relative
+		z-index: 0
+	.bubbles-position--container
+		top: 0px
+		left: 0px
+		position: relative
+		top: -100px
+		height: 170px
+	.prod-intro-content--container
+		+span-columns(12)
+		position: relative
+		text-align: center
+		z-index: 1
