@@ -1,3 +1,4 @@
+/* full width responsive background setting  mixin */
 =background--cover
 	-webkit-background-size: cover
 	-moz-background-size: cover
@@ -25,39 +26,7 @@
 	background: url(../assets/images/powered-by-smartflower--government.jpg) no-repeat top left
 	+background--cover
 
-
-
-.header--video
-	background: transparent
-
-.home-intro--container
-	background: url(../assets/images/background--blue-cloudy-sky.jpg) no-repeat top left
-	+background--cover
-
-.header--products
-	background: url(../assets/images/sf-products-header--background-sunny-forest-blue.jpg) no-repeat top left
-	+background--cover
-
-.header--for-home
-	background: url(../assets/images/sf-for-home-header--background-modern-house-blue.jpg) no-repeat top left
-	+background--cover
-.header--business-and-government
-	background: url(../assets/images/background--for-business-busy-city-blue.jpg) no-repeat top left
-	+background--cover
-.for-home-smarter--container
-	background: url(../assets/images/background-for-home-teal-house.jpg) no-repeat top left
-	+background--cover
-.for-home-four-steps--container
-	background: url(../assets/images/background-for-home-4-steps-gray.jpg) no-repeat top left
-	+background--cover
-.biz-gov-powered-by--container
-	background: url(../assets/images/background-powered-by-smartflower.jpg) no-repeat top left
-	+background--cover
-.biz-gov-products-grid--container
-	background: url(../assets/images/background--for-business-office-gray.jpg) no-repeat top left
-	+background--cover
-.header--prod.smartflower
-	background: linear-gradient($mermaid, $mermaid 70%, white 70%, white)
+/* video header(s) */
 .hero-video--container
 	position: absolute
 	top: 0
@@ -78,3 +47,41 @@
 		top: 50%
 		-webkit-transform: translate(-50%,-50%)
 		transform: translate(-50%,-50%)
+
+/* top section header backgrounds */
+
+.header--products
+	background: url(../assets/images/sf-products-header--background-sunny-forest-blue.jpg) no-repeat top left
+	+background--cover
+.header--for-home
+	background: url(../assets/images/sf-for-home-header--background-modern-house-blue.jpg) no-repeat top left
+	+background--cover
+.header--business-and-government
+	background: url(../assets/images/background--for-business-busy-city-blue.jpg) no-repeat top left
+	+background--cover
+.header--video
+	background: transparent
+.home-intro--container
+	background: url(../assets/images/background--blue-cloudy-sky.jpg) no-repeat top left
+	+background--cover
+/* sub product headers */
+.header--prod.smartflower
+	background: linear-gradient($mermaid, $mermaid 70%, white 70%, white)
+.header--prod.smartflower-plus
+	background: linear-gradient($lavendar, $lavendar 70%, white 70%, white)
+
+/* sub section backgrounds */
+.for-home-smarter--container
+	background: url(../assets/images/background-for-home-teal-house.jpg) no-repeat top left
+	+background--cover
+.for-home-four-steps--container
+	background: url(../assets/images/background-for-home-4-steps-gray.jpg) no-repeat top left
+	+background--cover
+.biz-gov-powered-by--container
+	background: url(../assets/images/background-powered-by-smartflower.jpg) no-repeat top left
+	+background--cover
+.biz-gov-products-grid--container
+	background: url(../assets/images/background--for-business-office-gray.jpg) no-repeat top left
+	+background--cover
+.at-a-glance--container
+	background-color: tint($blue, 95%)

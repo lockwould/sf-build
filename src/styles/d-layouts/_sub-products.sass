@@ -35,7 +35,7 @@
 	position: relative
 .bubbles-position--container
 	position: absolute
-	top: -380px
+	top: -300px
 	height: 1000px
 	width: 100%
 .prod-intro-content--container
@@ -53,75 +53,6 @@
 	transition: left 0.3s, top 0.3s, right 0.3s, height 0.3s, width 0.3s
 	+shadow
 
-.prod-bubbles--container.smartflower
-	.sml-vio
-		width: 80px
-		height: 80px
-		background-color: $lavendar
-		top: 0px
-		left: 200px
-	.med-blue
-		width: 70px
-		height: 70px
-		background-color: $blue
-		top: 130px
-		left: 120px
-	.med-bg
-		height: 95px
-		width: 95px
-		top: 130px
-		left: 400px
-		background: url(../assets/images/background--bubble-smartflower-3.jpg) no-repeat top left
-		-webkit-background-size: cover
-		-moz-background-size: cover
-		-o-background-size: cover
-		background-size: cover
-	.xl-bg
-		height: 480px
-		width: 480px
-		background: url(../assets/images/background--bubble-smartflower.jpg) no-repeat top left
-		-webkit-background-size: cover
-		-moz-background-size: cover
-		-o-background-size: cover
-		background-size: cover
-		top: 180px
-	.sml-mer
-		height: 40px
-		width: 40px
-		background-color: $mermaid
-		top: 180px
-		left: 490px
-	.sml-bg
-		height: 96px
-		width: 96px
-		background: url(../assets/images/background--bubble-smartflower-4.jpg) no-repeat top left
-		-webkit-background-size: cover
-		-moz-background-size: cover
-		-o-background-size: cover
-		background-size: cover
-		top: 600px
-	.sml-ber
-		height: 54px
-		width: 54px
-		background-color: $berry
-		left: 200px
-		top: 680px
-	.lrg-bg
-		height: 138px
-		width: 138px
-		top: 600px
-		left: 400px
-		background: url(../assets/images/background--bubble-smartflower-2.jpg) no-repeat top left
-		-webkit-background-size: cover
-		-moz-background-size: cover
-		-o-background-size: cover
-		background-size: cover
-	.med-amb
-		height: 90px
-		width: 90px
-		background-color: $amber
-		top: 820px
-		left: 120px
 
 .prod--down-arrow
 	font-family: arial
@@ -129,91 +60,175 @@
 	display: block
 	height: 56px
 	width: 56px
-	border: solid 2px #ffffff
+	border: solid 2px #fff
 	line-height: 45px
 	text-align: center
 	border-radius: 50%
+	overflow: hidden
+	transition: all 0.3s
+	&:hover
+		background-color: rgba(#ffffff, 0.20)
+.prod-smartfeatures--container
+	padding: $space-large 0 $space-big 0
+.prod-smartfeatures
+	+outer-container()
+	h2
+		text-align: center
+		margin-bottom: $space-large
+	ul
+		+span-columns(4)
+		padding-left: 70px
+		&:last-of-type
+			+shift(4)
+		li
+			position: relative
+			margin-bottom: $space-small
+			.icon-container
+				width: 55px
+				left: -70px
+				position: absolute
+				display: block
+				height: 55px
+			p
+				font-size: $small
 
+			h3
+				font-size: $med
+	h3
+		font-weight: 900
+		color: $berry
+		margin-bottom: 0
+.prod-color--selector
+	+span-columns(5)
+	top: 0
+
+.arrow-bounce
+	position: relative
+	display: block
+	transition: transform 0.3s
+
+.arrow-bounce
+	-webkit-animation:  arrow 8s infinite
+	-moz-animation:     arrow 8s infinite
+	-o-animation:       arrow 8s infinite
+	animation:          arrow 8s infinite
+	animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1)
 
 @keyframes arrow
 	0%
-		bottom: -13px
-	50%
-		bottom: -8px
+		transform: translate(0, 0)
+		opacity: 1
+	57%
+		transform: translate(0, 0)
+		opacity: 1
+	60%
+		transform: translate(0, 40px)
+		opacity: 0
+	61%
+		transform: translate(0, -40px)
+		opacity: 0
+	64%
+		transform: translate(0, 3px)
+		opacity: 1
+	66%
+		transform: translate(0, 0)
+		opacity: 1
 	100%
-		bottom: -13px
+		transform: translate(0, 0)
+		opacity: 1
 
-.arrow-bounce
-	-webkit-animation:  arrow 1s infinite
-	-moz-animation:     arrow 1s infinite
-	-o-animation:       arrow 1s infinite
-	animation:          arrow 1s infinite
-	animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1)
+.at-a-glance--container
+	padding: $space-large 0 $space-large 0
+.at-a-glance--inner
+	+outer-container()
+	h2
+		color: $blue
+		text-align: center
+
+.aag--row
+	display: flex
+	margin-bottom: $gutter
+	.aag--chart
+		background-color: tint($pearl, 90%)
+		+shadow
+		display: flex
+		+span-columns(6)
+		h3
+			background-color: tint($blue, 50%)
+			font-size: 21px
+			color: #ffffff
+			font-weight: 600
+			padding: $space-teeny
+			margin-bottom: 0
+		.aag-chart--row
+			+clearfix
+			h4
+				font-family: $base-font-family
+				font-weight: 400
+				margin-bottom: 0
+				+span-columns(5)
+				color: tint($dark-gray, 40%)
+				padding: 16px $space-teeny 16px $space-teeny
+			p
+				+span-columns(7)
+				margin-bottom: 0
+				padding: 16px $space-teeny 16px $space-teeny
+			&:nth-of-type(2)
+				background-color: tint($pearl, 95%)
 
 +media($bp-desk-med)
-	.prod-bubbles--container.smartflower
-		.sml-vio
-			width: 70px
-			height: 70px
-			top: 40px
-			left: 180px
-		.med-blue
-			width: 60px
-			height: 60px
-			left: 80px
-		.med-bg
-			height: 85px
-			width: 85px
-			top: 160px
-			left: 200px
-		.xl-bg
-			height: 380px
-			width: 380px
-			top: 280px
-		.sml-mer
-			top: 280px
-			left: 350px
-		.sml-bg
-			height: 86px
-			width: 86px
-		.sml-ber
-			height: 34px
-			width: 34px
-			left: 200px
-			top: 680px
-		.lrg-bg
-			height: 138px
-			width: 138px
-			top: 600px
-			left: 270px
-		.med-amb
-			height: 60px
-			width: 60px
-			top: 820px
-			left: 120px
 	.prod-bubbles--container
 		+span-columns(6)
 	.prod-intro-content--container
 		+span-columns(6)
+	.prod-smartfeatures--container
+		padding: 0 0 $space-large 0
+	.prod-smartfeatures
+		h2
+			text-align: center
+			margin-bottom: $space-large
+		ul
+			+span-columns(12)
+			padding-left: 0px
+			&:last-of-type
+				+shift(0)
+				margin-right: 0
+			li
+				position: relative
+				+span-columns(6)
+				background-color: $light-gray
+				margin-bottom: $gutter
+				text-align: center
+				+shadow
+				min-height: 250px
+				padding: $space-vinsmall
+				&:nth-of-type(2)
+					margin-right: 0
+				&:nth-of-type(3)
+					margin-right: 0
+					+span-columns(12)
+					padding: $space-small
+				.icon-container
+					width: 50px
+					height: 50px
+					left: 0px
+					margin: 0 auto
+					position: relative
+					display: block
+				p
+					font-size: $small
 
+				h3
+					font-size: $med
+					margin-top: $space-xxsmall
+		h3
+			font-weight: 900
+			color: $berry
+			margin-bottom: 0
+	.prod-color--selector
+	+span-columns(6)
+	top: 0
 +media($bp-desk-small)
-	.prod-bubbles--container.smartflower
-		.xl-bg
-			height: 350px
-			width: 350px
-			top: 280px
-		.lrg-bg
-			height: 108px
-			width: 108px
-			top: 700px
-			left: 230px
-		.med-amb
-			top: 720px
-		.sml-ber
-			top: 620px
-		.sml-mer
-			top: 280px
-			left: 270px
 	.prod-bubbles--container
 		+span-columns(5)
 	.bubbles-position--container
@@ -223,6 +238,12 @@
 	.prod-intro-content--container
 		+span-columns(7)
 +media($bp-tab-med)
+	.prod-smartfeatures
+		h2
+		ul
+			margin-bottom: $gutter
+			li
+				min-height: 270px
 	.prod-bubbles--container.smartflower
 		.sml-vio
 			width: 40px
@@ -267,59 +288,52 @@
 		height: 800px
 	.prod-intro-content--container
 		+span-columns(7)
+	.header--prod
+		.prod--down-arrow
+			display: none
 +media($bp-mob-large)
+	.aag--row
+		display: block
+		margin-bottom: $gutter
+		.aag--chart
+			display: block
+			+span-columns(12)
+			margin-bottom: $gutter
+
+	.prod-smartfeatures
+		h2
+			margin-bottom: $space-small
+		ul
+			li
+				+span-columns(12)
+				min-height: 200px
+				&:nth-of-type(2)
+					+span-columns(12)
+				&:nth-of-type(3)
+					+span-columns(12)
+					padding: $space-xxsmall
+				h3
+					font-size: $base
+					margin-top: $space-xxsmall
+	.prod-color--selector
+	+span-columns(6)
+	top: 0
+	.prod-header-content--container
+		+span-columns(12)
+		text-align: center
+	.prod-sf-header-image--container
+		+span-columns(12)
+		img
+			width: 70%
+			display: block
+			margin: 0 auto
 	.header--prod
 		color: #ffffff
 		padding: $space-big 0 $space-big 0
-		.prod--down-arrow
-			display: none
 	.prod-bubble
 		position: absolute
 		display: block
 		float: left
-
-	.prod-bubbles--container.smartflower
-		.sml-vio
-			width: 40px
-			height: 40px
-			top: -100px
-			left: 90px
-		.med-blue
-			width: 70px
-			height: 70px
-			top: 0px
-			left: 80%
-		.med-bg
-			height: 86px
-			width: 86px
-			left: 0px
-			top: 0px
-		.xl-bg
-			height: 290px
-			width: 290px
-			top: 0px
-			position: relative
-			margin: 0 auto
-			float: none
-		.sml-mer
-			top: 80px
-			left: 50px
-		.sml-bg
-			height: 86px
-			width: 86px
-			left: 90%
-			top: 200px
-		.sml-ber
-			height: 44px
-			width: 44px
-			left: 84%
-			top: 170px
-		.med-amb
-			height: 30px
-			width: 30px
-			top: 300px
-			left: 0px
-			opacity: 0.3
 	.prod-bubbles--container
 		+span-columns(12)
 		position: relative
@@ -328,10 +342,16 @@
 		top: 0px
 		left: 0px
 		position: relative
-		top: -100px
-		height: 170px
+		top: 0px
+		height: 250px
 	.prod-intro-content--container
 		+span-columns(12)
 		position: relative
 		text-align: center
 		z-index: 1
+	.prod--head
+		display: block
+	.prod--head::after
+		top: 0px
+		width: 100%
+		left: 0
