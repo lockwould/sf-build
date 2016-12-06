@@ -28,7 +28,7 @@
 
 .prod-intro--container
 	+outer-container()
-	padding: 0 0 $space-big 0
+	padding: 0 0 $space-xlarge 0
 .prod-bubbles--container
 	+span-columns(7)
 #bubble-parallax
@@ -45,15 +45,36 @@
 	.subhead
 		+font-size($lrg-p--font-sizes)
 		color: $berry
-
 .prod-bubble
 	border-radius: 50%
 	position: absolute
 	display: block
 	transition: left 0.3s, top 0.3s, right 0.3s, height 0.3s, width 0.3s
 	+shadow
-
-
+.dialogue-bubble--container
+	position: absolute
+	display: inline-block
+.dialogue-bubble
+	background-color: #ffffff
+	padding: $space-teeny
+	position: relative
+	text-align: center
+	display: block
+	line-height: 1.2
+	font-weight: 100
+	+shadow
+	&:after
+		content: ""
+		position: absolute
+		box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 2px
+		-moz-transform: rotate(45deg)
+		-webkit-transform: rotate(45deg)
+		bottom: -10px
+		left: 50%
+		margin-left: -15px
+		border-width: 10px
+		border-style: solid
+		border-color: transparent #FFF #FFF transparent
 .prod--down-arrow
 	font-family: arial
 	font-size: 26px
@@ -69,7 +90,7 @@
 	&:hover
 		background-color: rgba(#ffffff, 0.20)
 .prod-smartfeatures--container
-	padding: $space-large 0 $space-big 0
+	padding: $space-small 0 $space-big 0
 .prod-smartfeatures
 	+outer-container()
 	h2
@@ -78,6 +99,7 @@
 	ul
 		+span-columns(4)
 		padding-left: 70px
+		margin-right: 0
 		&:last-of-type
 			+shift(4)
 		li
@@ -91,7 +113,6 @@
 				height: 55px
 			p
 				font-size: $small
-
 			h3
 				font-size: $med
 	h3
@@ -101,6 +122,18 @@
 .prod-color--selector
 	+span-columns(5)
 	top: 0
+
+.prod-intro-content--container
+	.blurb
+		background-color: $light-gray
+		+shadow
+		padding: $space-teeny
+		margin-bottom: $gutter
+		h3
+			font-size: $base
+			font-weight: 700
+			color: $berry
+			margin-bottom: 0
 
 .arrow-bounce
 	position: relative
@@ -176,13 +209,144 @@
 			&:nth-of-type(2)
 				background-color: tint($pearl, 95%)
 
+.high-performance--container
+	padding: $space-humongous 0 $space-humongous 0
+	position: relative
+	overflow-y: hidden
+	overflow-x: hidden
+.high-performance-image-container
+	position: absolute
+	z-index: 0
+	transition: all 0.3s
+	top: 0
+	bottom: 0
+	left: 40%
+	width: 100%
+	background: url(../assets/images/image-smartflower-ev-closeup.jpg) no-repeat top left
+	-webkit-background-size: cover
+	-moz-background-size: cover
+	-o-background-size: cover
+	background-size: cover
+	img
+		display: none
+.high-performance-content--container
+	+outer-container()
+	position: relative
+	.high-performance-content
+		+span-columns(6)
+		color: #ffffff
+		h2
+			+font-size($variant-h2--font-sizes)
+
+.for-home-products-grid--container, .biz-gov-products-grid--container
+	padding: $space-xlarge 0 $space-big 0
+	.simple-label--small
+		+outer-container()
+		text-align: center
+	.smarter-image--container
+		display: none
+.interactive-dots--container
+	position: absolute
+	width: 50%
+	left: 50%
+.interactive-dot-position
+	position: relative
+	z-index: 20
+	float: left
+.interactive-dot-position.pos1
+	top: 320px
+	left: 40%
+.interactive-dot-position.pos2
+	top: 380px
+	left: 60%
+.interactive-dot-position.pos3
+	top: 160px
+	left: 60%
+.interactive-dot
+	cursor: pointer
+	height: 31px
+	width: 31px
+	position: relative
+	display: inline-block
+	background-color: $berry
+	border-radius: 50%
+	+shadow
+	&:after
+		content: ""
+		width: 31px
+		height: 31px
+		display: block
+		border-radius: 50%
+		background: transparent
+		border: solid 1px $berry
+		-webkit-animation:  dot-pulse 4s infinite
+		-moz-animation:     dot-pulse 4s infinite
+		-o-animation:       dot-pulse 4s infinite
+		animation:          dot-pulse 4s infinite
+		animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1)
+
+@keyframes dot-pulse
+	0%
+		opacity: 1
+		transform: scale(1,1)
+	50%
+		opacity: 1
+		transform: scale(1,1)
+	70%
+		transform: scale(1.5,1.5)
+		opacity: 0
+	75%
+		transform: scale(1,1)
+		opacity: 0
+	100%
+		transform: scale(1,1)
+		opacity: 1
+
+.interactive-dot:hover + .dot-bubble
+	opacity: 1
+.dot-bubble
+	background-color: #ffffff
+	opacity: 0
+	padding: $space-teeny
+	position: absolute
+	width: 150px
+	top: -80px
+	left: -55px
+	text-align: center
+	transition: all 0.3s
+	display: inline-block
+	line-height: 1.2
+	font-weight: 100
+	+shadow
+	&:after
+		content: ""
+		position: absolute
+		box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 2px
+		-moz-transform: rotate(45deg)
+		-webkit-transform: rotate(45deg)
+		bottom: -10px
+		left: 50%
+		margin-left: -15px
+		border-width: 10px
+		border-style: solid
+		border-color: transparent #FFF #FFF transparent
+
 +media($bp-desk-med)
+	.interactive-dot-position.pos1
+		top: 290px
+		left: 55%
+	.interactive-dot-position.pos2
+		top: 320px
+		left: 70%
+	.interactive-dot-position.pos3
+		top: 120px
+		left: 60%
 	.prod-bubbles--container
 		+span-columns(6)
 	.prod-intro-content--container
 		+span-columns(6)
 	.prod-smartfeatures--container
-		padding: 0 0 $space-large 0
+		padding: $space-large 0 $space-large 0
 	.prod-smartfeatures
 		h2
 			text-align: center
@@ -229,6 +393,20 @@
 	+span-columns(6)
 	top: 0
 +media($bp-desk-small)
+	.high-performance-image-container
+		left: 30%
+	.interactive-dot-position.pos1
+		top: 290px
+		left: 30%
+	.interactive-dot-position.pos2
+		top: 320px
+		left: 50%
+	.interactive-dot-position.pos3
+		top: 100px
+		left: 40%
+	.high-performance-content--container
+		.high-performance-content
+			+span-columns(7)
 	.prod-bubbles--container
 		+span-columns(5)
 	.bubbles-position--container
@@ -238,48 +416,41 @@
 	.prod-intro-content--container
 		+span-columns(7)
 +media($bp-tab-med)
+	.interactive-dots--container
+		position: absolute
+		width: 100%
+		left: 0
+	.interactive-dot-position.pos1
+		top: 200px
+		left: 35%
+	.interactive-dot-position.pos2
+		top: 240px
+		left: 58%
+	.interactive-dot-position.pos3
+		top: 100px
+		left: 50%
+	.high-performance--container
+		padding: 0 0 $space-large 0
+		text-align: center
+	.high-performance-image-container
+		position: relative
+		z-index: 0
+		display: block
+		left: 0
+		background: none
+		img
+			display: block
+			margin: 0 auto
+	.high-performance-content--container
+		.high-performance-content
+			+span-columns(12)
 	.prod-smartfeatures
 		h2
 		ul
 			margin-bottom: $gutter
 			li
 				min-height: 270px
-	.prod-bubbles--container.smartflower
-		.sml-vio
-			width: 40px
-			height: 40px
-			top: 70px
-		.med-blue
-			width: 50px
-			height: 50px
-		.med-bg
-			height: 65px
-			width: 65px
-			left: 180px
-		.xl-bg
-			height: 300px
-			width: 300px
-			top: 280px
-		.sml-mer
-			top: 280px
-			left: 250px
-		.sml-bg
-			height: 86px
-			width: 86px
-			left: 60px
-			top: 570px
-		.sml-ber
-			height: 34px
-			width: 34px
-			left: 200px
-			top: 680px
-		.lrg-bg
-			display: none
-		.med-amb
-			height: 60px
-			width: 60px
-			top: 720px
-			left: 120px
+
 	.prod-bubbles--container
 		+span-columns(5)
 	.bubbles-position--container
@@ -292,6 +463,40 @@
 		.prod--down-arrow
 			display: none
 +media($bp-mob-large)
+	.interactive-dots--container
+		position: absolute
+		width: 100%
+		left: 0
+	.interactive-dot-position.pos1
+		top: 200px
+		left: 35%
+	.interactive-dot-position.pos2
+		top: 200px
+		left: 58%
+	.interactive-dot-position.pos3
+		top: 100px
+		left: 50%
+	.interactive-dot
+		height: 20px
+		width: 20px
+		&:after
+			content: ""
+			width: 20px
+			height: 20px
+			border: solid 1px $berry
+	.dot-bubble
+		top: -60px
+		left: -40px
+		padding: 10px
+		width: 100px
+		top: -60px
+		font-size: 12px
+		display: inline-block
+		+shadow
+		&:after
+			bottom: -9px
+			left: 55%
+			margin-left: -15px
 	.aag--row
 		display: block
 		margin-bottom: $gutter
@@ -342,7 +547,7 @@
 		top: 0px
 		left: 0px
 		position: relative
-		top: 0px
+		top: -40px
 		height: 250px
 	.prod-intro-content--container
 		+span-columns(12)
@@ -355,3 +560,11 @@
 		top: 0px
 		width: 100%
 		left: 0
+	.prod-header-content--container
+		+span-columns(12)
+	.prod-sf-header-image--container
+		margin-top: 20px
+		+span-columns(12)
++media($bp-mob-med)
+	.interactive-dots--container
+		display: none
