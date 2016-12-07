@@ -35,7 +35,7 @@ $('.toggle input').click(function() {
 
 	// remove flipbook classes
 	if(clicked!=active) {
-	$('.images-contain').html('<img src="../assets/images/sf-05.png" alt=""><img src="../assets/images/sf-06.png" alt=""><img src="../assets/images/sf-07.png" alt=""> <img src="../assets/images/sf-09.png" alt=""> <img src="../assets/images/sf-10.png" alt=""><img src="../assets/images/sf-08.png" alt=""><img src="../assets/images/sf-04.png" alt=""><img src="../assets/images/sf-03.png" alt=""><img src="../assets/images/sf-01.png" alt=""><img src="../assets/images/sf-02.png" alt=""><img src="../assets/images/sf-03.png" alt=""><img src="../assets/images/sf-04.png" alt=""><img src="../assets/images/sf-05.png" alt="">'); }
+	$('.images-contain').html('<img src="../assets/images/flipbook/sf-05.png" alt=""><img src="../assets/images/flipbook/sf-06.png" alt=""><img src="../assets/images/flipbook/sf-07.png" alt=""> <img src="../assets/images/flipbook/sf-09.png" alt=""> <img src="../assets/images/flipbook/sf-10.png" alt=""><img src="../assets/images/flipbook/sf-08.png" alt=""><img src="../assets/images/flipbook/sf-04.png" alt=""><img src="../assets/images/flipbook/sf-03.png" alt=""><img src="../assets/images/flipbook/sf-01.png" alt=""><img src="../assets/images/flipbook/sf-02.png" alt=""><img src="../assets/images/flipbook/sf-03.png" alt=""><img src="../assets/images/flipbook/sf-04.png" alt=""><img src="../assets/images/flipbook/sf-05.png" alt="">'); }
 
 	// get array of images for later..... 
 	var imgArray = $('.images--animated img');

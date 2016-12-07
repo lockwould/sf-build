@@ -19,7 +19,7 @@
 <label class="menuicon" for="hamburger">
   <span></span>
 </label>
-    <a class="logo"><img src="/assets/images/smartflower--logo-white-transparent-760.png"></a>
+    <a class="logo" href="index.html"><img src="/assets/images/smartflower--logo-white-transparent-760.png"></a>
      <nav class="navigation" role="navigation">
       <ul>
         <li class="nav-item--drop">
@@ -32,7 +32,7 @@
         </li>
         <li class="nav-item--single"><a href="for-home.html">your home</a></li>
         <li class="nav-item--single"><a href="business-and-government.html">business &amp; government</a></li>
-        <li class="nav-item--single"><a href="#">contact</a></li>
+        <li class="nav-item--single"><a href="contact.html">contact</a></li>
       </ul>
     </nav>
 
@@ -58,7 +58,7 @@
 	<header class="header--video">
 		<section class="home-header--container">
 			<h1>Solar,&nbsp;smarter than&nbsp;ever</h1>
-			<p>watch the video <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></p>
+			<!--<p>watch the video <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></p> --><br/>
 			<h3 class="subhead">Meet smartflower: the most intelligent &amp; stunning solar solution under the sun</h3>
 			<div class="button--row">
 			<a class="button--special-white">for your home</a>
@@ -66,7 +66,7 @@
 			</div>
 			</section>
 	</header>
-<section class="home-intro--container">
+<section class="home-intro--container ">
 	<section class="products-grid pull-up">
 		<div class="product">
 			<div class="product-image-container"><img src="../assets/images/product--smartflower--800.png"></div>
@@ -102,14 +102,112 @@
 
 	</section>
 
-	<div class="intro-image--container">
-		<img src="assets/images/background--smartflower-petals-shine.png">
+	<div class="intro-image--container scrollme">
+		<img class="animateme" data-when="enter" data-from="1" data-to="0"  data-translatey="150" data-rotatez="10" src="assets/images/background--smartflower-petals-shine.png">
 	</div>
 
 </section>
 
-<section class="">
-</section>
+<!-- flipbook wrapper -->
+<div id="gallery--flipbook" class="wrapper">
+	<!-- gradient background - animated -->
+	<div class="bg variable sunrise">
+
+		<!-- gallery guts wrapper -->
+		<div class="flip-inner-wrapper">
+		<!-- subhead - static -->
+		<div class="subhead">
+
+		<h2>40% more efficient than traditional solar</h2>
+		<p>smartflower's intelligent tracking system makes it better than a standard rooftop system</p>
+
+		</div>
+		<!-- -->
+
+		<!-- click to toggle - animated -->
+		<div class="toggle variable">
+			<input id="sunrise" type="radio" name="toggle" value="sunrise" checked>
+			<label for="sunrise">
+				<svg id="sunrise-svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.75 45.79"><rect class="cls-1" x="29.38" width="3" height="11.38"/><rect class="cls-1" x="102.87" y="431.7" width="11.37" height="3" transform="translate(-334.4 -216.49) rotate(-45)"/><rect class="cls-1" x="71.44" y="427.51" width="3" height="11.37" transform="translate(-344.84 -241.67) rotate(-45)"/><rect class="cls-1" y="29.38" width="61.75" height="3"/><path class="cls-1" d="M105.67,452.51H75.83V451a14.92,14.92,0,1,1,29.83,0v1.5Zm-26.74-3h23.65A11.92,11.92,0,0,0,78.93,449.51Z" transform="translate(-59.88 -420.13)"/><rect class="cls-1" x="14.52" y="35.37" width="32.7" height="3"/><rect class="cls-1" x="23.75" y="42.79" width="14.25" height="3"/></svg>
+			</label>
+
+			<input id="allday" type="radio" name="toggle" value="allday">
+			<label for="allday">
+				<svg id="allday-svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.75 53.75"><rect class="cls-1" x="25.38" width="3" height="7.87"/><rect class="cls-1" x="25.38" y="45.88" width="3" height="7.87"/><rect class="cls-1" x="216.84" y="427.3" width="7.92" height="3" transform="translate(-416.26 -136.41) rotate(-45)"/><rect class="cls-1" x="184.44" y="459.73" width="7.87" height="3" transform="translate(-448.68 -149.84) rotate(-45)"/><rect class="cls-1" x="45.88" y="25.38" width="7.87" height="3"/><rect class="cls-1" y="25.38" width="7.87" height="3"/><rect class="cls-1" x="219.32" y="457.29" width="3" height="7.87" transform="translate(-439.19 -126.88) rotate(-45)"/><rect class="cls-1" x="186.87" y="424.85" width="3" height="7.87" transform="translate(-425.74 -159.36) rotate(-45)"/><path class="cls-1" d="M204.59,458.19A13.18,13.18,0,1,1,217.77,445,13.19,13.19,0,0,1,204.59,458.19Zm0-23.36A10.18,10.18,0,1,0,214.77,445,10.19,10.19,0,0,0,204.59,434.83Z" transform="translate(-177.72 -418.13)"/></svg>
+			</label>
+
+			<input id="sunset" type="radio" name="toggle" value="sunset">
+			<label for="sunset">
+				<svg id="sunset-svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.25 38.06"><path class="cls-1" d="M341.12,450.27a12.47,12.47,0,0,1-8.21-20.67l2-2.22-2.95-.26c-0.47,0-.94-0.07-1.42-0.07A15.5,15.5,0,0,0,315,442.52s0,0.1,0,.15a11,11,0,0,0-16.76,8.15,7.25,7.25,0,0,0,1.81,14.28h21.87a8.67,8.67,0,0,0,8.51-7.09h0a15.49,15.49,0,0,0,11.61-5.26l2-2.22Zm-13.66,7.44a5.7,5.7,0,0,1-5.6,4.39H300.07a4.25,4.25,0,0,1-.28-8.5l1.4-.09V452a8.05,8.05,0,0,1,14.64-4.59,8,8,0,0,1,1.26,2.8c0,0.06,0,.11,0,0.17l0.41,1.95,0.72-.38,1-.55a5.58,5.58,0,0,1,1.89-.6,5.63,5.63,0,0,1,6.09,3.75A5.53,5.53,0,0,1,327.46,457.71Zm3-2.7h0a8.65,8.65,0,0,0-10.91-6.9,11,11,0,0,0-1-2,12.47,12.47,0,0,1,10.3-16,15.47,15.47,0,0,0,8.93,22.52A12.45,12.45,0,0,1,330.5,455Z" transform="translate(-292.81 -427.04)"/><path class="cls-1" d="M339.28,443.77h0a3.94,3.94,0,1,0-3.94-4A3.93,3.93,0,0,0,339.28,443.77Zm0-5.38a1.44,1.44,0,0,1,0,2.88h0a1.42,1.42,0,0,1-1-.43,1.41,1.41,0,0,1-.41-1A1.45,1.45,0,0,1,339.3,438.39Z" transform="translate(-292.81 -427.04)"/></svg>
+			</label>
+
+			<div class="hilite"></div>
+		</div>
+		<!-- -->
+
+		<!-- smartflower image set - animated -->
+		<div class="images--animated variable sunrise">
+			<div  class="images-contain">
+				<img src="assets/images/flipbook/sf-05.png" alt="" class="visible delay4">
+				<img src="assets/images/flipbook/sf-06.png" alt="">
+				<img src="assets/images/flipbook/sf-07.png" alt="">
+				<img src="assets/images/flipbook/sf-09.png" alt="" >
+				<img src="assets/images/flipbook/sf-10.png" alt="">
+				<img src="assets/images/flipbook/sf-08.png" alt="">
+				<img src="assets/images/flipbook/sf-04.png" alt="">
+				<img src="assets/images/flipbook/sf-03.png" alt="">
+				<img src="assets/images/flipbook/sf-01.png" alt="" class="visible delay0">
+				<img src="assets/images/flipbook/sf-02.png" alt="" class="visible delay1">
+				<img src="assets/images/flipbook/sf-03.png" alt="" class="visible delay2">
+				<img src="assets/images/flipbook/sf-04.png" alt="" class="visible delay3">
+				<img src="assets/images/flipbook/sf-05.png" alt="">
+			</div>
+		</div>
+		<!-- -->
+
+		<!-- time of day description - animated -->
+		<div class="desc--wrapper variable sunrise">
+
+			<div class="desc--bubble">
+
+			<span class="sunrise">
+				<h3>Sunrise</h3>
+				<p>As the sun rises in the morning, smartflower automatically unfolds itself.  It directs its solar modular fan towards the sun and begins producing electricity for&nbsp;you.</p>
+			</span>
+
+			<span class="allday">
+				<h3>All Day</h3>
+				<p>Thanks to dual-axle sun tracking, the fan follows the sun throughout the day, staying at the optimal angle for energy productions, even when it's cloudy.</p>
+			</span>
+
+			<span class="sunset">
+				<h3>Sunset</h3>
+				<p>smartflower's smart tracking makes the most of the sun's rays in the waning hours of daylight. Once the sun goes down, smartflower automatically folds itself back into a secure position and waits for sunrise</p>
+			</span>
+
+			</div>
+
+		</div>
+		<!-- -->
+
+		</div>
+		<!-- close inner-wrapper -->
+
+		<!-- clouds -->
+		<div class="clouds--animated">
+			<img src="/assets/images/flipbook/cloud-bg.png">
+		</div>
+		<!-- -->
+
+		<!-- bg gradient options -->
+		<div class="bg-gradient sunrise"></div>
+		<div class="bg-gradient allday"></div>
+		<div class="bg-gradient sunset"></div>
+		<!-- -->
+	</div>
+	<!-- close bg div -->
+
+</div> <!-- close flipbook wrapper -->
 
 <section class="home-features--container">
 	<div class="hero-text--centered">
@@ -135,7 +233,7 @@
 		<h2>Take the next step to beautiful &amp; clean energy</h2>
 		<h3 class="sub-head">
 			Contact us to connect with a smartflower representative today or call&nbsp;us&nbsp;at&nbsp;<a href="tel:16179043100">(617)904-3100</a></h3>
-			<a class="button--cta-white">get in touch</a>
+			<a class="button--cta-white" href="contact.html">get in touch</a>
 
 	</div>
 
@@ -170,6 +268,10 @@
 	</div>
 </footer>
   <!-- inject:js -->
+  <script src="js/jquery.scrollme.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/vivus.min.js"></script>
   <!-- endinject -->
   <script src="js/scripts.js"></script>
   <script src="js/jquery.scrollme.min.js"></script>

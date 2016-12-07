@@ -1,0 +1,217 @@
+<!-- layout.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/main.min.css">
+  <!-- endinject -->
+  <link rel="stylesheet" href="css/vendor/owl.carousel.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+
+<header class="header--banner" role="banner">
+  <div class="navigation-wrapper">
+  <input type="checkbox" id="hamburger"/>
+<label class="menuicon" for="hamburger">
+  <span></span>
+</label>
+    <a class="logo" href="index.html"><img src="/assets/images/smartflower--logo-white-transparent-760.png"></a>
+     <nav class="navigation" role="navigation">
+      <ul>
+        <li class="nav-item--drop">
+          <a href="products.html">products</a>
+          <ul class="drop--wrapper">
+            <li class="nav--sub-item"><a href="smartflower.html">smartflower</a></li>
+            <li class="nav--sub-item"><a href="smartflower-plus.html">smartflower plus</a></li>
+            <li class="nav--sub-item"><a href="smartflower-ev.html">smartflower ev</a></li>
+          </ul>
+        </li>
+        <li class="nav-item--single"><a href="for-home.html">your home</a></li>
+        <li class="nav-item--single"><a href="business-and-government.html">business &amp; government</a></li>
+        <li class="nav-item--single"><a href="contact.html">contact</a></li>
+      </ul>
+    </nav>
+
+
+
+
+    <button style="display: none;" class="c-hamburger44 c-hamburger--htx44">
+       <span>toggle menu</span>
+      </button>
+  </div>
+
+</header>
+
+  <!-- You write code for this content block in another file -->
+
+<div id="dealer-contact" class="main" role="main">
+	<header class="header--dealer-contact">
+		<section class="dealer-contact-header--container">
+			<h1>Become a smartflower authorized dealer or partner</h1>
+			<h3 class="contact-subhead">Bring the latest in solar technology to your company</h3>
+			<p>Looking for a new product offering that will grow your business and help support a more environmentally sustainable planet? When you introduce your customers to smartflower, you’ll be showing them that producing clean solar energy can be exciting and simple. Find out how you can become a certified reseller today. </p>
+			<span class="prod--down-arrow">
+				<span class="arrow-bounce">&#8595;</span>
+			</span>
+		</section>
+	</header>
+
+<section class="contact-form dealer">
+	<div class="contact-form--container dealer">
+		<h2> Become a smartflower partner today.</h2>
+		<p>Contact us to connect with a smartflower representative today or call&nbsp;us&nbsp;at&nbsp;<a href="tel:16179043100">(617)904-3100</a></p>
+		<div class="dealer-form-wrapper">
+
+		</div>
+
+	</div>
+
+</section>
+
+
+
+
+</div>
+
+<footer role="contentinfo">
+	<div class="footer-nav--container">
+		<ul class="footer-nav">
+			<li><a class="line-hover" href="products.html">products</a></li>
+			<li><a class="line-hover" href="for-home.html">your home</a></li>
+			<li><a class="line-hover" href="business-and-government.html">business &amp; government</a></li>
+			<li><a class="line-hover" href="contact.html">contact</a></li>
+			<li><a class="line-hover" href="dealer-contact.html">become a partner</a></li>
+			<li><a class="line-hover" href="dealer-login.html">partner login</a></li>
+		</ul>
+		<ul class="social-nav">
+			<li><a class="social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+			<li><a class="social-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+			<li><a class="social-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+			<li><a class="social-icon"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+			<li><a href="tel:16179043100">T: (617)904-3100</a></li>
+		</ul>
+	</div>
+	<div class="footer-copyright--secondary">
+		<ul class="copyright-nav">
+		<li><a>&copy;smartflower</a></li>
+		<li><a>privacy policy</a></li>
+		<li><a>terms of use</a></li>
+		<li><a>legal</a></li>
+	</ul>
+	</div>
+</footer>
+  <!-- inject:js -->
+  <!-- endinject -->
+  <script src="js/scripts.js"></script>
+  <script src="js/jquery.scrollme.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/vivus.min.js"></script>
+
+  <script>
+  	$(document).ready(function(){
+      //create custom pager for versus
+      function customPager() {
+        $.each($('.versus-slide'), function (i) {
+            var titleData = jQuery(this).find('span').attr('title');
+            var paginationLinks = jQuery('.vs-nav .owl-dot span');
+
+            $(paginationLinks[i]).append(titleData);
+        });
+
+      }
+      //homepage carousel - 1st
+      $('#awards--carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        dots : false,
+        responsiveClass:true,
+        autoPlay:true,
+        responsive:{
+            0:{
+                items:2,
+            },
+            600:{
+                items:3,
+            },
+            1000:{
+                items:5,
+                loop:false
+            }
+        }
+      });
+
+      //for home carousel - 2nd
+      $('#your-life--carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        responsiveClass:true,
+        autoplay:true,
+        autoplayTimeout:5000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1,
+            },
+            520:{
+                items:2,
+            },
+            720:{
+                items:3,
+            },
+            1000:{
+                items:4,
+            }
+        }
+      });
+      //versus carousel - 3nd
+       $('#versus--carousel').owlCarousel({
+        loop          : false,
+        items         : 1,
+        nav           : false,
+        dotsContainer : '#vs-carousel--nav',
+        onInitialized : customPager
+    });
+
+       //stats carousel - 4th
+       $('#stats--carousel').owlCarousel({
+        loop          : false,
+        responsiveClass: true,
+        autoplay: true,
+        dots: false,
+        autoplayTimeout: 5000,
+        margin: 10,
+        items         : 3,
+        nav           : false,
+        responsive:{
+            0:{
+                items:1,
+            },
+            520:{
+                items:2,
+            },
+            720:{
+                items:2,
+            },
+            1000:{
+                items:3,
+            }
+        }
+
+    });
+
+             //vivus objects
+
+      var smartTrackingIcon = new Vivus('smart-tracking-icon', {type: 'delayed', duration: 60, delay: 30, animTimingFunction: Vivus.EASE_IN_OUT})
+      var smartUseIcon = new Vivus('smart-use-icon', {type: 'delayed', duration: 60, delay: 30, animTimingFunction: Vivus.EASE_IN_OUT})
+      var smartCoolingIcon = new Vivus('smart-cooling-icon', {type: 'delayed', duration: 60, delay: 30, animTimingFunction: Vivus.EASE_IN_OUT})
+      var smartSafetyIcon = new Vivus('smart-safety-icon', {type: 'delayed', duration: 60, delay: 30, animTimingFunction: Vivus.EASE_IN_OUT})
+      var smartSystemIcon = new Vivus('smart-system-icon', {type: 'delayed', duration: 60, delay: 30, animTimingFunction: Vivus.EASE_IN_OUT})
+      var smartCleaningIcon = new Vivus('smart-cleaning-icon', {type: 'delayed', duration: 60, delay: 30, animTimingFunction: Vivus.EASE_IN_OUT})
+  })
+  </script>
+</body>
+</html>

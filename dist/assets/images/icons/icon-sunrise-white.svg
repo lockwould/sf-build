@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.75 45.79">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>Asset 28</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g>
+        <rect class="cls-1" x="29.38" width="3" height="11.38"/>
+        <rect class="cls-1" x="43" y="11.56" width="11.37" height="3" transform="translate(5.02 38.25) rotate(-45)"/>
+        <rect class="cls-1" x="11.56" y="7.38" width="3" height="11.37" transform="translate(-5.41 13.07) rotate(-45)"/>
+        <path class="cls-1" d="M45.72,29.38a14.92,14.92,0,0,0-29.68,0H0v3H61.75v-3Zm-26.66,0a11.92,11.92,0,0,1,23.65,0Z"/>
+        <rect class="cls-1" x="14.52" y="35.38" width="32.7" height="3"/>
+        <rect class="cls-1" x="23.75" y="42.79" width="14.25" height="3"/>
+      </g>
+    </g>
+  </g>
+</svg>

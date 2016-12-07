@@ -1,0 +1,46 @@
+.header--dealer-contact
+	padding: $space-humongous 0 $space-xlarge 0
+.dealer-contact-header--container
+	+outer-container(80%)
+	h1
+		+font-size($h2--font-sizes)
+		color: #ffffff
+		text-align: center
+	h3
+		color: #ffffff
+		text-align: center
+		font-family: $base-font-family
+	p
+		color: #ffffff
+		text-align: center
+		margin-bottom: $space-med
+	.prod--down-arrow
+		margin: 0 auto
+		color: #ffffff
+
+.contact-form
+	background: #ffffff
+	padding: $space-xlarge 0 $space-big 0
+
+.contact-form--container
+	+outer-container(60%)
+	text-align: center
+	h2
+		+font-size($variant-h2--font-sizes)
+.header--contact
+	padding: $space-humongous 0 $space-humongous 0
+.contact-header--container
+	+outer-container(60%)
+	.contact-form-wrapper
+		background: #ffffff
+		+shadow
+		padding: $space-med
+		h1
+			+font-size($variant-h2--font-sizes)
+			color: $blue
+
++media($bp-mob-large)
+	.contact-header--container
+		+outer-container(100%)
+	.contact-form--container
+		+outer-container(100%)

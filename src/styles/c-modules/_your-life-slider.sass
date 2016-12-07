@@ -1,0 +1,84 @@
+.yl-icon--container
+	width: 66px
+	height: 66px
+	display: block
+	margin-left: auto
+	margin-right: auto
+	margin-bottom: $space-teeny
+	img
+		max-height: 66px
+		min-height: 66px
+
+.for-home-carousel--container
+	+outer-container(100%)
+	margin-top: $space-med
+	position: relative
+	+clearfix
+	#your-life--carousel
+		+span-columns(12)
+		+clearfix
+		.owl-stage-outer
+			padding: 4px 0 4px 0
+
+		.your-life--card
+			background-color: $light-gray
+			text-align: center
+			+shadow
+			padding: $space-vinsmall
+			height: 203px
+			margin: 3px
+
+			p
+				font-size: 16px
+				line-height: 1.4
+				strong
+					color: $berry
+.vs-card--icon
+	display: block
+	transition: all 0.3s
+	width: 82px
+	height: 82px
+	margin-left: auto
+	margin-right: auto
+	margin-bottom: $space-vinsmall
+	position: relative
+
+.owl-item.active
+	.vs-card--icon, .yl-icon--container
+		-webkit-animation:  dot-fade 0.5s forwards
+		-moz-animation:     dot-fade 0.5s forwards
+		-o-animation:       dot-fade 0.5s forwards
+		animation:          dot-fade 0.5s forwards
+		animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1)
+
+@keyframes dot-fade
+	0%
+		transform: scale(.5, .5)
+		transform: translateY(3px)
+		opacity: 0
+	90%
+		transform: scale(1.05, 1.05)
+		transform: translateY(-2px)
+		opacity: 1
+	100%
+		transform: scale(1, 1)
+		transform: translateY(0px)
+		opacity: 1
+.steps-icon--container
+	display: block
+	margin-left: auto
+	margin-right: auto
+	margin-bottom: $space-teeny
+	width: 67px
+	height: 67px
+	img
+		height: 67px
++media($bp-mob-large)
+	.for-home-carousel--container
+		#your-life--carousel
+			.owl-stage-outer
+				padding: 4px 0 4px 0
+
+			.your-life--card
+				padding: $space-xxsmall
+				height: 183px

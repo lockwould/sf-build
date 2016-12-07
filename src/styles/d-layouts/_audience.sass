@@ -15,29 +15,7 @@
 .for-home-your-life-container
 	padding: $space-xlarge 0 $space-large 0
 
-.for-home-carousel--container
-	+outer-container(100%)
-	margin-top: $space-med
-	position: relative
-	+clearfix
-	#your-life--carousel
-		+span-columns(12)
-		+clearfix
-		.owl-stage-outer
-			padding: 4px 0 4px 0
 
-		.your-life--card
-			background-color: $light-gray
-			text-align: center
-			+shadow
-			padding: $space-vinsmall
-			height: 100%
-			margin: 3px
-
-			p
-				+font-size($lrg-p--font-sizes)
-				strong
-					color: $berry
 .for-home-smarter--container
 	padding: $space-humongous 0 $space-humongous 0
 	position: relative
@@ -88,6 +66,7 @@
 		color: #ffffff
 		font-weight: bold
 		text-align: center
+		margin-bottom: 0
 		+font-size($lrg-p--font-sizes)
 		padding: 10px 0 10px 0
 .vs-card--content
@@ -240,7 +219,15 @@
 			margin-right: 1.36015%
 		&:nth-child(2n)
 			margin-right: 0
-
+	.four-steps--container
+		.four-steps
+			ul
+				li
+					+span-columns(6)
+					padding: $space-teeny
+					margin-bottom: $space-xxsmall
+					&:nth-child(2)
+						margin-right: 0
 +media($bp-tab-med)
 	.for-home-smarter-content--container
 		.for-home-smarter-content
@@ -290,5 +277,14 @@
 	.versus--carousel .owl-item
 		padding: 4px
 	.versus-circle
-
+		display: none
+	.four-steps--container
+		.four-steps
+			ul
+				li
+					+span-columns(12)
+					padding: $space-teeny
+					margin-bottom: $space-xxsmall
+					&:nth-child(2)
+						margin-right: 0
 

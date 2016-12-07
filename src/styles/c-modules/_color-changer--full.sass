@@ -1,0 +1,203 @@
+/*//////////////////////////////////////////////*/
+/*/////// COLOR CHANGER - FULL WIDTH //////////*/
+/*////////////////////////////////////////////*/
+
+/*------- background and images -------*/
+#color-changer-full.changer--bg 
+	position: relative
+	background: $berry
+	height: auto
+	padding: 0
+	margin: 0
+	transition: all .2s ease
+	display: flex
+
+#color-changer-full .changer--images
+	& div.active
+		opacity: 1
+
+	& div.inactive
+		opacity: 0 
+
+#color-changer-full .changer--images 
+	width: 50%
+	height: auto
+	position: relative
+	+media($bp-desk-med)
+		width: 40%
+	+media($bp-mob-large)
+		width: 30%
+	+media($bp-mob-med)
+		position: absolute
+		top: 50%
+		left: 0
+		width: 100%
+
+	& >div
+		transition: opacity .15s ease
+		+media($bp-mob-med)
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 20%
+			height: 240px
+			width: 240px
+			overflow: hidden
+			border-radius: 100%
+			background: rgba(256,256,256,0.15)
+			+shadow
+		+media($bp-mob-small)
+			left: 10%
+
+#color-changer-full .changer--images img
+	position: absolute
+	top: 0
+	bottom: 0
+	max-height: 100%
+	max-width: 1000%
+	height: auto
+	width: auto
+	opacity: 1
+	+media($bp-mob-large)
+		left: -50%
+		z-index: 0
+	+media($bp-mob-med)
+		left: 40px
+		
+
+/*--- description ---*/
+#color-changer-full .changer--text 
+	width: 50%
+	padding: $space-xlarge $space-xxsmall $space-xlarge $space-xlarge
+	color: #ffffff
+	position: relative
+	transition: all .2s ease-in-out
+	+media($bp-desk-med)
+		width: 60%
+	+media($bp-desk-small)
+		padding: $space-med $space-teeny $space-med $space-med
+	+media($bp-mob-large)
+		width: 70%
+		padding: $space-small 0 $space-small $space-small
+		z-index: 20
+	+media($bp-mob-med)
+		width: auto
+		padding: $space-small $space-vinsmall
+	h2
+		+font-size($variant-h2--font-sizes)
+
+
+
+/*----- nav -----*/
+#color-changer-full .changer--nav
+	display: block
+	margin: $space-large 0 0 0
+	+media($bp-mob-med)
+		margin: 280px 0 0 0
+
+#color-changer-full .changer--nav h6
+	text-transform: uppercase
+	&:after
+		content: ''
+		width: 60%
+		margin-left: $space-micro
+		display: inline-block
+		+media($bp-mob-med)
+			width: 100%
+			margin-left: 0
+
+
+#color-changer-full .changer--nav h6.light
+	&:after
+		border-bottom: 1px solid #ffffff
+
+#color-changer-full .changer--nav h6.dark
+	&:after
+		border-bottom: 1px solid $dark-gray
+	
+#color-changer-full .changer--nav input 
+	display: none
+
+/* nav dots */
+#color-changer-full .changer--nav label 
+	display: inline-block
+	border-radius: 100%
+	height: 36px
+	width: 36px
+	margin: 0 $space-micro 0 0
+	border: 2px solid #ffffff
+	position: relative
+	+shadow
+	+media($bp-tab-med)
+		margin: 0 $space-teeny 0 0
+	+media($bp-mob-med)
+		margin: 0 $space-micro 0 0
+
+	/* tag on hover */
+	&:hover:after 
+		position: absolute
+		height: auto
+		width: 120px
+		padding: 3px $space-vinsmall
+		top: 150%
+		left: -100%
+		display: inline-block
+		z-index: 2
+		background: #ffffff
+		color: $dark-gray
+		text-align: center
+		+shadow
+
+	&:hover:before
+		content: ''
+		position: absolute
+		z-index: 20
+		bottom: -$space-vinsmall
+		left: 50%
+		width: 0
+		height: 0
+		border-left: 8px solid transparent
+		border-right: 8px solid transparent
+		border-bottom: 8px solid #ffffff
+
+
+	/* set background colors and hover content*/
+	&:nth-of-type(1)
+		background: $berry
+		&:hover:after
+			content: 'berry'
+
+	&:nth-of-type(2)
+		background: $lavendar
+		&:hover:after
+			content: 'lavender'
+
+	&:nth-of-type(3)
+		background: $mermaid
+		&:hover:after
+			content: 'mermaid'
+
+	&:nth-of-type(4)
+		background: $amber
+		&:hover:after
+			content: 'amber'
+
+	&:nth-of-type(5)
+		background: $porcelain
+		&:hover:after
+			content: 'porcelain'
+
+	&:nth-of-type(6)
+		background: $pearl
+		&:hover:after
+			content: 'pearl'
+
+	&:nth-of-type(7)
+		background: $jungle
+		&:hover:after
+			content: 'jungle'
+
+	&:nth-of-type(8)
+		background: $ocean
+		&:hover:after
+			content: 'ocean'

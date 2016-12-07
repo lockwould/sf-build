@@ -1,0 +1,330 @@
+/*//////////////////////////////////////////////*/
+/*///////////// FLIPBOOK GALLERY //////////////*/
+/*////////////////////////////////////////////*/
+/* ///// base ////// */
+
+
+#gallery--flipbook.wrapper
+	padding: 0
+	text-align: center
+	position: relative
+	overflow: hidden
+	height: auto
+	z-index: 99
+
+
+	.flip-inner-wrapper
+		position: relative
+		width: 60%
+		margin: 0 auto
+		padding: $space-xlarge 0 0 0
+		+media($bp-tab-med)
+			width: auto
+			margin: 0 $space-xxsmall
+		+media($bp-mob-med)
+			margin: 0 $space-vinsmall
+
+
+/*/////// subhead /////////*/
+#gallery--flipbook .subhead
+	padding: 0 0 $space-vinsmall 0
+	color: #ffffff
+
+	h2
+		font-size: $large
+		margin: 0
+		padding: 0
+
+	p
+		font-size: $base
+		margin: 0 auto
+		padding: $space-micro 0 0 0
+		width: 60%
+		+media($bp-mob-med)
+			width: auto
+
+
+/*////////// slider state toggle /////////*/
+.toggle
+	position: relative
+	z-index: 99
+	background: rgba(256,256,256,0.8)
+	width: 40%
+	margin: 0 auto
+	padding: 0
+	border-radius: $space-vinsmall
+	display: flex
+	+media($bp-mob-large)
+		width: 75%
+	+media($bp-mob-med)
+		width: auto
+
+#sunrise,
+#allday,
+#sunset
+	display: none
+
+.toggle label
+	width: 426px
+	padding: $space-micro
+	margin: 0
+	box-sizing: border-box
+	display: inline-block
+	position: relative
+	z-index: 2
+	text-align: center
+	cursor: pointer
+
+	svg
+		display: block
+		margin: 0 auto
+		height: $space-xxsmall
+		width: $space-xxsmall
+
+		.cls-1
+			fill: $pearl
+			stroke-miterlimit: 10
+			stroke-width: 2px
+			transition: all .3s ease
+
+#sunrise:checked 
+	& ~ .hilite
+		left: 0%
+
+	& + label svg .cls-1
+		fill: #ffffff
+
+#allday:checked
+	& ~ .hilite
+		left: 33%
+
+	& + label svg .cls-1
+		fill: #ffffff
+
+#sunset:checked
+	& ~ .hilite
+		left: 65%
+
+	& + label svg .cls-1
+		fill: #ffffff
+
+.hilite
+	background: $berry
+	border: #ffffff 1px solid
+	position: absolute
+	box-sizing: border-box
+	top: 0
+	left: 0
+	bottom: 0
+	right: auto
+	margin: 3px
+	height: auto
+	width: 32%
+	border-radius: $space-vinsmall
+	z-index: 0
+	transition: all .3s ease
+
+
+
+
+
+/* ////// image flipbook //////*/
+.images--animated 
+	display: block
+	position: relative
+	z-index: 0
+	width: 90%
+	overflow: visible
+	margin: -$space-xsmall auto 0 auto
+	+media($bp-mob-med)
+		margin: -$space-micro auto 0 auto
+
+.images--animated .images-contain img
+	display: block
+	width: 100%
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	opacity: 0
+
+	&:nth-child(1)
+		position: relative
+
+
+/* keyframes and delay classes*/
+@keyframes flipbook 
+	0% 
+		opacity: 1
+	100% 
+		opacity: 1
+
+.images--animated img.visible 
+	animation-name: flipbook
+	animation-direction: initial
+	animation-iteration-count: 1
+	animation-duration: .25s
+
+.delay0 
+	animation-delay: 0s
+
+.delay1 
+	animation-delay: .25s
+
+.delay2 
+	animation-delay: .5s
+
+.delay3 
+	animation-delay: .75s
+
+.delay4 
+	animation-delay: 1s
+	animation-fill-mode: forwards
+
+.delay5 
+	animation-delay: 1.25s
+	animation-fill-mode: forwards
+
+
+/*//////////// Description box ///////////*/
+.desc--wrapper 
+	position: absolute
+	bottom: 13%
+	+media($bp-desk-med)
+		bottom: 6%
+	+media($bp-desk-small)
+		bottom: 3%
+	+media($bp-tab-med)
+		bottom: 6%
+	+media($bp-mob-large)
+		position: relative
+		bottom: $space-vinsmall
+
+.desc--bubble
+	display: block
+	position: relative
+	background: white
+	width: 60%
+	margin: 0 auto
+	color: $dark-gray
+	z-index: 50
+	+shadow
+	+media($bp-desk-small)
+		width: 100%
+	+media($bp-tab-med)
+		width: auto
+
+.desc--bubble:before 
+	content: ''
+	height: 0
+	width: 0
+	position: absolute
+	top: -13%
+	left: 46%
+	right: auto
+	border-left: $space-vinsmall solid transparent
+	border-right: $space-vinsmall solid transparent
+	border-bottom: $space-vinsmall solid #ffffff
+	+media($bp-mob-med)
+		top: -10%
+
+.desc--bubble h3
+	padding: 0
+	margin: 0
+	color: $berry
+	font-size: $large
+	font-family: $base-font-family
+
+.desc--bubble p 
+	font-size: $tiny
+
+.desc--bubble span 
+	display: block
+	position: absolute
+	top: 0
+	left: 0
+	padding: $space-micro $space-xsmall
+	opacity: 0
+	transition: all 1s ease
+
+	&:nth-child(3)
+		position: relative
+
+.desc--wrapper.variable.sunrise span:nth-child(1) 
+	opacity: 1
+
+
+.desc--wrapper.variable.allday span:nth-child(2) 
+	opacity: 1
+
+
+.desc--wrapper.variable.sunset span:nth-child(3) 
+	opacity: 1
+
+
+
+/*//////////// Background ///////////////*/
+.bg 
+	position: relative
+
+.bg-gradient 
+	position: absolute
+	top: 0
+	bottom: 0
+	width: 100%
+	z-index: -100
+	opacity: 0
+	transition: all 1.75s ease
+
+.bg-gradient.sunrise
+	background: linear-gradient(#59a0cc,#f9ebd1)
+
+.bg-gradient.allday
+	background: linear-gradient(#4a84bd,#add6de)
+
+
+.bg-gradient.sunset
+	background: url('../assets/images/flipbook/background--home-tracking-stars.png') repeat, linear-gradient(#434a52, #8aadd6)
+
+
+.bg.variable.sunrise .bg-gradient.sunrise 
+	opacity: 1
+
+
+.bg.variable.allday .bg-gradient.allday 
+	opacity: 1
+
+
+.bg.variable.sunset .bg-gradient.sunset 
+	opacity: 1
+
+
+
+/*/////////// clouds //////////*/
+@keyframes clouds 
+	0% 
+		transform: translateY(18px)
+	100%
+		transform: translateY(10px)
+
+
+.clouds--animated 
+	height: auto
+	position: absolute
+	bottom: 0
+	width: 100%
+	z-index: -50
+	animation-name: clouds
+	animation-duration: 4s
+	animation-direction: alternate
+	animation-timing-function: ease-in-out
+	animation-iteration-count: infinite
+
+
+.clouds--animated img 
+	width: 100%
+
+
+
+
+

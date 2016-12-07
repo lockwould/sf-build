@@ -347,6 +347,19 @@
 		+span-columns(6)
 	.prod-smartfeatures--container
 		padding: $space-large 0 $space-large 0
+	#color-changer
+		text-align: center
+		position: relative
+		float: left
+		width: 100%
+		+shadow
+		padding: $space-vinsmall
+		background-color: $light-gray
+		margin-left: 0
+	#color-changer .changer--nav label
+		height: $space-xsmall
+		width: $space-xsmall
+
 	.prod-smartfeatures
 		h2
 			text-align: center
@@ -463,6 +476,9 @@
 		.prod--down-arrow
 			display: none
 +media($bp-mob-large)
+	#color-changer .changer--nav label
+		height: $space-xxsmall
+		width: $space-xxsmall
 	.interactive-dots--container
 		position: absolute
 		width: 100%
