@@ -1,0 +1,530 @@
+/*/////////////////////////////////*/
+/*////// BUBBLE GALLERY //////////*/
+/*///////////////////////////////*/
+#bubble-gallery
+	text-align: center
+	padding: $space-large
+	+outer-container()
+	margin: 0 auto
+	+media($bp-desk-med)
+		width: auto
+	+media($bp-desk-small)
+		padding: $space-med $space-vinsmall
+	+media($bp-tab-med)
+		padding: $space-med $space-teeny
+	+media($bp-mob-large)
+		padding: 0
+
+	.subhead
+		+span-columns(9)
+		float: none
+		margin: 0 auto
+		+media($bp-mob-large)
+			width: auto
+			padding: $space-vinsmall
+
+		h3
+			color: $berry
+
+/*----- nav ---- */
+#bubble--cleaning,
+#bubble--cooling,
+#bubble--system,
+#bubble--safety
+	display: none
+
+
+#bubble-gallery .gallery--nav
+	margin: $space-xsmall auto
+	+media($bp-mob-large)
+
+	h4
+		display: inline-block
+		position: relative
+		z-index: 10
+		text-transform: uppercase
+		color: $berry
+		background: #ffffff
+		padding: $space-micro $space-xxsmall
+		margin: 0
+		+media($bp-mob-large)
+
+	.rule
+		position: relative
+		z-index: 0
+		display: block
+		width: 100%
+		height: 1px
+		border-bottom: 1px solid $berry
+		margin: -$space-vinsmall 0 0 0
+
+
+#bubble-gallery .gallery--nav label
+	color: $pearl
+	display: inline-block
+	text-align: center
+	margin: $space-xsmall $space-xxsmall 0 $space-xxsmall
+	+media($bp-tab-med)
+		margin: $space-xsmall $space-vinsmall 0 $space-vinsmall
+	+media($bp-mob-large)
+		width: $space-med
+		margin: $space-xsmall $space-vinsmall 0 $space-vinsmall
+	+media($bp-mob-med)
+		width: $space-small
+		margin: $space-xsmall $space-micro 0 $space-micro
+
+	span
+		display: block
+		text-transform: uppercase
+		font-size: $small
+		transition: all .2s ease
+		+media($bp-tab-med)
+			font-size: 13px
+			text-align: center
+		+media($bp-mob-med)
+			display: none
+
+	svg
+		height: $space-small
+		display: block
+		fill: none
+		margin: 0 auto $space-micro auto
+		transition: all .2s ease
+		+media($bp-mob-med)
+			margin: 0
+
+		.cls-1
+			stroke: $pearl
+			stroke-miterlimit: 10
+			stroke-width: 3px
+			transition: all .3s ease-in-out
+
+#bubble--cleaning:checked + label
+	&>span
+		color: $berry
+
+	&>svg .cls-1
+		stroke: $berry
+
+#bubble--cooling:checked + label
+	&>span
+		color: $berry
+
+	&>svg .cls-1
+		stroke: $berry
+
+#bubble--system:checked + label
+	&>span
+		color: $berry
+
+	&>svg .cls-1
+		stroke: $berry
+
+#bubble--safety:checked + label
+	&>span
+		color: $berry
+
+	&>svg .cls-1
+		stroke: $berry
+
+
+
+/* ----- descriptions ----*/
+.gallery--desc
+	position: relative
+	min-height: 10px
+	height: 100%
+	font-weight: 100
+	margin: $space-xxsmall auto
+	+media($bp-mob-large)
+		width: auto
+		margin: $space-xxsmall $space-vinsmall
+	+media($bp-mob-med)
+		margin: $space-teeny $space-vinsmall $space-xsmall $space-vinsmall
+
+
+	div
+		position: absolute
+		top: 0
+		left: 0
+		transition: all .5s ease
+
+	div:nth-child(1)
+		position: relative
+
+.gallery--desc div.active 
+	opacity: 1
+
+.gallery--desc div.inactive 
+	opacity: 0
+
+
+/* ------- images ----- */
+.gallery--images
+	position: relative
+	min-height: 20px
+	height: 100%
+	margin: $space-small auto $space-vinsmall auto
+	+media($bp-mob-large)
+		margin: $space-xxsmall 0 $space-vinsmall 0
+	+media($bp-mob-med)
+		margin: 0
+
+.gallery--images div
+	position: absolute
+	top: 0
+	width: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+	text-align: center
+	+media($bp-mob-med)
+		display: block
+		height: 500px
+		top: -20px
+
+	&:nth-child(1)
+		position: relative
+
+/*---- dot base --*/
+#bubble-gallery .gallery--images
+	.dot1, .dot2, .dot3, .dot4, .dot5
+		border-radius: 50%
+		display: inline-block
+		position: relative
+		overflow: hidden
+		+shadow
+		+media($bp-mob-med)
+			display: block
+
+	.dot2 img, .dot3 img, .dot4 img
+		width: 100%
+		position: relative
+
+	/*---- dot1 and dot5 ----*/
+	.dot1, .dot5
+		height: 40px
+		width: 40px
+		position: absolute
+		top: 45%
+		+media($bp-desk-small)
+			height: 30px
+			width: 30px
+			top: 48%
+		+media($bp-tab-med)
+			height: 20px
+			width: 20px
+		+media($bp-mob-large)
+			height: 0
+			width: 0
+			display: none
+			top: 0
+			position: relative
+
+	.dot1 
+		left: 0
+
+	.active>.dot1
+		opacity: 1
+		transition: all 1s ease-in-out
+
+	.inactive>.dot1
+		opacity: 0
+		transition: all 1s ease-in-out
+
+	.dot5 
+		right: 0
+
+	.active>.dot5 
+		opacity: 1
+		transition: all 1s ease-in-out
+
+	.inactive>.dot5 
+		opacity: 0
+		transition: all 1s ease-in-out
+
+	/*--- set dot colors for each slide ----*/
+	&>div:nth-child(1)
+		.dot1
+			background: $lavendar
+		.dot5
+			background: $amber
+
+	&>div:nth-child(2)
+		.dot1
+			background: $blue
+		.dot5
+			background: $jungle
+
+	&>div:nth-child(3)
+		.dot1
+			background: $amber
+		.dot5
+			background: $mermaid
+
+	&>div:nth-child(4)
+		.dot1
+			background: $mermaid
+		.dot5
+			background: $berry
+
+
+	/*------ dot2 and dot4 ------*/
+	.dot2, .dot4
+		height: 220px
+		width: 220px
+		position: relative
+		+media($bp-desk-small)
+			height: 200px
+			width: 200px
+		+media($bp-tab-med)
+			height: 170px
+			width: 170px
+		+media($bp-mob-large)
+			height: 150px
+			width: 150px
+
+	.active>.dot2
+		transform: translateX(45%)
+		opacity: 1
+		transition: all .45s ease-in-out
+		transition-delay: .6s
+		+media($bp-desk-large)
+			transform: translateX(32%)
+		+media($bp-desk-small)
+			transform: translateX(35%)
+		+media($bp-mob-large)
+			transform: translateX(20%)
+		+media($bp-mob-med)
+			margin: 0 auto
+			transform: translateX(-50%) translateY(30%)
+
+	.inactive>.dot2
+		transform: translateX(100%)
+		opacity: 0
+		transition: all .45s ease-in-out
+		+media($bp-mob-med)
+			margin: 0 auto
+			transform: translateX(-10%) translateY(100%)
+
+	.active>.dot4
+		transform: translateX(-45%)
+		opacity: 1
+		transition: all .45s ease-in-out
+		transition-delay: .6s
+		+media($bp-desk-large)
+			transform: translateX(-32%)
+		+media($bp-desk-small)
+			transform: translateX(-35%)
+		+media($bp-mob-large)
+			transform: translateX(-20%)
+		+media($bp-mob-med)
+			margin: 0 auto
+			transform: translateX(50%) translateY(-30%)
+
+	.inactive>.dot4
+		transform: translateX(-100%)
+		opacity: 0
+		transition: all .45s ease-in-out
+		+media($bp-mob-med)
+			margin: 0 auto
+			transform: translateX(10%) translateY(-100%)
+
+
+	/*------ dot3 ------*/
+	.dot3
+		height: 310px
+		width: 310px
+		z-index: 100
+		margin: 0 auto
+		+media($bp-desk-small)
+			height: 290px
+			width: 290px
+		+media($bp-tab-med)
+			height: 260px
+			width: 260px
+		+media($bp-mob-large)
+			height: 220px
+			width: 220px
+		+media($bp-mob-med)
+			height: 300px
+			width: 300px
+
+	.active>.dot3
+		opacity: 1
+		transition: all .5s ease-out
+		transition-delay: .4s
+
+	.inactive>.dot3
+		transform: scale(.25)
+		opacity: 0
+		transition: all .5s ease-in
+		transition-delay: .2s
+
+/*---- slide-specific styles -----*/
+/* slide 1 */
+#bubble-gallery .gallery--images div:nth-child(1)
+	.dot2
+		background: $lavendar
+		img
+			height: 100%
+			width: auto
+			top: 20%
+
+	.dot3
+		img
+			max-height: 100%
+			max-width: 100000%
+			height: auto
+			width: auto
+			transform: translateX(-47%)
+
+	.dot4
+		background: $amber
+		img
+			height: 150%
+			width: auto
+			top: -30%
+
+	&.active
+		.dot3
+			img
+				animation: brush-pan 20s 1 ease
+				animation-direction: forwards
+				animation-fill-mode: forwards
+@keyframes brush-pan
+	0%
+		transform: translateX(-47%)
+	100%
+		transform: translateX(0%)
+
+/* slide 2 */
+#bubble-gallery .gallery--images div:nth-child(2)
+	.dot2
+		background: $blue
+		color: #ffffff
+		padding: $space-med $space-teeny 0 0
+		+media($bp-mob-large)
+			padding: $space-small $space-teeny 0 0
+
+		span
+			display: block
+			padding: 0
+			margin: 0
+			text-align: center
+
+		span:nth-child(1)
+			font-size: $big
+			font-weight: 900
+			line-height: $base
+			+media($bp-mob-large)
+				font-size: $large
+
+		span:nth-child(2)
+			font-size: $small
+			text-transform: uppercase
+			+media($bp-mob-large)
+				font-size: $tiny
+
+	.dot3
+		background-image: url('../assets/images/bubble-gallery-home/smart-cooling-center-animation.gif') 
+		background-color: $mermaid
+		background-size: 60%
+		background-position: 100% 35%
+		background-repeat: no-repeat
+
+		img
+			height: 130%
+			width: auto
+			top: -20%
+			left: -25%
+
+	.dot4
+		background: $jungle
+		color: #ffffff
+		padding: $space-med 0 0 $space-teeny
+		+media($bp-mob-large)
+			padding: $space-small 0 0 $space-micro
+
+		span
+			display: block
+			padding: 0
+			margin: 0
+
+		span:nth-child(1)
+			font-size: $xlarge
+			font-weight: 900
+			line-height: $base
+			+media($bp-mob-large)
+				font-size: $large
+
+		span:nth-child(2)
+			font-size: $small
+			text-transform: uppercase
+			+media($bp-mob-large)
+				font-size: $tiny
+
+/* slide 3 */
+#bubble-gallery .gallery--images div:nth-child(3)
+	.dot2
+		background: $amber
+
+	.dot3
+
+	.dot4
+
+
+/* slide 4 */
+#bubble-gallery .gallery--images div:nth-child(4)
+	.dot2
+		background-image: url('../assets/images/bubble-gallery-home/smart-safety-center-animation.gif')
+		background-size: cover
+		background-color: $mermaid
+
+		img
+			max-width: 200%
+			width: 300px
+			top: $space-vinsmall
+			+media($bp-mob-large)
+				width: 200px
+				top: $space-teeny
+	.dot3
+		background-image: url('../assets/images/bubble-gallery-home/smart-safety-center-animation.gif')
+		background-size: cover
+		background-color: $ocean
+
+	.dot4
+		background: $berry
+		color: #ffffff
+		padding: $space-small 0 0 $space-micro
+		+media($bp-mob-large)
+			padding: $space-xxsmall 0 0 $space-micro
+
+		span
+			padding: 0
+			margin: 0
+			display: block
+
+		span:nth-child(1), span:nth-child(4)
+			text-transform: uppercase
+			font-size: $small
+			line-height: $med
+			+media($bp-mob-large)
+				font-size: $tiny
+
+		span:nth-child(2), span:nth-child(3)
+			font-size: $xlarge
+			font-weight: 900
+			line-height: $base
+			+media($bp-mob-large)
+				font-size: $large
+		span:nth-child(3)
+			font-size: $large
+			font-weight: 900
+			line-height: $base
+			margin-bottom: 8px
+			+media($bp-mob-large)
+				font-size: $large
+	&.active>.dot4
+		+media($bp-mob-med)
+			transform: translateX(50%) translateY(-22%)
