@@ -25,6 +25,7 @@
 
 		h3
 			color: $berry
+			font-family: $base-font-family
 
 /*----- nav ---- */
 #bubble--cleaning,
@@ -98,7 +99,9 @@
 			stroke-miterlimit: 10
 			stroke-width: 3px
 			transition: all .3s ease-in-out
-
+.gallery-nav
+	input
+		outline: none
 #bubble--cleaning:checked + label
 	&>span
 		color: $berry
@@ -180,9 +183,10 @@
 	text-align: center
 	+media($bp-mob-med)
 		display: block
-		height: 500px
-		top: -20px
-
+		height: 270px
+		top: 0px
+	+media($bp-mob-small)
+		height: 200px
 	&:nth-child(1)
 		position: relative
 
@@ -281,6 +285,7 @@
 			height: 170px
 			width: 170px
 		+media($bp-mob-large)
+			display: none
 			height: 150px
 			width: 150px
 
@@ -349,6 +354,9 @@
 		+media($bp-mob-med)
 			height: 300px
 			width: 300px
+		+media($bp-mob-small)
+			height: 200px
+			width: 200px
 
 	.active>.dot3
 		opacity: 1
@@ -477,7 +485,6 @@
 /* slide 4 */
 #bubble-gallery .gallery--images div:nth-child(4)
 	.dot2
-		background-image: url('../assets/images/bubble-gallery-home/smart-safety-center-animation.gif')
 		background-size: cover
 		background-color: $mermaid
 
@@ -489,7 +496,7 @@
 				width: 200px
 				top: $space-teeny
 	.dot3
-		background-image: url('../assets/images/bubble-gallery-home/smart-safety-center-animation.gif')
+		background-image: url('../assets/images/bubble-gallery-home/smart-safety-center-background-animated.gif')
 		background-size: cover
 		background-color: $ocean
 

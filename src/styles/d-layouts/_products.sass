@@ -1,3 +1,4 @@
+
 .products-header--container
 	+outer-container()
 	padding: $space-big 0 $space-xlarge 0
@@ -18,3 +19,14 @@
 
 .products-smartfeatures--container
 	padding: $space-large 0 $space-large
+
++media($bp-mob-med)
+	.products-header--container
+		padding: $space-big 0 $space-xsmall 
+
++media($bp-mob-small)
+	.products-header--container
+		padding: $space-big 0 0 0
+		h1,h3
+			+span-columns(10)
+			+shift(1)

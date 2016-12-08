@@ -30,7 +30,8 @@
 	+media($bp-mob-med)
 		position: absolute
 		top: 50%
-		left: 0
+		left: 50%
+		margin-left: -210px
 		width: 100%
 
 	& >div
@@ -62,11 +63,11 @@
 		left: -50%
 		z-index: 0
 	+media($bp-mob-med)
-		left: 40px
-		
+		left: 35px
+
 
 /*--- description ---*/
-#color-changer-full .changer--text 
+#color-changer-full .changer--text
 	width: 50%
 	padding: $space-xlarge $space-xxsmall $space-xlarge $space-xlarge
 	color: #ffffff
@@ -82,6 +83,7 @@
 		z-index: 20
 	+media($bp-mob-med)
 		width: auto
+		text-align: center
 		padding: $space-small $space-vinsmall
 	h2
 		+font-size($variant-h2--font-sizes)
@@ -93,7 +95,7 @@
 	display: block
 	margin: $space-large 0 0 0
 	+media($bp-mob-med)
-		margin: 280px 0 0 0
+		margin: 320px 0 0 0
 
 #color-changer-full .changer--nav h6
 	text-transform: uppercase
@@ -147,6 +149,10 @@
 		color: $dark-gray
 		text-align: center
 		+shadow
+		+media($bp-mob-med)
+			width: 80px
+			font-size: 13px
+
 
 	&:hover:before
 		content: ''
