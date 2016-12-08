@@ -1,0 +1,39 @@
+.header--policy
+	background-color: $berry
+	color: #ffffff
+	padding: $space-big 0 $space-large 0
+	h3
+		font-size: 21px
+.policy-header--container
+	+outer-container(60%)
+.policy-main
+	background-color: #ffffff
+	padding: $space-xlarge 0 $space-large 0
+.policy-body--container
+	+outer-container(60%)
+	h2
+		font-size: 28px
+		margin-bottom: 10px
+	p
+		margin-bottom: 112px
+		padding-bottom: 42px
+		border-bottom: solid 1px $pearl
+
+
++media($bp-mob-large)
+	.header--policy
+		h3
+			font-size: 18px
+	.policy-header--container
+		+outer-container(80%)
+	.policy-main
+		padding: $space-large 0 $space-large 0
+	.policy-body--container
+		+outer-container(80%)
+		h2
+			font-size: 28px
+			margin-bottom: 10px
+		p
+			margin-bottom: 112px
+			padding-bottom: 42px
+			border-bottom: solid 1px $pearl
