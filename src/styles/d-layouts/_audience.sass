@@ -233,6 +233,8 @@
 					&:nth-child(2)
 						margin-right: 0
 +media($bp-tab-med)
+	.for-home-versus--container
+		padding: 0 0 $space-large 0
 	#stats--carousel
 		.owl-stage-outer
 		.owl-controls
@@ -250,7 +252,14 @@
 		display: none
 
 
+
 +media($bp-mob-large)
+	.vs-nav
+		margin: 21px 0 21px
+	.for-home-versus--container
+		padding: 0 0 $space-small 0
+	.audience-header-image--container
+		+outer-container(80%)
 	#stats--carousel
 		.owl-stage-outer
 		.owl-controls
@@ -264,12 +273,15 @@
 			margin-right: 1.36015%
 		&:nth-child(2n)
 			margin-right: 1.36015%
+	.active
+		padding: 0 3px 0 3px
+		.versus-slide
+			+shadow
 	.versus-slide
 		display: block
-		+shadow
 		background-color: $light-gray
 	.vs-card--content
-		padding: $space-xxsmall
+		padding: $space-vinsmall
 	.vs-smartflower--card, .vs-rooftop--card
 		+span-columns(12)
 		-webkit-box-shadow: none
@@ -277,15 +289,15 @@
 		box-shadow: none
 		background: transparent
 		p
-			font-size: 15px
+			font-size: 13px
 			line-height: 1.4
 		h3
 			background: transparent
 			margin-bottom: 0px
-			font-size: 15px
+			font-size: 14px
 			line-height: 1.2
 	.vs-smartflower--card
-		margin-bottom: 42px
+		margin-bottom: 10px
 		h3
 			color: $berry
 			border-bottom: 1.5px solid tint($berry, 80%)
@@ -308,6 +320,8 @@
 						margin-right: 0
 
 +media($bp-mob-med)
+	.for-home-versus--container
+		padding: 0 0 $space-xxsmall 0
 	#stats--carousel
 		.owl-stage-outer
 			padding: 4px 0 4px 0
@@ -326,8 +340,7 @@
 				margin-top: $space-xsmall
 	.audience-header--container
 		padding: $space-big 0 $space-xxsmall 0
-	.audience-header-image--container
-		+outer-container(80%)
+
 	.for-home-products-grid--container
 		padding: $space-large 0 $space-small 0!important
 	.biz-gov-products-grid--container
