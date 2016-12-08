@@ -6,7 +6,9 @@ header[role="banner"]
 	width: 100%
 	background-color: transparent
 	transition: all 0.3s
-
+.logo
+	display: inline-block
+	width: 138px
 header.scrolled
 	background-color: $dark-gray
 	padding-top: 8px
@@ -18,6 +20,8 @@ nav
 	float: right
 	li
 		display: inline-block
+
+
 
 .navigation
 	position: relative
@@ -131,7 +135,6 @@ $animationDuration: .2s
 			margin-top: -8px
 		&::after
 			margin-top: 8px
-.scrolled .menu-icon
 
 
 
@@ -159,9 +162,7 @@ $animationDuration: .2s
       -ms-transform: rotate(-45deg)
       -o-transform: rotate(-45deg)
       transform: rotate(-45deg)
-
-
-+media($bp-tab-med)
+.touch
 	#hamburger:checked ~ .navigation
 		position: absolute
 		left: 0!important
@@ -185,7 +186,6 @@ $animationDuration: .2s
 		padding-top: 60px
 		height: 100%
 		min-height: 720px
-		overflow: scroll
 
 		a
 			position: relative
@@ -250,6 +250,99 @@ $animationDuration: .2s
 			transform: translateY(0px)
 			opacity: 1
 
-.logo
-	display: inline-block
-	width: 138px
++media($bp-tab-med)
+	#hamburger:checked ~ .navigation
+		position: absolute
+		left: 0!important
+
+	.menuicon
+		display: block
+	nav
+		float: right
+		li
+			display: block
+			padding: 0px
+			background: #fff
+	.navigation
+		width: 100%
+		height: 100%
+		position: absolute
+		top: 0
+		background: #fff
+		left: -100%
+		transition: all .3s ease-in-out
+		padding-top: 60px
+		height: 100%
+		min-height: 720px
+
+		a
+			position: relative
+			display: block
+			margin: 0px
+			outline: none
+			color: $dark-gray
+			text-align: center
+			text-decoration: none
+			text-transform: uppercase
+			letter-spacing: 1px
+			font-weight: 100
+			font-size: $med
+			padding: 10px
+
+			&:hover
+				color: $berry
+	.nav-item--single, .nav-item--drop
+		a
+			font-weight: 400
+			&::after
+				position: absolute
+				top: 100%
+				left: 0
+				width: 100%
+				height: 1px
+				background: $berry
+				content: ''
+				opacity: 0
+				transition: all 0.3s
+				transform: translateY(-10px)
+			&:hover::after
+				height: 3px
+				opacity: 1
+				transform: translateY(0px)
+	.nav-item--drop
+		position: relative
+		.drop--wrapper
+			border-top: none
+			position: relative
+			top: 100%
+			left: 0
+			background: transparent
+			padding: 0
+			transform: translateY(0px)
+			height: auto
+			overflow: visible
+			opacity: 1
+			transition: all 0.3s
+			li
+				padding: 0px
+				display: block
+			a
+				color: $dark-gray
+				white-space: wrap
+				font-weight: 100
+				&:hover
+					color: $berry
+		&:hover > ul
+			display: block
+			height: auto
+			transform: translateY(0px)
+			opacity: 1
+
++media($bp-mob-med)
+	.navigation
+		padding-top: 60px
+		height: 100%
+		min-height: 720px
+
+		a
+			font-size: $base
