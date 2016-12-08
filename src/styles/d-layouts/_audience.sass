@@ -14,6 +14,7 @@
 
 .for-home-your-life-container
 	padding: $space-xlarge 0 $space-large 0
+	+outer-container()
 
 
 .for-home-smarter--container
@@ -151,6 +152,9 @@
 #stats--carousel
 	.owl-stage-outer
 		padding: 4px 0 4px 0
+	.owl-controls
+		.owl-dots
+			display: none!important
 .stats--card
 	+shadow
 	background: $light-gray
@@ -229,6 +233,14 @@
 					&:nth-child(2)
 						margin-right: 0
 +media($bp-tab-med)
+	#stats--carousel
+		.owl-stage-outer
+		.owl-controls
+			.owl-nav
+				margin-top: 16px
+			.owl-dots
+				display: block!important
+				margin-bottom: 16px
 	.for-home-smarter-content--container
 		.for-home-smarter-content
 			+span-columns(12)
@@ -239,6 +251,13 @@
 
 
 +media($bp-mob-large)
+	#stats--carousel
+		.owl-stage-outer
+		.owl-controls
+			.owl-nav
+				margin-top: 16px
+			.owl-dots
+				margin-bottom: 16px
 	.powered-by--card
 		+span-columns(12)
 		&:nth-child(3)
@@ -289,6 +308,15 @@
 						margin-right: 0
 
 +media($bp-mob-med)
+	#stats--carousel
+		.owl-stage-outer
+			padding: 4px 0 4px 0
+		.owl-controls
+			.owl-nav
+				margin-top: 16px
+			.owl-dots
+				display: block
+				margin-bottom: 16px
 	.for-home-four-steps--container
 		padding: $space-large 0 $space-large 0
 	.four-steps--container

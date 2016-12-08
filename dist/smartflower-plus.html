@@ -267,13 +267,6 @@
 
   <script>
   	$(document).ready(function(){
-      //using bowser to detect device and switch video background
-
-      function videoBackgroundSwitch(){
-        if (bowser.msie && bowser.version <= 6) {
-          alert('Hello China');
-        }
-      }
 
       //create custom pager for versus
       function customPager() {
@@ -291,7 +284,8 @@
         margin:10,
         dots : false,
         responsiveClass:true,
-        autoPlay:true,
+        autoplay:true,
+        autoplayTimeout:3000,
         responsive:{
             0:{
                 items:2,
@@ -343,8 +337,8 @@
         loop          : false,
         responsiveClass: true,
         autoplay: true,
-        dots: false,
-        autoplayTimeout: 5000,
+        dots: true,
+        autoplayTimeout: 2000,
         margin: 10,
         items         : 3,
         nav           : false,

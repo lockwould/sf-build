@@ -96,5 +96,12 @@
 	background-color: tint($blue, 95%)
 
 +media($bp-tab-med)
-	.touch video
-		display: none
+	.touch 
+		video
+			display: none
+		.hero-video--container
+			display: none
+		.header--video
+			background: url(../assets/images/background--home-video-switch.jpg) no-repeat top left
+			+background--cover
+

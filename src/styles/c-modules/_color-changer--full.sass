@@ -150,7 +150,10 @@
 		text-align: center
 		+shadow
 		+media($bp-mob-med)
-			width: 80px
+			width: 70px
+			padding: 3px
+			left: 0%
+			margin-left: -18px
 			font-size: 13px
 
 
@@ -160,11 +163,17 @@
 		z-index: 20
 		bottom: -$space-vinsmall
 		left: 50%
+		magin-left: -5px
 		width: 0
 		height: 0
 		border-left: 8px solid transparent
 		border-right: 8px solid transparent
 		border-bottom: 8px solid #ffffff
+		+media($bp-mob-med)
+			width: 10px
+			margin-left: -5px
+			font-size: 13px
+
 
 
 	/* set background colors and hover content*/
