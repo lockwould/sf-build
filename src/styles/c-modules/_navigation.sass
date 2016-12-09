@@ -14,8 +14,6 @@ header.scrolled
 	padding-top: 8px
 	padding-bottom: 8px
 	border-top: 3px solid $berry
-	.logo
-		margin-top: 10px
 .navigation-wrapper
 	+outer-container()
 nav
@@ -165,9 +163,14 @@ $animationDuration: .2s
       -o-transform: rotate(-45deg)
       transform: rotate(-45deg)
 .touch
+	header.scrolled
+		.logo
+			margin-top: 10px
 	#hamburger:checked ~ .navigation
 		position: absolute
 		left: 0!important
+		height: 3000px
+		overflow-y: hidden
 
 	.menuicon
 		display: block
@@ -251,12 +254,21 @@ $animationDuration: .2s
 			height: auto
 			transform: translateY(0px)
 			opacity: 1
-
++media($bp-desk-small)
+	.navigation
+		a
+			margin: 0 18px 0 0
+			color: #ffffff
+			font-size: 13px
 +media($bp-tab-med)
+	header.scrolled
+		.logo
+			margin-top: 10px
 	#hamburger:checked ~ .navigation
 		position: absolute
 		left: 0!important
-
+		height: 3000px
+		overflow-y: hidden
 	.menuicon
 		display: block
 	nav

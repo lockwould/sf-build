@@ -24,6 +24,9 @@ var a = 0;
 var i;
 var active = 'sunrise';
 var clicked;
+var elem;
+var clone;
+
 
 // click event //////////////////////////////
 $('.toggle input').click(function() {
@@ -35,7 +38,8 @@ $('.toggle input').click(function() {
 
 	// remove flipbook classes
 	if(clicked!=active) {
-	$('.images-contain').html('<img src="../assets/images/flipbook/sf-05.png" alt=""><img src="../assets/images/flipbook/sf-06.png" alt=""><img src="../assets/images/flipbook/sf-07.png" alt=""> <img src="../assets/images/flipbook/sf-09.png" alt=""> <img src="../assets/images/flipbook/sf-10.png" alt=""><img src="../assets/images/flipbook/sf-08.png" alt=""><img src="../assets/images/flipbook/sf-04.png" alt=""><img src="../assets/images/flipbook/sf-03.png" alt=""><img src="../assets/images/flipbook/sf-01.png" alt=""><img src="../assets/images/flipbook/sf-02.png" alt=""><img src="../assets/images/flipbook/sf-03.png" alt=""><img src="../assets/images/flipbook/sf-04.png" alt=""><img src="../assets/images/flipbook/sf-05.png" alt="">'); }
+		$('.images--animated img').removeClass();
+	}
 
 	// get array of images for later..... 
 	var imgArray = $('.images--animated img');
@@ -46,13 +50,21 @@ $('.toggle input').click(function() {
 		if(active == 'allday') {
 			i = 4;
 			for(i;i>=0;i--) { 
-				$(imgArray[i]).addClass('visible').addClass('delay' + a);
+				elem = $(imgArray[i]);
+				clone = elem.clone(true);
+				elem.before(clone);
+				$(elem).remove();
+				$(clone).addClass('visible').addClass('delay' + a);
 				a++; }
 		}
 		else if(active == 'sunset') {
 			i = 8;
 			for(i;i<=12;i++) { 
-				$(imgArray[i]).addClass('visible').addClass('delay' + a);
+				elem = $(imgArray[i]);
+				clone = elem.clone(true);
+				elem.before(clone);
+				$(elem).remove();
+				$(clone).addClass('visible').addClass('delay' + a);
 				a++; }
 		}
 	}
@@ -62,13 +74,21 @@ $('.toggle input').click(function() {
 		if(active == 'sunrise') {
 			i = 0;
 			for(i;i<5;i++) { 
-				$(imgArray[i]).addClass('visible').addClass('delay' + a);
+				elem = $(imgArray[i]);
+				clone = elem.clone(true);
+				elem.before(clone);
+				$(elem).remove();
+				$(clone).addClass('visible').addClass('delay' + a);
 				a++; }
 		}
 		else if(active == 'sunset') {
 			i = 8;
 			for(i;i>=4;i--) { 
-				$(imgArray[i]).addClass('visible').addClass('delay' + a);
+				elem = $(imgArray[i]);
+				clone = elem.clone(true);
+				elem.before(clone);
+				$(elem).remove();
+				$(clone).addClass('visible').addClass('delay' + a);
 				a++; }
 		}
 	}
@@ -77,14 +97,22 @@ $('.toggle input').click(function() {
 	else if(clicked == 'sunset') { 	
 		if(active == 'sunrise') {
 			i = 12;
-			for(i;i>7;i--) { 
-				$(imgArray[i]).addClass('visible').addClass('delay' + a);
+			for(i;i>7;i--) {
+				elem = $(imgArray[i]);
+				clone = elem.clone(true);
+				elem.before(clone);
+				$(elem).remove();
+				$(clone).addClass('visible').addClass('delay' + a);
 				a++; }
 		}
 		else if(active == 'allday') {
 			i = 4;
-			for(i;i<9;i++) { 
-				$(imgArray[i]).addClass('visible').addClass('delay' + a);
+			for(i;i<9;i++) {
+				elem = $(imgArray[i]);
+				clone = elem.clone(true);
+				elem.before(clone);
+				$(elem).remove();
+				$(clone).addClass('visible').addClass('delay' + a);
 				a++; }
 		}
 	}
