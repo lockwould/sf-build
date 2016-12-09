@@ -1,0 +1,795 @@
+/*/////// OVERLAY GALLERY ////////*/
+#overlay-gallery.wrapper
+	margin: 0 auto
+	width: 100%
+	position: relative
+	overflow: hidden
+	padding: $space-large 0 $space-big 0
+	+media($bp-desk-small)
+		padding: $space-small 0 $space-large 0
+	+media($bp-tab-med)
+		padding: $space-xxsmall 0 $space-large 0
+.overlay--bg
+	height: 100%
+	padding: 0
+	display: block
+	position: absolute
+	overflow: hidden
+	+media($bp-tab-med)
+		margin: 0
+.overlay--bg
+	img
+	max-height: 100%
+	max-width: 50%
+	height: auto
+	width: auto
+	transition: all 0.3s
+	+media($bp-desk-small)
+		max-width: 60%
+		left: -10%
+	+media($bp-tab-med)
+		margin-left: 0
+		max-height: 100%
+		max-width: 100%
+
+.overlay--bg:after
+	+media($bp-tab-med)
+		content: ''
+		background: linear-gradient(rgba(256,256,256,.3), rgba(256,256,256, 0.85), rgba(256,256,256,1))
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+
+
+/*------ transparency & wrapper ----*/
+.overlay--transparency
+	position: absolute
+	top: 0
+	left: 0
+	background: rgba(256,256,256,0)
+	height: 100%
+	width: 100%
+	z-index: 10
+
+.overlay--slides-wrapper
+	+outer-container()
+	position: relative
+	z-index: 100
+	padding-top: $space-big
+	+media($bp-desk-med)
+		padding: $space-xlarge 0 $space-small 0
+	+media($bp-tab-med)
+		padding: $space-xxsmall 0 $space-small 0
+	+media($bp-mob-large)
+		display: block
+		padding: 0
+
+
+
+/*--- base styles for slide wrappers ---*/
+#overlay-gallery
+	.images-wrapper, .text-wrapper
+		position: relative
+		+span-columns(6)
+		+media($bp-tab-med)
+			width: 100%
+			text-align: center
+	.images-wrapper
+		left: -5%
+		+media($bp-tab-med)
+			+span-columns(12)
+			height: 250px
+			left: 0
+			margin-right: 0
+		+media($bp-mob-large)
+			+span-columns(12)
+			height: 200px
+	.text-wrapper
+		+media($bp-tab-med)
+			+span-columns(12)
+
+
+/*---- heading ---*/
+#overlay-gallery
+	.text-wrapper
+		height: 100%
+		padding-top: $space-med
+		+media($bp-desk-med)
+			padding: $space-small $space-small 0 0
+		+media($bp-desk-small)
+			padding: $space-med $space-xxsmall 0 0
+		+media($bp-tab-med)
+			padding: $space-med 0 0 0
+		+media($bp-mob-large)
+			padding: $space-xxsmall 0 0 0
+		p
+			font-weight: 100
+		.heading
+			position: relative
+			height: auto
+
+			h2
+				position: absolute
+				bottom: 0
+				left: 0
+				margin: 0
+				padding: 0
+				transition: all .3s ease-in-out
+				+media($bp-tab-med)
+					width: 100%
+
+				&:nth-child(1)
+					position: relative
+					top: 0
+
+				&.active
+					opacity: 1
+				&.inactive
+					opacity: 0
+			+media($bp-tab-med)
+				width: 100%
+
+
+/*---- nav -----*/
+#overlay-gallery
+	.text-wrapper
+		.nav
+			width: 100%
+			margin: $space-xxsmall 0
+
+			h6
+				text-transform: uppercase
+				color: $berry
+				margin-bottom: $space-xxsmall
+				&:after
+					content: ''
+					width: 50%
+					margin-left: $space-micro
+					display: inline-block
+					border-bottom: 1px solid $berry
+					+media($bp-tab-med)
+						width: 50%
+						margin: 0 auto
+						display: block
+			input
+				display: none
+				outline: none
+
+			label
+				margin-right: $space-micro
+				display: inline-block
+
+				svg
+					height: $space-small
+					width: $space-small
+					fill: none
+					+media($bp-desk-small)
+						height: $space-xsmall
+						width: $space-xsmall
+					+media($bp-mob-large)
+						height: $space-xsmall
+						width: $space-xsmall
+
+					.cls-1
+						stroke: $pearl
+						stroke-miterlimit: 10
+						stroke-width: 3px
+						transition: all .3s ease-in-out
+
+			#overlay--0:checked + label>svg .cls-1
+				stroke: $berry
+			#overlay--1:checked + label>svg .cls-1
+				stroke: $berry
+			#overlay--2:checked + label>svg .cls-1
+				stroke: $berry
+			#overlay--3:checked + label>svg .cls-1
+				stroke: $berry
+			#overlay--4:checked + label>svg .cls-1
+				stroke: $berry
+			#overlay--5:checked + label>svg .cls-1
+				stroke: $berry
+
+
+/*----- descriptions ------*/
+#overlay-gallery .text-wrapper .desc
+	position: relative
+	height: auto
+	span
+		display: block
+		position: absolute
+		top: 0
+		left: 0
+		transition: all .3s ease-in-out
+		font-weight: 100
+		+media($bp-tab-med)
+			position: relative
+			float: left
+			width: 100%
+		&.active
+			opacity: 1
+		&.inactive
+			opacity: 0
+			+media($bp-tab-med)
+				display: none
+
+		&:nth-child(2)
+			position: relative
+
+
+/*----- overlay dot slides ----*/
+#overlay-gallery
+	.images-wrapper
+		&>div
+			position: absolute
+			top: 0
+
+			+media($bp-desk-small)
+				padding: $space-small 0 0 $space-vinsmall
+			&.active div
+				opacity: 1
+			&.inactive div
+				opacity: 0
+
+			&:nth-child(5)
+				position: relative
+			+media($bp-tab-med)
+				padding: $space-small 0 0 0
+				width: 100%
+				padding: 0
+
+
+#overlay-gallery
+	.dot-hero, .dot1, .dot2, .dot3, .dot4
+		border-radius: 100%
+		background: blue
+		position: relative
+		+shadow
+	.dot-hero
+		z-index: 10
+		width: 330px
+		height: 330px
+		+media($bp-desk-small)
+			width: 260px
+			height: 260px
+		+media($bp-tab-med)
+			width: 250px
+			height: 250px
+			margin: 0 auto
+
+	.dot1, .dot2, .dot3, .dot4 
+		width: 75px
+		height: 75px
+		margin-left: 0
+		margin-right: 0
+		+media($bp-tab-med)
+			width: 65px
+			height: 65px
+		+media($bp-mob-large)
+			width: 65px
+			height: 65px
+
+
+/* First slide in overlay */
+/* active states */
+#overlay-gallery .images-wrapper>div:nth-child(2).active 
+	.dot-hero
+		transform: translateX(60%)
+		background: url(../assets/images/overlay-gallery/hero-dot--tracking.jpg) no-repeat top left
+		+background--cover
+		transition: all 0.3s ease-in-out
+		transition-delay: .1s
+		+media($bp-desk-med)
+			transform: translateX(20%)
+		+media($bp-tab-med)
+			transform: translateX(-10%)
+		+media($bp-mob-large)
+			transform: none
+
+
+	.dot1
+		transform: translateX(270%)
+		background: url(../assets/images/overlay-gallery/small-dot-sunrise.gif) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		transition-delay: .1s
+		+media($bp-desk-med)
+			transform: translateX(90%)
+		+media($bp-desk-small)
+			transform: translateX(50%)
+		+media($bp-tab-med)
+			transform: translateX(200%) translateY(-90%)
+			margin: 0 auto
+		+media($bp-mob-large)
+			display: none
+
+	.dot2
+		transform: translateX(425%) translateY(-40%) scale(.85)
+		background: url(../assets/images/overlay-gallery/small-dot-all-day.gif) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		transition-delay: .2s
+		+media($bp-desk-med)
+			transform: translateX(250%) translateY(-40%) scale(.85)
+		+media($bp-desk-small)
+			transform: translateX(190%) translateY(-40%) scale(.85)
+		+media($bp-tab-med)
+			transform: translateX(100%) translateY(-120%)
+			margin: 0 auto
+		+media($bp-mob-large)
+			display: none
+	.dot3
+		transform: translateX(580%) translateY(-180%) scale(.75)
+		background: url(../assets/images/overlay-gallery/small-dot-night.gif) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		transition-delay: .3s
+		+media($bp-desk-med)
+			transform: translateX(410%) translateY(-180%) scale(.75)
+		+media($bp-desk-small)
+			transform: translateX(340%) translateY(-180%) scale(.75)
+		+media($bp-tab-med)
+			transform: translateX(230%) translateY(-420%)
+			margin: 0 auto
+		+media($bp-mob-large)
+			display: none
+/* inactive states */
+#overlay-gallery .images-wrapper>div:nth-child(2).inactive 
+	.dot-hero
+		transform: translateX(60%) scale(.5)
+		background: url(../assets/images/overlay-gallery/hero-dot--tracking.jpg) no-repeat top left
+		+background--cover
+		transition: all .3s ease-in-out
+		transition-delay: .1s
+		+media($bp-desk-med)
+			transform: translateX(20%) scale(.5)
+		+media($bp-mob-large)
+			transform: scale(.5)
+		+media($bp-tab-med)
+			transform: scale(.5)
+
+	.dot1
+		transform: translateX(450%) translateY(-300%) scale(.45)
+		transition: none
+		background: url(../assets/images/overlay-gallery/small-dot-sunrise.gif) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		+media($bp-desk-med)
+			transform: translateX(180%) translateY(-300%) scale(.45)
+		+media($bp-desk-small)
+			transform: translateX(90%) translateY(-200%) scale(.45)
+		+media($bp-tab-med)
+			transform: translateX(-80%) translateY(-300%) scale(.45)
+			margin: 0 auto
+	.dot2 
+		transform: translateX(425%) translateY(-350%) scale(.35)
+		transition: none
+		background: url(../assets/images/overlay-gallery/small-dot-all-day.gif) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		+media($bp-desk-med)
+			transform: translateX(250%) translateY(-250%) scale(.85)
+		+media($bp-desk-small)
+			transform: translateX(190%) translateY(-230%) scale(.85)
+		+media($bp-tab-med)
+			transform: translateX(-190%) translateY(-300%) scale(.45)
+			margin: 0 auto
+	.dot3 
+		transform: translateX(420%) translateY(-400%) scale(.25)
+		transition: none
+		background: url(../assets/images/overlay-gallery/small-dot-night.gif) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		+media($bp-desk-med)
+			transform: translateX(410%) translateY(-300%) scale(.75)
+		+media($bp-desk-small)
+			transform: translateX(320%) translateY(-300%) scale(.75)
+		+media($bp-tab-med)
+			transform: translateX(-10%) translateY(-300%) scale(.45)
+			margin: 0 auto
+
+
+/* 2nd slide in overlay */
+/* active states */
+#overlay-gallery .images-wrapper>div:nth-child(3).active 
+	.dot-hero 
+		transform: translateX(60%)
+		background: url(../assets/images/overlay-gallery/hero-dot--cooling.jpg) no-repeat top left
+		+background--cover
+		transition: all .3s ease-in-out
+		transition-delay: .1s
+		+media($bp-desk-med)
+			transform: translateX(20%)
+		+media($bp-tab-med)
+			transform: translateX(30%)
+			margin: 0 auto
+		+media($bp-mob-large)
+			transform: none
+	.dot1, .dot2
+		height: 125px
+		width: 125px
+
+	.dot1
+		z-index: 20
+		transform: translateX(140%) translateY(-80%)
+		background: $blue
+		color: #ffffff
+		text-align: center
+		transition: all .5s ease-in-out
+		transition-delay: .1s
+		+media($bp-desk-med)
+			transform: translateX(40%) translateY(-80%)
+		+media($bp-desk-small)
+			transform: translateX(40%) translateY(-50%)
+		+media($bp-tab-med)
+			transform: translateX(-100%) translateY(-90%)
+			margin: 0 auto
+		+media($bp-mob-large)
+			display: none
+		span
+			display: block
+			padding: 0
+			margin: 0
+
+		span:nth-child(1)
+			padding: $space-xxsmall 0 0 0
+			font-size: $xlarge
+			line-height: $base
+			font-weight: 900
+
+		span:nth-child(2)
+			font-size: $small
+			text-transform: uppercase
+
+	.dot2
+		transform: translateX(250%) translateY(-80%)
+		background: $jungle
+		text-align: center
+		transition: all .5s ease-in-out
+		transition-delay: .3s
+		+media($bp-desk-med)
+			transform: translateX(130%) translateY(-80%)
+		+media($bp-tab-med)
+			transform: translateX(-100%) translateY(-300%)
+			margin: 0 auto
+		+media($bp-mob-large)
+			display: none
+		span
+			display: block
+			padding: 0
+			margin: 0
+			color: #ffffff
+
+		span:nth-child(1)
+			padding: $space-xsmall 0 0 0
+			font-size: $large
+			font-weight: 900
+			line-height: $base
+
+		span:nth-child(2)
+			font-size: $small
+			text-transform: uppercase
+
+/* inactive states */
+#overlay-gallery .images-wrapper>div:nth-child(3).inactive
+	.dot-hero
+		transform: translateX(60%) scale(.5)
+		transition: all .5s ease-in-out
+		background: url(../assets/images/overlay-gallery/hero-dot--cooling.jpg) no-repeat top left
+		+background--cover
+		transition-delay: .1s
+		+media($bp-desk-med)
+			transform: translateX(20%) scale(.5)
+		+media($bp-tab-med)
+			transform: scale(.5)
+
+	.dot1, .dot2
+		height: 125px
+		width: 125px
+		span
+			display: block
+			padding: 0
+			color: #ffffff
+			margin: 0
+			opacity: 0
+
+	.dot1
+		background: $blue
+		z-index: 20
+		transform: translateX(180%) translateY(-180%) scale(.35)
+		transition: all .5s ease-in-out
+		+media($bp-desk-med)
+			transform: translateX(40%) translateY(-180%) scale(.35)
+		+media($bp-tab-med)
+			transform: translateX(20%) translateY(-90%) scale(.35)
+			margin: 0 auto
+	.dot2
+		background: $jungle
+		transform: translateX(250%) translateY(-180%) scale(.35)
+		transition: all .5s ease-in-out
+		+media($bp-desk-med)
+			transform: translateX(130%) translateY(-180%) scale(.35)
+		+media($bp-tab-med)
+			transform: translateX(20%) translateY(-200%) scale(.35)
+			margin: 0 auto
+
+
+/* 3rd slide in overlay */
+/* active states */
+#overlay-gallery .images-wrapper>div:nth-child(4).active 
+	.dot-hero
+		transform: translateX(60%) translateY(40%)
+		background: url(../assets/images/overlay-gallery/hero-dot--cleaning.jpg) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		transition-delay: .3s
+		+media($bp-desk-med)
+			transform: translateX(20%) translateY(40%)
+		+media($bp-mob-large)
+			transform: none
+		+media($bp-tab-med)
+			transform: translateX(-20%) translateY(10%)
+			margin: 0 auto
+		+media($bp-mob-large)
+			transform: none
+	.dot1
+		height: 180px
+		width: 180px
+		z-index: 20
+		transform: translateX(200%) translateY(-170%)
+		background: url(../assets/images/bubble-gallery-home/smart-cleaning-center.jpg) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		transition-delay: .4s
+		-webkit-animation:  clean-move 3.5s forwards
+		-moz-animation:     clean-move 3.5s forwards
+		-o-animation:       clean-move 3.5s forwards
+		animation:          clean-move 3.5s forwards
+		animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1)
+		+media($bp-desk-med)
+			transform: translateX(110%) translateY(-180%)
+		+media($bp-desk-small)
+			transform: translateX(110%) translateY(-150%)
+		+media($bp-tab-med)
+			transform: translateX(60%) translateY(-100%)
+			margin: 0 auto
+		+media($bp-mob-large)
+			display: none
+		@keyframes clean-move
+			0%
+				background-position: 0% 100%
+			100%
+				background-position: 100% 100%
+/* inactive states */
+#overlay-gallery .images-wrapper>div:nth-child(4).inactive 
+	.dot-hero
+		transform: translateX(60%) translateY(20%) scale(.5)
+		background: url(../assets/images/overlay-gallery/hero-dot--cleaning.jpg) no-repeat top left
+		+background--cover
+		transition: all .3s ease-in-out
+		transition-delay: .2s
+		+media($bp-desk-med)
+			transform: translateX(20%) translateY(20%) scale(.5)
+		+media($bp-mob-large)
+			transform: scale(.5)
+
+	.dot1
+		height: 180px
+		width: 180px
+		z-index: 20
+		transform: translateX(180%) translateY(-100%) scale(.25)
+		background: url(../assets/images/overlay-gallery/medium-dot--cleaning.jpg) no-repeat top left
+		+background--cover
+		transition: all .4s ease-in-out
+		+media($bp-desk-med)
+			transform: translateX(110%) translateY(-100%) scale(.25)
+		+media($bp-desk-small)
+			transform: translateX(80%) translateY(-100%) scale(.25)
+		+media($bp-tab-med)
+			transform: translateX(60%) translateY(-100%) scale(.25)
+			margin: 0 auto
+
+
+/* 4th slide in overlay */
+/* active states */
+#overlay-gallery .images-wrapper>div:nth-child(5).active 
+	.dot-hero 
+		transform: translateX(60%) translateY(60%) scale(1)
+		background: url(../assets/images/overlay-gallery/hero-dot--safety.jpg) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		transition-delay: .1s
+		+media($bp-desk-med)
+			transform: translateX(20%) translateY(20%) scale(.75)
+		+media($bp-desk-small)
+			transform: translateX(20%) translateY(35%) scale(1)
+		+media($bp-tab-med)
+			transform: none
+			margin: 0 auto
+		+media($bp-mob-large)
+			transform: none
+			margin: 0 auto
+
+	.dot1 
+		z-index: 20
+		transform: translateX(260%) translateY(-200%) scale(1.75)
+		background: url(../assets/images/bubble-gallery-home/smart-safety-center-background-animated.gif) $blue no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		transition-delay: .4s
+		+media($bp-desk-med)
+			transform: translateX(90%) translateY(-300%) scale(1.75)
+		+media($bp-tab-med)
+			transform: translateX(0%) translateY(-80%) scale(1.75)
+			margin: 0 auto
+		+media($bp-mob-large)
+			display: none
+	.dot2
+		transform: translateX(390%) translateY(-400%)
+		background: $amber
+		transition: all .5s ease-in-out
+		transition-delay: .5s
+		+media($bp-desk-med)
+			transform: translateX(200%) translateY(-570%)
+		+media($bp-tab-med)
+			display: none
+		+media($bp-mob-large)
+			display: none
+/* inactive states */
+#overlay-gallery .images-wrapper>div:nth-child(5).inactive 
+	.dot-hero 
+		transform: translateX(60%) translateY(20%) scale(.35)
+		background: url(../assets/images/overlay-gallery/hero-dot--safety.jpg) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		transition-delay: .3s
+		+media($bp-desk-med)
+			transform: translateX(20%) translateY(20%) scale(.35)
+		+media($bp-desk-small)
+			transform: translateX(20%) translateY(35%) scale(.5)
+		+media($bp-mob-large)
+			transform: scale(.5)
+
+	.dot1 
+		z-index: 20
+		transform: translateX(420%) translateY(-70%) scale(.5)
+		background: url(../assets/images/bubble-gallery-home/smart-safety-center-background-animated.gif) $blue no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		+media($bp-desk-med)
+			transform: translateX(190%) translateY(-200%) scale(.5)
+		+media($bp-tab-med)
+			transform: translateX(0%) translateY(-80%) scale(.5)
+			margin: 0 auto
+	.dot2
+		transform: translateX(390%) translateY(-100%) scale(.5)
+		background: $amber
+		transition: all .5s ease-in-out
+		+media($bp-desk-med)
+			transform: translateX(250%) translateY(-100%) scale(.5)
+
+
+
+/* 5th slide in overlay */
+/* active states */
+#overlay-gallery .images-wrapper>div:nth-child(6).active 
+	.dot-hero 
+		transform: translateX(50%) scale(.85)
+		background: url(../assets/images/overlay-gallery/hero-dot--use.jpg) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		transition-delay: .1s
+		+media($bp-desk-med)
+			transform: translateX(20%) scale(.85)
+		+media($bp-tab-med)
+			transform: translateX(0%) translateY(10%)
+			margin: 0 auto
+		+media($bp-mob-large)
+			transform: none
+
+	.dot1 
+		transform: translateX(270%) translateY(0%) scale(1.5)
+		background: url(../assets/images/overlay-gallery/medium-dot--use.jpg) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		transition-delay: .3s
+		+media($bp-desk-med)
+			transform: translateX(140%) translateY(0%) scale(1.5)
+		+media($bp-desk-small)
+			transform: translateX(100%) translateY(40%) scale(1.5)
+		+media($bp-tab-med)
+			transform: translateX(200%) translateY(-80%) scale(2.25)
+			margin: 0 auto
+		+media($bp-mob-large)
+			display: none
+	.dot2 
+		transform: translateX(480%) translateY(-30%) scale(2.25)
+		background: url(../assets/images/overlay-gallery/small-dot--use.jpg) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		transition-delay: .4s
+		+media($bp-desk-med)
+			transform: translateX(380%) translateY(-40%) scale(2.25)
+		+media($bp-desk-med)
+			transform: translateX(320%) translateY(-40%) scale(2)
+		+media($bp-tab-med)
+			transform: translateX(-200%) translateY(-180%) scale(2.25)
+			margin: 0 auto
+		+media($bp-mob-large)
+			display: none
+
+	.dot3 
+		transform: translateX(210%) translateY(-550%) scale(.4)
+		background: $amber
+		transition: all .5s ease-in-out
+		transition-delay: .5s
+		+media($bp-desk-med)
+			transform: translateX(80%) translateY(-550%) scale(.4)
+		+media($bp-desk-med)
+			transform: translateX(100%) translateY(-550%) scale(.4)
+		+media($bp-tab-med)
+			display: none
+	.dot4 
+		z-index: -20
+		transform: translateX(430%) translateY(-110%) scale(.85)
+		background: $lavendar
+		transition: all .5s ease-in-out
+		transition-delay: .2s
+		+media($bp-desk-med)
+			transform: translateX(330%) translateY(-110%) scale(.85)
+		+media($bp-desk-med)
+			transform: translateX(300%) translateY(-110%) scale(.85)
+		+media($bp-tab-med)
+			transform: translateX(270%) translateY(-130%) scale(.75)
+		+media($bp-tab-med)
+			display: none
+/* inactive states */
+#overlay-gallery .images-wrapper>div:nth-child(6).inactive 
+	.dot-hero 
+		transform: translateX(50%) translateY(20%) scale(.85)
+		background: url(../assets/images/overlay-gallery/hero-dot--use.jpg) no-repeat top left
+		+background--cover
+		transition: all .5s ease-in-out
+		transition-delay: .1s
+		+media($bp-desk-med)
+			transform: translateX(20%) translateY(20%) scale(.5)
+		+media($bp-mob-large)
+			transform: scale(.5)
+
+	.dot1 
+		transform: translateX(300%) translateY(-80%) scale(1.5)
+		background: url(../assets/images/overlay-gallery/medium-dot--use.jpg) no-repeat top left
+		+background--cover
+		transition: all .3s ease-in-out
+		+media($bp-desk-med)
+			transform: translateX(180%) translateY(-80%) scale(1.5)
+		+media($bp-tab-med)
+			transform: translateX(50%) translateY(-180%) scale(1.5)
+			margin: 0 auto
+	.dot2 
+		transform: translateX(440%) translateY(-180%) scale(2.25)
+		background: url(../assets/images/overlay-gallery/small-dot--use.jpg) no-repeat top left
+		+background--cover
+		transition: all .4s ease-in-out
+		+media($bp-desk-med)
+			transform: translateX(340%) translateY(-180%) scale(1.5)
+		+media($bp-tab-med)
+			transform: translateX(-50%) translateY(-280%) scale(1.5)
+			margin: 0 auto
+	.dot3 
+		transform: translateX(240%) translateY(-550%) scale(.4)
+		background: $amber
+		transition: all .2s ease-in-out
+		+media($bp-desk-med)
+			transform: translateX(100%) translateY(-550%) scale(.4)
+
+	.dot4 
+		z-index: -20
+		transform: translateX(460%) translateY(-610%) scale(.85)
+		background: $lavendar
+		transition: all .1s ease-in-out
+		+media($bp-desk-med)
+			transform: translateX(330%) translateY(-610%) scale(.85)
+		+media($bp-desk-med)
+			transform: translateX(300%) translateY(-300%) scale(.85)
